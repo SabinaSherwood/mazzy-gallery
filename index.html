@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" id="metaThemeColor" content="#F7F7F8" />
+  <title>MAZZY: CAT IN SINK — Catalogue Raisonné Vol. I (2026) · 14-Plate Retrospective</title>
+  <script>
+    // Immediately sync with iOS / Android / Browser system Light/Dark mode before first paint
+    (function() {
+      try {
+        var saved = localStorage.getItem('mazzy-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var useDark = saved ? (saved === 'dark') : prefersDark;
+        if (useDark) {
+          document.documentElement.classList.add('dark');
+          var meta = document.getElementById('metaThemeColor');
+          if (meta) meta.setAttribute('content', '#09090B');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gallery: {
+              // Pure Architectural Monochrome Palette (WCAG AA/AAA & CVD-Safe)
+              bg: '#F7F7F8',          // Cool Archival Rag Paper
+              surface: '#FFFFFF',     // Pure Museum Matte Board
+              ink: '#111113',         // Obsidian Ink
+              steel: '#52525B',       // 304-Grade Brushed Steel (Accessible Slate)
+              amber: '#18181B',       // Mapped to Deep Graphite (Zero Gold/Orange)
+              amberLight: '#F4F4F5',  // Soft Zinc Highlight Surface
+              border: '#E4E4E7',      // Crisp Architectural Hairline
+              muted: '#EFEFF1',       // Brushed Aluminum Wash
+              darkBg: '#09090B',      // Nocturne Carbon Black
+              darkSurface: '#141417', // Matte Black Plumbing Fixture
+              darkBorder: '#27272A',  // Dark Steel Rule
+              gold: '#F4F4F5'         // Mapped to Pure Platinum/White in Dark Mode (Zero Gold)
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame-unframed {
+      padding: 0;
+      background: transparent;
+      box-shadow: 0 20px 40px -15px rgba(20, 20, 19, 0.35);
+    }
+    .frame-matte-black {
+      padding: 18px;
+      background: #FFFFFF;
+      border: 12px solid #141413;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+    }
+    .frame-stainless {
+      padding: 18px;
+      background: #F9F8F6;
+      border: 12px solid #9FA3A9;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), inset 0 0 0 2px #6C6F75;
+    }
+    .frame-museum-gold {
+      padding: 18px;
+      background: #18181B;
+      border: 12px solid #FAFAFA;
+      box-shadow: 0 0 0 1px #D4D4D8, 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+    }
+    .frame-towel {
+      padding: 24px 20px 32px 20px;
+      background: #F4F4F5;
+      border: 2px dashed #A1A1AA;
+      box-shadow: 0 18px 35px -10px rgba(0, 0, 0, 0.25);
+    }
+    .book-spine {
+      background: linear-gradient(90deg, rgba(17,17,19,0.03) 0%, rgba(17,17,19,0.14) 48%, rgba(17,17,19,0.22) 50%, rgba(17,17,19,0.12) 52%, rgba(255,255,255,0) 100%);
+    }
+    .dark .nocturne-spotlight {
+      background: radial-gradient(circle at 50% 25%, rgba(244,244,245,0.07) 0%, rgba(9,9,11,0.98) 75%);
+    }
+  </style>
+
+  <style id="refined-styles">
+    /* Hero decorative rule (Monochrome) */
+    .hero-rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #52525B;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .hero-rule::before, .hero-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.45;
+    }
+    .dark .hero-rule { color: #A1A1AA; }
+
+    /* Museum marquee top bar */
+    .marquee-bar {
+      border-top: 3px double currentColor;
+      border-bottom: 3px double currentColor;
+      padding: 10px 0;
+      text-align: center;
+      letter-spacing: .2em;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Wing dividers — span full grid */
+    .wing-divider {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 32px 0 6px;
+    }
+    .wing-divider-line {
+      flex: 1;
+      height: 1px;
+      background: #E4E4E7;
+    }
+    .dark .wing-divider-line { background: #27272A; }
+
+    /* ── PRINT STYLESHEET ───────────────────────────────── */
+    @media print {
+      /* Hide interactive chrome */
+      header, footer,
+      #artworkModal, #economicsDrawer, #cartDrawer, #exportModal,
+      #zine-section, #gift-shop, #curator-essay,
+      .sticky, button, input[type="file"],
+      nav, .wing-btn, .voice-btn,
+      [id$="Bar"] { display: none !important; }
+
+      /* Hide the hero section except an h1 */
+      section:first-of-type .lg\:col-span-6:first-child > *:not(h1),
+      section:first-of-type .lg\:col-span-6:last-child { display: none !important; }
+
+      body { background: #fff !important; color: #111 !important; font-size: 10pt; }
+      a { color: inherit !important; text-decoration: none !important; }
+
+      /* Print masthead */
+      #exhibition-grid::before {
+        content: 'MAZZY  \2022   CAT IN SINK';
+        display: block;
+        font-family: 'Cinzel', 'Georgia', serif;
+        font-size: 20pt;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: .12em;
+        padding-bottom: 4pt;
+      }
+      #exhibition-grid::after {
+        content: 'Institute for Contemporary Domestic Occupation  \B7  Catalogue Raisonn\E9 Vol. I (2026)  \B7  14 Plates';
+        display: block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8pt;
+        text-align: center;
+        color: #555;
+        border-bottom: 1.5pt solid #111;
+        padding-bottom: 14pt;
+        margin-bottom: 20pt;
+        letter-spacing: .08em;
+      }
+
+      /* 2-up grid for print */
+      #galleryGrid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20pt !important;
+      }
+      .wing-divider { padding: 10pt 0 2pt; }
+      .wing-divider-line { background: #aaa !important; }
+
+      #galleryGrid article {
+        break-inside: avoid;
+        border: 0.75pt solid #bbb !important;
+        box-shadow: none !important;
+        border-radius: 3pt !important;
+        page-break-inside: avoid;
+      }
+      #galleryGrid article img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 200pt;
+        object-fit: cover !important;
+      }
+      /* Suppress interactive footer on cards */
+      #galleryGrid article > div:last-child { display: none !important; }
+
+      #galleryGrid .font-serif { font-size: 10pt !important; }
+      #galleryGrid .font-mono  { font-size: 6.5pt !important; color: #555 !important; }
+      #galleryGrid p           { font-size: 7.5pt !important; line-height: 1.4 !important; }
+
+      @page {
+        margin: 16mm 12mm;
+        size: letter portrait;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gallery-bg text-gallery-ink dark:bg-gallery-darkBg dark:text-[#F4F4F5] antialiased selection:bg-gallery-amber selection:text-white">
+
+  <!-- HIDDEN IPHONE CAMERA ROLL FILE INPUT -->
+  <input type="file" id="iphonePhotoInput" accept="image/*" multiple class="hidden" onchange="handleIphonePhotos(event)" />
+
+  <!-- SLEEK MUSEUM EXHIBITION RIBBON (NO CLUNKY ADMIN BUTTONS) -->
+  <div id="exhibitionRibbonBar" class="bg-gallery-ink dark:bg-gallery-gold text-gallery-bg dark:text-gallery-darkBg px-4 py-2 text-[11px] font-mono tracking-widest uppercase">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 truncate">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gallery-amber dark:bg-gallery-darkBg"></span>
+        <span>EXHIBITION ARCHIVE · CATALOGUE RAISONNÉ VOL. I (2026) — 14 PLATES IN 3 WINGS</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-[10px] opacity-80 shrink-0">
+        <span>SUBJECT: MAZZY (4.1 KG)</span>
+        <span>·</span>
+        <span>MEDIUM: 304-GRADE STAINLESS &amp; HAHNEMÜHLE RAG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY MUSEUM HEADER: BALANCED SINGLE-ROW MASTHEAD + DEDICATED VOICE BAR -->
+  <header class="sticky top-0 z-40 bg-gallery-bg/95 dark:bg-gallery-darkBg/95 backdrop-blur-md border-b border-gallery-border dark:border-gallery-darkBorder">
+    <!-- Row 1: Brand Left · Navigation Center · Actions Right -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Left: Brand Identity (Never wraps "MAZZY • CAT IN SINK") -->
+      <a href="#" class="flex items-center gap-3 shrink-0">
+        <span class="w-10 h-10 rounded-full border border-gallery-amber dark:border-gallery-gold flex items-center justify-center bg-white dark:bg-gallery-darkSurface font-serif font-bold text-xl text-gallery-amber dark:text-gallery-gold shadow-sm">M</span>
+        <div>
+          <span class="font-cinzel text-lg sm:text-xl font-bold tracking-wider block leading-none whitespace-nowrap">MAZZY • CAT IN SINK</span>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold block mt-1 whitespace-nowrap">Institute for Contemporary Domestic Occupation</span>
+        </div>
+      </a>
+
+      <!-- Center: Primary Exhibition Navigation (Fills the center space cleanly) -->
+      <nav class="hidden lg:flex items-center justify-center gap-7 text-xs font-mono uppercase tracking-widest">
+        <a href="#exhibition-grid" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">Plates (14)</a>
+        <a href="#zine-section" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">Catalogue Zine</a>
+        <a href="#gift-shop" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">Museum Shop</a>
+        <a href="#curator-essay" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">The Essay</a>
+        <button onclick="toggleEconomicsDrawer(true)" class="text-gallery-amber dark:text-gallery-gold hover:underline uppercase tracking-widest whitespace-nowrap cursor-pointer">Appraisal</button>
+      </nav>
+
+      <!-- Right: Theme & Boutique Bag -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle Light or Dark Mode" class="px-3 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface text-[11px] font-mono hover:border-gallery-ink dark:hover:border-white transition-colors cursor-pointer flex items-center gap-1.5">
+          <span id="themeToggleIcon" aria-hidden="true">☾</span>
+          <span id="themeToggleLabel">Dark Mode</span>
+        </button>
+        <button onclick="toggleCartDrawer(true)" class="px-3.5 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold flex items-center gap-1.5 cursor-pointer">
+          <span>Boutique</span>
+          <span id="desktopCartCount" class="px-1.5 py-0.5 rounded bg-white/20 dark:bg-black/20 text-[10px]">1</span>
+          <span id="mobileCartCount" class="hidden">1</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Dedicated Curatorial Voice Sub-Bar -->
+    <div class="border-t border-gallery-border/70 dark:border-gallery-darkBorder/70 bg-gallery-muted/60 dark:bg-gallery-darkSurface/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold pr-2 whitespace-nowrap">Curatorial Placard Voice:</span>
+          <button onclick="setCuratorialVoice('satire')" id="voiceBtn-satire" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg shadow-sm cursor-pointer">
+            01. High-Art Satire
+          </button>
+          <button onclick="setCuratorialVoice('poetic')" id="voiceBtn-poetic" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap text-gallery-ink dark:text-gray-300 cursor-pointer">
+            02. Poetic &amp; Quiet
+          </button>
+          <button onclick="setCuratorialVoice('fieldlog')" id="voiceBtn-fieldlog" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap text-gallery-ink dark:text-gray-300 cursor-pointer">
+            03. Deadpan Field Log
+          </button>
+        </div>
+        <div class="hidden md:block font-mono text-[10px] text-gallery-steel dark:text-gray-400">
+          Switch voices to transform all 14 museum wall placards in real time
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative border-b border-gallery-border dark:border-gallery-darkBorder nocturne-spotlight">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gallery-amberLight dark:bg-gallery-darkSurface border border-gallery-amber/30 dark:border-gallery-gold/40 text-gallery-amber dark:text-gallery-gold font-mono text-xs">
+            <span>PERMANENT COLLECTION</span>
+            <span>·</span>
+            <span id="heroVoiceBadge">VOL. I (2026) MONOGRAPH</span>
+          </div>
+
+          <h1 id="heroTitle" class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.04] tracking-tight">
+            Studies in Stainless,<br>Refusal &amp; <span class="italic text-gallery-amber dark:text-gallery-gold">The Third Cat</span>.
+          </h1>
+          <div class="hero-rule text-gallery-amber dark:text-gallery-gold">
+            <span>14 Archival Plates · 3 Exhibition Wings · 1 Undermount Basin</span>
+          </div>
+
+          <p id="heroStatement" class="text-base sm:text-lg opacity-85 leading-relaxed">
+            In this landmark fourteen-part architectural intervention, multidisciplinary subject <strong>Mazzy</strong> subverts the utilitarian tyranny of the suburban kitchen basin. Embodying <em>The Third Cat</em>—simultaneously fluid and solid, domestic subject and sovereign witness—the artist asks: <em>Is the cat inhabiting the sink, or is the sink merely defining the boundaries of the cat?</em>
+          </p>
+          <span id="photoSyncStatus" class="hidden"></span>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#exhibition-grid" class="px-5 py-3 rounded-md bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity">
+              Inspect All 14 Plates
+            </a>
+            <a href="#zine-section" class="px-5 py-3 rounded-md bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs uppercase tracking-wider hover:border-gallery-amber transition-colors">
+              Flip Through Zine ($22)
+            </a>
+            <button onclick="playCuratorAudioHero()" class="px-4 py-3 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs flex items-center gap-2 hover:opacity-80 cursor-pointer">
+              🔊 Audio Tour
+            </button>
+          </div>
+        </div>
+
+        <!-- Featured Hero Plate (CIS-06: The Monolith Beneath the Louvers / image_18.png) -->
+        <div class="lg:col-span-6">
+          <div class="bg-white dark:bg-gallery-darkSurface p-4 sm:p-6 rounded-xl border border-gallery-border dark:border-gallery-darkBorder shadow-xl">
+            <div class="relative aspect-square overflow-hidden rounded-lg bg-gallery-muted dark:bg-black group cursor-pointer" onclick="openArtworkModal('CIS-06')">
+              <img
+                id="heroFeaturedImg"
+                src="IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png"
+                data-alt-src="image_18.png"
+                alt="Cat No. CIS-06: The Monolith Beneath the Louvers"
+                onerror="handleImgFallback(this)"
+                class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-gallery-ink/85 text-white font-mono text-[11px]">
+                FEATURED PLATE • CAT. NO. CIS-06
+              </div>
+              <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded bg-white/95 dark:bg-gallery-darkSurface/95 text-gallery-ink dark:text-gallery-gold font-mono text-xs shadow">
+                Tap to Frame &amp; Inspect →
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold uppercase">
+                  CAT. NO. CIS-06 • WING II: THE SHUTTER STUDIES
+                </div>
+                <h2 class="font-serif text-2xl font-semibold italic">
+                  The Monolith Beneath the Louvers, 2026
+                </h2>
+                <p id="heroPlacardSub" class="text-xs opacity-75 mt-0.5">
+                  Kubrickian axial symmetry beneath the matte-black gooseneck spire and closed plantation louvers.
+                </p>
+              </div>
+              <button onclick="openArtworkModal('CIS-06')" class="px-3.5 py-2 rounded border border-gallery-ink dark:border-gallery-gold text-xs font-mono shrink-0">
+                Frame Studio ($18–$85)
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHIBITION WINGS & 14-WORK SYMMETRICAL CATALOGUE GRID -->
+  <section id="exhibition-grid" class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-gallery-border dark:border-gallery-darkBorder">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
+          Permanent Collection • 14 Archival Plates (7 Symmetrical Pairs)
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
+          Exhibition Wings &amp; Museum Placards
+        </h2>
+      </div>
+
+      <div class="flex flex-wrap gap-2" id="wingFilters">
+        <button onclick="filterWing('all')" data-wing="all" class="wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold">
+          All Works (14)
+        </button>
+        <button onclick="filterWing('Wing I: Basin Monoliths (The 5700 Series)')" data-wing="Wing I: Basin Monoliths (The 5700 Series)" class="wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder">
+          Wing I: Basin Monoliths (5)
+        </button>
+        <button onclick="filterWing('Wing II: The Shutter Studies (Light, Louvers & Nocturnes)')" data-wing="Wing II: The Shutter Studies (Light, Louvers & Nocturnes)" class="wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder">
+          Wing II: Shutter Studies (4)
+        </button>
+        <button onclick="filterWing('Wing III: Total Basin Displacement & Domestic Architecture')" data-wing="Wing III: Total Basin Displacement & Domestic Architecture" class="wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder">
+          Wing III: Total Displacement (5)
+        </button>
+      </div>
+    </div>
+
+    <!-- 2-Column on Medium, 2 or 3 on Large for clean symmetry -->
+    <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- INTERACTIVE 8-SPREAD ZINE FLIPBOOK (ALL 14 PLATES, ZERO DUPLICATES) -->
+  <section id="zine-section" class="py-14 bg-white dark:bg-gallery-darkSurface border-y border-gallery-border dark:border-gallery-darkBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div>
+          <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
+            EXHIBITION COMPANION MONOGRAPH • 8 SPREADS • ALL 14 PLATES
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-normal mt-1">
+            The Gift Book &amp; Zine: <em>Catalogue Raisonné Vol. I</em>
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5">
+          <button onclick="buyNowWithStripe('zineSoftcover', 'ZINE-SOFTCOVER')" class="px-4 py-2 rounded border border-gallery-ink dark:border-gallery-gold font-mono text-xs hover:bg-gallery-muted dark:hover:bg-white/10">
+            Buy Softcover Zine ($22) →
+          </button>
+          <button onclick="buyNowWithStripe('zineHardcover', 'ZINE-HARDCOVER')" class="px-4 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy Linen Hardcover ($34) →
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-gallery-bg dark:bg-gallery-darkBg p-4 sm:p-8 rounded-2xl border border-gallery-border dark:border-gallery-darkBorder">
+        <div class="max-w-5xl mx-auto">
+          <div class="relative grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-[#141417] rounded-lg border border-gallery-border dark:border-gallery-darkBorder shadow-xl overflow-hidden min-h-[420px]">
+            <div class="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 w-12 book-spine pointer-events-none z-10"></div>
+            <div id="bookPageLeft" class="p-6 sm:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-gallery-border dark:border-gallery-darkBorder"></div>
+            <div id="bookPageRight" class="p-6 sm:p-10 flex flex-col justify-between bg-[#FAFAFA] dark:bg-[#101013]"></div>
+          </div>
+
+          <div class="mt-5 flex flex-wrap items-center justify-between gap-3">
+            <div class="font-mono text-xs text-gallery-steel dark:text-gray-400">
+              SPREAD <span id="spreadIndexLabel" class="text-gallery-ink dark:text-gallery-gold font-semibold">1 OF 8</span> • <span id="spreadTitleLabel"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="changeSpread(-1)" class="px-3.5 py-2 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-xs">← Prev</button>
+              <div id="spreadDots" class="hidden sm:flex items-center gap-1.5 px-2"></div>
+              <button onclick="changeSpread(1)" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">Next →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINT-ON-DEMAND KITCHEN & BATH DECOR SHOWCASE -->
+  <section id="gift-shop" class="py-14 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="mb-8">
+      <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
+        Functional Conceptualism • Direct Stripe &amp; POD Fulfillment
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
+        Museum Gift Shop: Kitchen &amp; Powder Room Editions
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
+            <img src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" data-alt-src="image_2.png" onerror="handleImgFallback(this)" alt="The Godot Spout Towel" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">BESTSELLER • CIS-03</span>
+          </div>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">BELGIAN LINEN TEA TOWEL • 18" × 26"</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">"The Godot Spout" Dish Towel</h3>
+          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
+            Features Plate CIS-03 (+64° upward spout gaze) with museum catalogue typography along the hem.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <span class="font-mono text-sm font-semibold">$24.00</span>
+          <button onclick="buyNowWithStripe('teaTowel', 'CIS-03')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy via Stripe →
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
+            <img src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" data-alt-src="image_7.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith Overhead Frame" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-amber text-white font-mono text-[10px] px-2 py-0.5 rounded font-semibold">OVER-THE-SINK FAVORITE • CIS-10</span>
+          </div>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">MUSEUM MATTE BLACK FRAME • 16" × 16"</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">"Nadir / Zenith" Over-Sink Frame</h3>
+          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
+            Plate CIS-10 mounted directly above your real sink so guests look down into a sink and up into a sink simultaneously.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <span class="font-mono text-sm font-semibold">$85.00</span>
+          <button onclick="buyNowWithStripe('framedPrint', 'CIS-10')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy via Stripe →
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
+            <img src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" data-alt-src="image_17.png" onerror="handleImgFallback(this)" alt="Postcard Pack" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">COMPLETE 14-PLATE SET</span>
+          </div>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">ARCHIVAL POSTCARD PACK • 14 CARDS</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">Complete 14-Plate Postcard Pack</h3>
+          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
+            All 14 plates (CIS-01 through CIS-14) printed on heavy 350gsm cotton card stock with satirical museum placards on the back.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <span class="font-mono text-sm font-semibold">$18.00</span>
+          <button onclick="buyNowWithStripe('postcardPack', 'ALL-14-PLATES')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy via Stripe →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURATORIAL ESSAY ("THE THIRD CAT") -->
+  <section id="curator-essay" class="py-14 max-w-4xl mx-auto px-4 sm:px-6 font-serif leading-relaxed border-t border-gallery-border dark:border-gallery-darkBorder">
+    <div class="text-center mb-10">
+      <span class="text-xs font-mono text-gallery-amber dark:text-gallery-gold tracking-widest uppercase block mb-2">// CURATORIAL CATALOGUE ESSAY</span>
+      <h2 class="font-cinzel text-2xl sm:text-4xl font-bold">On the Domestic Basin: Mazzy &amp; "The Third Cat"</h2>
+    </div>
+    <div class="space-y-5 text-lg sm:text-xl opacity-90">
+      <p>
+        To consider Mazzy within the eighteen-gauge stainless steel basin is to confront the fundamental paradox of domestic spatial occupation. Where the canine approaches household architecture with compliance toward utility, the tortoiseshell cat approaches the sink as a site of ontological inquiry.
+      </p>
+      <blockquote class="border-l-2 border-gallery-amber dark:border-gallery-gold pl-5 italic py-1 my-6 text-xl sm:text-2xl">
+        "Moving beyond Schrödinger's binary thought experiment—neither strictly liquid nor solid, neither captive nor master—Mazzy embodies The Third Cat: a multiplied, recursive consciousness aware of being both, and aware of being aware."
+      </blockquote>
+      <p>
+        Across these fourteen plates—arranged in seven symmetrical pairs mirroring the dual-basin architecture of the suburban kitchen—we witness Kazimierz Dąbrowski's <em>positive disintegration</em> translated into plumbing: the utilitarian identity of the basin is shattered and reintegrated into a higher-order reliquary of contemplation.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gallery-ink text-gallery-bg py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <div class="font-cinzel text-xl text-white font-bold tracking-wider">MAZZY • CAT IN SINK</div>
+          <p class="font-mono text-xs text-gallery-steel mt-1">Institute for Contemporary Domestic Occupation · Catalogue Raisonné Vol. I (2026) · © Mazzy Studio</p>
+        </div>
+        <div class="flex items-center gap-4 font-mono text-xs text-gallery-steel">
+          <a href="#exhibition-grid" class="hover:text-white transition-colors">Plates</a>
+          <span>·</span>
+          <a href="#zine-section" class="hover:text-white transition-colors">Zine</a>
+          <span>·</span>
+          <a href="#gift-shop" class="hover:text-white transition-colors">Gift Shop</a>
+          <span>·</span>
+          <button onclick="document.getElementById('curatorAdminBar').classList.toggle('hidden')" class="text-gallery-steel/60 hover:text-white transition-colors cursor-pointer" title="Curator Studio Tools">
+            ⚙ Curator Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- Discreet Creator Admin Drawer (Hidden from regular visitors until you click ⚙ Curator Admin) -->
+      <div id="curatorAdminBar" class="hidden mt-6 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <span class="text-gallery-gold uppercase tracking-wider">⚙ Creator Back-Office Tools (Hidden from visitors):</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="openStripeSetupModal()" class="px-3 py-1.5 rounded bg-white text-gallery-ink font-semibold hover:bg-gray-200 cursor-pointer">
+            💳 Connect Stripe Links
+          </button>
+          <button onclick="toggleExportModal(true)" class="px-3 py-1.5 rounded bg-white/10 text-white hover:bg-white/20 cursor-pointer">
+            📋 Export 14-Plate Docs/JSON
+          </button>
+          <button onclick="document.getElementById('iphonePhotoInput').click()" class="px-3 py-1.5 rounded bg-white/10 text-white hover:bg-white/20 cursor-pointer">
+            📱 Load Custom Photos
+          </button>
+          <button onclick="downloadSelfHtml()" class="px-3 py-1.5 rounded bg-white/10 text-white hover:bg-white/20 cursor-pointer">
+            ⬇ Download .HTML Copy
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       MODAL 1: LIGHTBOX, 5-FINISH FRAME STUDIO & DIRECT STRIPE CHECKOUT
+       ===================================================================== -->
+  <div id="artworkModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-md overflow-y-auto">
+    <div class="min-h-screen px-3 py-6 flex items-center justify-center">
+      <div class="bg-gallery-bg dark:bg-gallery-darkSurface w-full max-w-5xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
+        
+        <div class="px-5 py-3.5 bg-white dark:bg-gallery-darkBg border-b border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span id="modalCatNo" class="font-mono text-xs px-2 py-0.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold">CIS-06</span>
+            <span id="modalWing" class="font-mono text-xs text-gallery-steel truncate"></span>
+          </div>
+          <button onclick="closeArtworkModal()" class="p-1 font-mono text-xs">[CLOSE ✕]</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+          <!-- Frame Preview -->
+          <div class="lg:col-span-7 p-5 sm:p-8 bg-[#EFEFF1] dark:bg-[#0D0D10] flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-gallery-border dark:border-gallery-darkBorder">
+            <div id="modalFrameWrapper" class="frame-matte-black transition-all duration-300 max-w-sm sm:max-w-md w-full">
+              <img id="modalImage" src="" data-alt-src="" onerror="handleImgFallback(this)" alt="" class="w-full aspect-square object-cover block" />
+            </div>
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-1.5">
+              <button onclick="setModalFrame('matte-black')" id="frameBtn-matte-black" class="px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white">Matte Black</button>
+              <button onclick="setModalFrame('stainless')" id="frameBtn-stainless" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Stainless</button>
+              <button onclick="setModalFrame('museum-gold')" id="frameBtn-museum-gold" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Archival White</button>
+              <button onclick="setModalFrame('unframed')" id="frameBtn-unframed" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Unframed</button>
+              <button onclick="setModalFrame('towel')" id="frameBtn-towel" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Tea Towel</button>
+            </div>
+          </div>
+
+          <!-- Placard & Direct Stripe Buttons -->
+          <div class="lg:col-span-5 p-5 sm:p-7 bg-white dark:bg-gallery-darkSurface flex flex-col justify-between space-y-5">
+            <div>
+              <div class="flex items-start justify-between gap-2">
+                <h3 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-semibold italic"></h3>
+                <button onclick="speakModalPlacard()" class="shrink-0 px-2.5 py-1 rounded bg-gallery-muted dark:bg-gallery-darkBg font-mono text-[11px]">🔊 Audio</button>
+              </div>
+              <div id="modalMeta" class="mt-2 font-mono text-xs text-gallery-steel dark:text-gray-400 space-y-1"></div>
+              <div class="mt-4 p-3.5 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder">
+                <div id="modalVoiceLabel" class="text-[10px] font-mono uppercase text-gallery-amber dark:text-gallery-gold mb-1"></div>
+                <p id="modalCommentary" class="text-sm sm:text-base font-serif italic leading-relaxed"></p>
+              </div>
+            </div>
+
+            <div class="space-y-2.5 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder">
+              <div class="font-mono text-[11px] uppercase text-gallery-steel">1-Click Stripe Checkout (Auto-Tags Plate ID):</div>
+              <button onclick="buyNowWithStripe('framedPrint', activeModalId)" class="w-full px-4 py-2.5 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold flex justify-between text-xs font-mono">
+                <span>Museum Frame (16×16" Archival)</span><span>$85 →</span>
+              </button>
+              <button onclick="buyNowWithStripe('unframedPrint', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
+                <span>Unframed Giclée Print (12×12")</span><span>$42 →</span>
+              </button>
+              <button onclick="buyNowWithStripe('teaTowel', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
+                <span>Belgian Linen Dish Towel</span><span>$24 →</span>
+              </button>
+
+              <div class="pt-2 border-t border-gallery-border dark:border-gallery-darkBorder">
+                <button onclick="document.getElementById('collectorNoticeBox').classList.toggle('hidden')" class="w-full px-3 py-2 rounded bg-gallery-amberLight dark:bg-gallery-darkBg border border-gallery-amber/40 text-xs font-mono flex justify-between">
+                  <span>Acquire Original Basin (1/1)</span><span class="font-semibold">$4,800</span>
+                </button>
+                <div id="collectorNoticeBox" class="hidden mt-2 p-3 rounded bg-gallery-ink text-white font-mono text-[11px] leading-relaxed space-y-2.5">
+                  <div>
+                    ⚠ <strong>Conditional Provenance:</strong> Requires negotiating directly with Mazzy. Moen matte-black gooseneck faucet not included. Subject retains the right to vacate the basin if a treat bag is shaken.
+                  </div>
+                  <button onclick="buyNowWithStripe('originalSink', activeModalId)" class="w-full py-2 px-3 rounded bg-gallery-amber text-white font-semibold text-xs flex items-center justify-between hover:opacity-90">
+                    <span>Proceed to $4,800 Acquisition Wire</span><span>Stripe →</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       DRAWER 2: UNIFIED CALCULATORS (POD PROFIT + SOTHEBY'S CLOUT)
+       ===================================================================== -->
+  <div id="economicsDrawer" class="fixed inset-0 z-50 hidden bg-gallery-ink/75 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen px-3 py-6 flex items-center justify-center">
+      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-4xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
+        <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
+          <h3 class="font-serif text-xl sm:text-2xl">Creator POD Profit &amp; Sotheby's Clout Calculators</h3>
+          <button onclick="toggleEconomicsDrawer(false)" class="font-mono text-xs">[Close ✕]</button>
+        </div>
+        <div class="p-5 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-gallery-bg dark:bg-gallery-darkBg p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder">
+            <div class="md:col-span-7 space-y-4">
+              <div class="font-mono text-xs uppercase text-gallery-amber dark:text-gallery-gold">01. Monthly Creator Revenue Simulator</div>
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span>Gift Zines ($28 retail / $7 print cost)</span>
+                  <span id="zineSalesVal" class="font-semibold">25 / mo</span>
+                </div>
+                <input type="range" id="zineSlider" min="0" max="150" value="25" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span>Framed Prints ($85 retail / $31 cost)</span>
+                  <span id="printSalesVal" class="font-semibold">10 / mo</span>
+                </div>
+                <input type="range" id="printSlider" min="0" max="80" value="10" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
+              </div>
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span>Dish Towels &amp; Postcards ($25 / $10 cost)</span>
+                  <span id="merchSalesVal" class="font-semibold">20 / mo</span>
+                </div>
+                <input type="range" id="merchSlider" min="0" max="150" value="20" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
+              </div>
+            </div>
+            <div class="md:col-span-5 bg-white dark:bg-gallery-darkSurface p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder text-center">
+              <div class="font-mono text-[10px] uppercase text-gallery-steel">Projected Net Profit</div>
+              <div id="monthlyNetProfit" class="font-serif text-4xl font-semibold mt-1">$1,365 / mo</div>
+              <div id="annualNetProfit" class="font-mono text-xs text-gallery-amber dark:text-gallery-gold mt-1">$16,380 / yr</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-gallery-bg dark:bg-gallery-darkBg p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder">
+            <div class="md:col-span-7 space-y-4">
+              <div class="font-mono text-xs uppercase text-gallery-amber dark:text-gallery-gold">02. 2028 Sotheby's Collector Clout Calculator</div>
+              <div>
+                <div class="flex justify-between text-xs font-mono mb-1">
+                  <span>Number of Mazzy Plates Owned (Max 14):</span>
+                  <span id="calcCountVal" class="font-semibold">4 Plates</span>
+                </div>
+                <input type="range" id="calcCount" min="1" max="14" value="4" oninput="calculatePrestige()" class="w-full accent-gallery-amber" />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <select id="calcLight" onchange="calculatePrestige()" class="bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder rounded p-2 text-xs font-mono">
+                  <option value="1">Standard Bulb (1x)</option>
+                  <option value="1.8">Gallery Sconce (1.8x)</option>
+                  <option value="3.5" selected>3000K Museum Spotlight (3.5x)</option>
+                </select>
+                <select id="calcReaction" onchange="calculatePrestige()" class="bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder rounded p-2 text-xs font-mono">
+                  <option value="100">"Why is there a cat in your sink?"</option>
+                  <option value="500">"Ah, domestic fluid dynamics."</option>
+                  <option value="2500" selected>"Sublime tortie-to-chrome dialectic."</option>
+                </select>
+              </div>
+            </div>
+            <div class="md:col-span-5 bg-white dark:bg-gallery-darkSurface p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder text-center">
+              <div class="font-mono text-[10px] uppercase text-gallery-steel">2028 Sotheby's Estimate</div>
+              <div id="appraisalOutput" class="font-mono text-3xl font-bold text-gallery-amber dark:text-gallery-gold mt-1">$8,800 USD</div>
+              <div id="cloutOutput" class="font-cinzel text-xs font-semibold text-gallery-ink dark:text-white underline decoration-2 underline-offset-4 mt-2">Patron of Porcelain &amp; Fur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       DRAWER 3: BOUTIQUE BAG
+       ===================================================================== -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 hidden bg-gallery-ink/60 backdrop-blur-sm">
+    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-gallery-darkSurface shadow-2xl border-l border-gallery-border dark:border-gallery-darkBorder flex flex-col justify-between">
+      <div class="p-5 border-b border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+        <h3 class="font-serif text-2xl font-semibold">Museum Gift Shop Bag</h3>
+        <button onclick="toggleCartDrawer(false)" class="font-mono text-xs">[Close ✕]</button>
+      </div>
+      <div id="cartItemsList" class="p-5 flex-1 overflow-y-auto space-y-3"></div>
+      <div class="p-5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder space-y-3">
+        <div class="flex justify-between font-mono text-sm">
+          <span>SUBTOTAL</span>
+          <span id="cartSubtotal" class="font-semibold">$22.00</span>
+        </div>
+        <button onclick="buyNowWithStripe('zineSoftcover', 'CART-CHECKOUT')" class="w-full py-3 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold uppercase">
+          Proceed to Stripe Checkout →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL 4: EXPORT MANIFEST (14-PLATE JSON & GOOGLE DOCS MARKDOWN)
+       ===================================================================== -->
+  <div id="exportModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/80 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen px-3 py-6 flex items-center justify-center">
+      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-4xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
+        <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
+          <h3 class="font-serif text-xl">Export Complete 14-Plate Manifest (JSON / Google Docs Markdown)</h3>
+          <button onclick="toggleExportModal(false)" class="font-mono text-xs">[Close ✕]</button>
+        </div>
+        <div class="p-5 space-y-4">
+          <div class="flex flex-wrap justify-between gap-2">
+            <div class="flex gap-2">
+              <button onclick="setExportFormat('markdown')" class="px-3 py-1.5 rounded bg-gallery-ink text-white font-mono text-xs">Google Docs Markdown</button>
+              <button onclick="setExportFormat('json')" class="px-3 py-1.5 rounded bg-gallery-muted text-gallery-ink font-mono text-xs">Antigravity JSON</button>
+            </div>
+            <button onclick="copyExportManifest()" id="copyManifestBtnText" class="px-4 py-1.5 rounded bg-gallery-amber text-white font-mono text-xs font-semibold">📋 Copy to Clipboard</button>
+          </div>
+          <textarea id="exportManifestTextarea" readonly class="w-full h-80 p-3 rounded-xl bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL 5: NO-CODE STRIPE PAYMENT LINK MANAGER
+       ===================================================================== -->
+  <div id="stripeSetupModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-sm overflow-y-auto">
+    <div class="min-h-screen px-3 py-6 flex items-center justify-center">
+      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-3xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
+        <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
+          <div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-gold block">NO-CODE STOREFRONT WIZARD</span>
+            <h3 class="font-serif text-xl sm:text-2xl">Connect Your Stripe Payment Links</h3>
+          </div>
+          <button onclick="closeStripeSetupModal()" class="font-mono text-xs">[Close ✕]</button>
+        </div>
+        <div class="p-5 sm:p-6 space-y-4">
+          <div id="stripePendingBanner" class="hidden p-3.5 rounded-xl bg-gallery-amberLight dark:bg-gallery-darkBg border border-gallery-amber/40 text-xs font-mono"></div>
+          <p class="text-xs sm:text-sm opacity-80 leading-relaxed">
+            Paste your <strong>https://buy.stripe.com/...</strong> links from your Stripe Dashboard below. Every Buy button on the site automatically appends <code class="px-1.5 py-0.5 rounded bg-gallery-muted dark:bg-black font-mono">?client_reference_id=CIS-XX</code> and copies the Plate ID to the buyer's clipboard!
+          </p>
+          <div class="grid grid-cols-1 gap-3 max-h-[52vh] overflow-y-auto pr-1">
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">1. Softcover Gift Zine ($22) — <span class="text-gallery-steel">zineSoftcover</span></label>
+              <input id="stripeInput-zineSoftcover" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">2. Linen Hardcover Monograph ($34) — <span class="text-gallery-steel">zineHardcover</span></label>
+              <input id="stripeInput-zineHardcover" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">3. Complete 14-Plate Postcard Pack ($18) — <span class="text-gallery-steel">postcardPack</span></label>
+              <input id="stripeInput-postcardPack" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">4. Belgian Linen Dish Towel ($24) — <span class="text-gallery-steel">teaTowel</span></label>
+              <input id="stripeInput-teaTowel" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">5. Unframed Giclée Print 12×12" ($42) — <span class="text-gallery-steel">unframedPrint</span></label>
+              <input id="stripeInput-unframedPrint" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">6. Museum Framed Print 16×16" ($85) — <span class="text-gallery-steel">framedPrint</span></label>
+              <input id="stripeInput-framedPrint" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs font-semibold mb-1">7. Original Basin Installation 1/1 ($4,800 Easter Egg) — <span class="text-gallery-steel">originalSink</span></label>
+              <input id="stripeInput-originalSink" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
+            </div>
+          </div>
+          <div class="pt-3 border-t border-gallery-border dark:border-gallery-darkBorder flex flex-wrap items-center justify-between gap-3">
+            <span id="stripeSaveStatus" class="font-mono text-xs text-gallery-ink dark:text-white underline decoration-2 underline-offset-4"></span>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="applyStripeLinksInMemory()" class="px-4 py-2 rounded-lg border border-gallery-ink dark:border-gallery-gold font-mono text-xs font-semibold">
+                ✓ Apply to Current Session
+              </button>
+              <button onclick="saveAndDownloadStripeHtml()" class="px-4 py-2 rounded-lg bg-gallery-amber text-white font-mono text-xs font-semibold shadow">
+                💾 Save &amp; Download Ready index.html
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       COMPLETE 14-PLATE JAVASCRIPT ENGINE + STRIPE PAYMENT LINKS
+       ===================================================================== -->
+  <script>
+    // -------------------------------------------------------------------
+    // 1. PASTE YOUR 5 STRIPE PAYMENT LINKS HERE ONCE CREATED:
+    // -------------------------------------------------------------------
+    const STRIPE_LINKS = {
+      zineSoftcover: "https://buy.stripe.com/YOUR_ZINE_SOFTCOVER_LINK",
+      zineHardcover: "https://buy.stripe.com/YOUR_ZINE_HARDCOVER_LINK",
+      postcardPack:  "https://buy.stripe.com/YOUR_POSTCARD_PACK_LINK",
+      teaTowel:      "https://buy.stripe.com/YOUR_TEA_TOWEL_LINK",
+      unframedPrint: "https://buy.stripe.com/YOUR_UNFRAMED_PRINT_LINK",
+      framedPrint:   "https://buy.stripe.com/YOUR_FRAMED_PRINT_LINK",
+      originalSink:  "https://buy.stripe.com/YOUR_4800_EASTER_EGG_LINK"
+    };
+
+    function buyNowWithStripe(tierKey, plateId) {
+      const url = STRIPE_LINKS[tierKey];
+      if (navigator.clipboard && plateId) {
+        navigator.clipboard.writeText(plateId).catch(() => {});
+      }
+      if (!url || url.includes("YOUR_")) {
+        openStripeSetupModal(tierKey, plateId);
+        return;
+      }
+      const sep = url.includes('?') ? '&' : '?';
+      window.open(`${url}${sep}client_reference_id=${encodeURIComponent(plateId || 'COLLECTION')}`, '_blank');
+    }
+
+    function openStripeSetupModal(clickedTier, clickedPlate) {
+      Object.keys(STRIPE_LINKS).forEach(k => {
+        const el = document.getElementById(`stripeInput-${k}`);
+        if (el) el.value = STRIPE_LINKS[k].includes('YOUR_') ? '' : STRIPE_LINKS[k];
+      });
+      const banner = document.getElementById('stripePendingBanner');
+      if (clickedTier) {
+        banner.classList.remove('hidden');
+        banner.innerHTML = `✓ <strong>Plate ID "${clickedPlate || 'COLLECTION'}" copied to clipboard!</strong> Paste your Stripe Payment Link for <strong>[${clickedTier}]</strong> below (or click "Save & Download Ready index.html" once your links are in).`;
+        const targetInput = document.getElementById(`stripeInput-${clickedTier}`);
+        if (targetInput) setTimeout(() => targetInput.focus(), 80);
+      } else {
+        banner.classList.add('hidden');
+      }
+      document.getElementById('stripeSaveStatus').textContent = '';
+      document.getElementById('stripeSetupModal').classList.remove('hidden');
+    }
+
+    function closeStripeSetupModal() {
+      document.getElementById('stripeSetupModal').classList.add('hidden');
+    }
+
+    function applyStripeLinksInMemory() {
+      Object.keys(STRIPE_LINKS).forEach(k => {
+        const el = document.getElementById(`stripeInput-${k}`);
+        if (el && el.value.trim()) {
+          STRIPE_LINKS[k] = el.value.trim();
+        }
+      });
+      document.getElementById('stripeSaveStatus').textContent = '✓ Active for this browser session!';
+    }
+
+    function saveAndDownloadStripeHtml() {
+      applyStripeLinksInMemory();
+      let docHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const newLinksBlock = `const STRIPE_LINKS = {\n` +
+        Object.keys(STRIPE_LINKS).map(k => `      ${k.padEnd(14)}: ${JSON.stringify(STRIPE_LINKS[k])}`).join(',\n') +
+        `\n    };`;
+      docHtml = docHtml.replace(/const STRIPE_LINKS = \{[\s\S]*?\};/, newLinksBlock);
+      const blob = new Blob([docHtml], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      document.getElementById('stripeSaveStatus').textContent = '✓ Downloaded index.html with your Stripe links baked in!';
+    }
+
+    let currentVoice = 'satire';
+    let currentWing = 'all';
+    let activeModalId = 'CIS-06';
+    let currentSpreadIndex = 0;
+    let currentExportFormat = 'markdown';
+
+    function handleImgFallback(imgEl) {
+      const altSrc = imgEl.getAttribute('data-alt-src');
+      if (altSrc && imgEl.src.indexOf(altSrc) === -1 && !imgEl.dataset.triedAlt) {
+        imgEl.dataset.triedAlt = 'true';
+        imgEl.src = altSrc;
+      } else {
+        imgEl.src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80';
+      }
+    }
+
+    // Official 14-Plate Catalogue (CIS-01 to CIS-14 — 100% Real Photos, Zero Duplicates)
+    const catalogueWorks = [
+      {
+        id: 'CIS-01',
+        title: 'The Occupant (Ontology of Basin)',
+        year: '2026',
+        wing: 'Wing I: Basin Monoliths (The 5700 Series)',
+        image: 'IMG_5705-clean-7c01cde3-7403-4509-9319-b58a19010d7c.png',
+        altImage: 'image_4.png',
+        medium: 'Archival Pigment on Hahnemühle Rag',
+        dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
+        vessel: 'Primary Left Stainless Basin',
+        temp: '38.2°C',
+        voices: {
+          satire: 'Positioned in the primary left basin with her silver bell pendulum aligned to the drain’s nadir, Mazzy inaugurates the "Third Cat" dialectic: neither washing nor being washed, she confronts the bourgeois spectator with an unblinking chartreuse gaze.',
+          poetic: 'Two golden moons in a silver well. The little bell at her throat holds its breath; the kitchen waits for her permission to begin the day.',
+          fieldlog: 'TIMESTAMP 09:14:02 — File IMG_5705 (image_4.png). Left basin occupation confirmed. Pupil dilation: 42%. Bell collar azimuth: 180° dead-center.'
+        }
+      },
+      {
+        id: 'CIS-02',
+        title: 'Symmetry in Stainless (304-Grade)',
+        year: '2026',
+        wing: 'Wing I: Basin Monoliths (The 5700 Series)',
+        image: 'IMG_5703-clean-e8287f7c-cfb9-443d-b91b-d8df0683f73a.png',
+        altImage: 'image_5.png',
+        medium: 'Chromogenic Architectural Print',
+        dimensions: '50.8 × 50.8 cm (1.0 Mazzy Unit)',
+        vessel: 'Chrome & 304 Stainless Combo',
+        temp: '38.7°C',
+        voices: {
+          satire: 'A brutalist dialogue between vertical matte-black plumbing and organic tortoiseshell chiaroscuro, anchored by faux-driftwood shaker cabinetry and veined quartz—holding the Jungian tension of opposites.',
+          poetic: 'Framed by oak grain and pale stone, she rises from the rim like a quiet guardian of the morning light.',
+          fieldlog: 'TIMESTAMP 09:16:40 — File IMG_5703 (image_5.png). Focal length widened to 35mm equivalent. Faucet stem provides vertical reference datum.'
+        }
+      },
+      {
+        id: 'CIS-03',
+        title: 'Waiting for the Drop (The Godot Spout)',
+        year: '2026',
+        wing: 'Wing I: Basin Monoliths (The 5700 Series)',
+        image: 'IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png',
+        altImage: 'image_2.png',
+        medium: 'Archival Pigment Print & Hydro-Expectation',
+        dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
+        vessel: 'Gooseneck Aerator Basin',
+        temp: '37.9°C',
+        voices: {
+          satire: 'Our narrative apex: the subject cranes upward toward the silent aerator nozzle in a devastating critique of withheld municipal hydration. Godot arrives neither by land nor by pipe.',
+          poetic: 'Looking up at the dark swan of the faucet, waiting for a single silver syllable of water to fall.',
+          fieldlog: 'TIMESTAMP 10:02:19 — File IMG_5706 (image_2.png). Cervical extension angle: +64° upward. Nozzle clearance: 3.8 cm.'
+        }
+      },
+      {
+        id: 'CIS-04',
+        title: 'Fixture / Friction',
+        year: '2026',
+        wing: 'Wing I: Basin Monoliths (The 5700 Series)',
+        image: 'IMG_5707-clean-679909dd-6dc0-40a8-bf04-52f958675154.png',
+        altImage: 'image.png',
+        medium: 'Dry-Mount Silver Gelatin Equivalent',
+        dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
+        vessel: 'Secondary Right-Hand Basin',
+        temp: '38.4°C',
+        voices: {
+          satire: 'Having migrated to the secondary right-hand basin, the artist allows her right pinna to graze the pull-down sprayer head—an audacious Foucauldian "technology of the self" enacting post-industrial intimacy.',
+          poetic: 'Cheek to cold black iron, eyes turned toward the hallway where footsteps pass.',
+          fieldlog: 'TIMESTAMP 10:05:51 — File IMG_5707 (image.png). Basin transfer complete (Left → Right). Right ear tip proximity to sprayer nozzle: < 4mm.'
+        }
+      },
+      {
+        id: 'CIS-05',
+        title: 'Profile in Neon Collar (The Refusal)',
+        year: '2026',
+        wing: 'Wing I: Basin Monoliths (The 5700 Series)',
+        image: 'IMG_5704-clean-b3d36165-e5ba-4b01-9c81-8d3112f1fe4a.png',
+        altImage: 'image_14.png',
+        medium: 'Archival Pigment Print with High-Vis Accent',
+        dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
+        vessel: 'Double-Basin Stainless',
+        temp: '38.1°C',
+        voices: {
+          satire: 'Recalling Renaissance donor portraits, this strict left-facing profile introduces a jarring safety-chartreuse textile band—problematizing the boundary between domestic leisure and OSHA compliance.',
+          poetic: 'A ribbon of bright spring green against autumn fur, tail curled like a fern along the cool metal floor.',
+          fieldlog: 'TIMESTAMP 09:12:11 — File IMG_5704 (image_14.png). Lateral 90° profile captured. High-visibility collar band registering 560nm wavelength.'
+        }
+      },
+      {
+        id: 'CIS-06',
+        title: 'The Monolith Beneath the Louvers',
+        year: '2026',
+        wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
+        image: 'IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png',
+        altImage: 'image_18.png',
+        medium: 'Museum Etching Rag (Flagship Plate)',
+        dimensions: '60.9 × 60.9 cm (1.0 Mazzy Unit)',
+        vessel: 'Axial Undermount Reliquary',
+        temp: '38.0°C',
+        voices: {
+          satire: 'Kubrickian in its ruthless axial symmetry. The matte-black gooseneck rises directly from the crown of Mazzy’s cranium like an obelisk crowning a sacred reliquary—the Third Cat witnessing the witness.',
+          poetic: 'Centered beneath the arch, still as a temple statue while the white shutters hold back the noon sun.',
+          fieldlog: 'TIMESTAMP 14:22:00 — File IMG_5035 (image_18.png). Axial symmetry achieved within ±0.2mm tolerance. Subject immobilized.'
+        }
+      },
+      {
+        id: 'CIS-07',
+        title: 'Shutters & Asymmetric Gaze',
+        year: '2026',
+        wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
+        image: 'IMG_5041-clean-7b84d071-5974-49cf-910b-51ada317cd4f.png',
+        altImage: 'image_15.png',
+        medium: 'Archival Pigment Print on Hahnemühle Photo Rag',
+        dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
+        vessel: 'Port-Offset Basin',
+        temp: '38.3°C',
+        voices: {
+          satire: 'By shifting her mass 18 centimeters to port while the matte-black faucet stands sentinel to starboard, Mazzy introduces a deliberate dialectical tension against the grid of closed plantation louvers.',
+          poetic: 'Leaning gently toward the warm side of the basin, her split amber-and-ebony face glowing against the quiet white shutters.',
+          fieldlog: 'TIMESTAMP 14:26:09 — File IMG_5041 (image_15.png). Subject offset 18.0 cm left of faucet centerline.'
+        }
+      },
+      {
+        id: 'CIS-08',
+        title: 'Contemplating the Yard (Golden Hour)',
+        year: '2026',
+        wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
+        image: 'IMG_5036-clean-4e0dcc64-a935-47bd-bf0f-99d4bec45dd2.png',
+        altImage: 'image_6.png',
+        medium: 'Warm-Tone Baryta Fine Art Print',
+        dimensions: '50.8 × 50.8 cm (1.0 Mazzy Unit)',
+        vessel: 'Golden Hour Louver Basin',
+        temp: '38.5°C',
+        voices: {
+          satire: 'Bathed in Vermeer-like late-afternoon luminescence filtering through plantation louvers, the artist contemplates the suburban sublime from the safety of undermount steel.',
+          poetic: 'Amber light spills through the white louvers, gilding her whiskers as she watches the day fade outside.',
+          fieldlog: 'TIMESTAMP 16:48:33 — File IMG_5036 (image_6.png). Color temperature: 3200K golden hour ingress via right-hand shutter array.'
+        }
+      },
+      {
+        id: 'CIS-09',
+        title: 'Nocturne with Dual-Valve Spout',
+        year: '2026',
+        wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
+        image: 'IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png',
+        altImage: 'image_17.png',
+        medium: 'Chiaroscuro Night-Study on Satin Rag',
+        dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
+        vessel: 'Dual-Valve Cruciform Basin',
+        temp: '38.8°C',
+        voices: {
+          satire: 'As night descends beyond the window glass, the artist assumes a three-quarter vigil beside a cruciform matte-black fixture—her silver bell gleaming like a solitary relic in a Hopperesque kitchen.',
+          poetic: 'Night gathers at the windowpane, and the house lamps warm her amber coat while she keeps watch over the evening kitchen.',
+          fieldlog: 'TIMESTAMP 21:14:52 — File IMG_5040 (image_17.png). Nocturnal interior illumination (2700K). Head yaw: 58° port.'
+        }
+      },
+      {
+        id: 'CIS-10',
+        title: 'Nadir / Zenith: Total Volumetric Loaf',
+        year: '2026',
+        wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
+        image: 'IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png',
+        altImage: 'image_7.png',
+        medium: 'Orthographic Overhead Archival Plate',
+        dimensions: '50.8 × 50.8 cm (94.6% Basin Displacement)',
+        vessel: 'Deep Rectangular Steel Vessel',
+        temp: '38.1°C',
+        voices: {
+          satire: 'Shot from a severe 90-degree zenith overhead angle, this masterwork documents near-total volumetric displacement of the rectangular steel vessel. Mazzy’s upward glare transforms the basin into a defensive moat.',
+          poetic: 'Seen from above, she fills the silver rectangle completely—a warm, tucked island of fur looking up with fierce emerald eyes.',
+          fieldlog: 'TIMESTAMP 19:04:18 — File IMG_5039 (image_7.png). Camera elevation: +90° zenith. Volumetric basin fill ratio: 94.6%.'
+        }
+      },
+      {
+        id: 'CIS-11',
+        title: 'Diagonal Containment (Emerald Study)',
+        year: '2026',
+        wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
+        image: 'IMG_5037-clean-72499b89-8a37-4ded-9651-1b8017b7b3a3.png',
+        altImage: 'image_11.png',
+        medium: 'High-Chroma Pigment Print on Cotton Rag',
+        dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
+        vessel: 'Mitred Corner Steel Basin',
+        temp: '39.0°C',
+        voices: {
+          satire: 'By orienting the basin along a dynamic diagonal axis, the sharp mitred corners of brushed stainless steel converge upon the subject’s piercing jade irises.',
+          poetic: 'Nestled deep below the rim where the cool steel corners meet, her green eyes bright as moss after rain.',
+          fieldlog: 'TIMESTAMP 17:19:40 — File IMG_5037 (image_11.png). Isometric 45° corner perspective. Iris reflectance peaks at 530nm.'
+        }
+      },
+      {
+        id: 'CIS-12',
+        title: 'Liquid State (Rheology of Fur)',
+        year: '2026',
+        wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
+        image: 'IMG_5038-clean-8f6096be-0e36-4973-bec6-5fe531931a8c.png',
+        altImage: 'image_3.png',
+        medium: 'Archival Print • Rheological Study',
+        dimensions: '50.8 × 38.1 cm (1.0 Mazzy Unit)',
+        vessel: 'Lower Topography Basin',
+        temp: '38.4°C',
+        voices: {
+          satire: 'Confirming the Ig Nobel-winning physical theorem that felines are non-Newtonian fluids, the subject settles into the basin’s lower topography while a blurred knife block looms menacingly in bokeh.',
+          poetic: 'Paws tucked away beneath warm fur, poured gently into the basin like dark honey and toasted brioche.',
+          fieldlog: 'TIMESTAMP 11:30:04 — File IMG_5038 (image_3.png). Posture classification: Full Lateral Loaf. Knife block and cutting board in bokeh.'
+        }
+      },
+      {
+        id: 'CIS-13',
+        title: 'Suburban Panopticon (Three Outlets)',
+        year: '2026',
+        wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
+        image: 'IMG_5032-clean-46637114-9ae1-4647-bced-7e782d9991f8.png',
+        altImage: 'image_19.png',
+        medium: 'Wide-Field Topographical C-Print',
+        dimensions: '60.9 × 45.7 cm (1.0 Mazzy Unit)',
+        vessel: 'Central Command Sink',
+        temp: '38.2°C',
+        voices: {
+          satire: 'Flanked by symmetrical duplex electrical receptacles, wall switches, and horizontal blinds, the sink becomes a Foucauldian panoptic command bunker from which the entire suburban counter is surveilled.',
+          poetic: 'A wide view of the quiet kitchen—white tile, wood doors, and one small heartbeat at the center of it all.',
+          fieldlog: 'TIMESTAMP 13:05:12 — File IMG_5032 (image_19.png). Wide environmental survey (24mm). Flanking GFCI outlets and toggle switches visible.'
+        }
+      },
+      {
+        id: 'CIS-14',
+        title: 'Island Sovereignty (Patio View)',
+        year: '2026',
+        wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
+        image: 'IMG_5033-clean-be4de87c-33c4-4d3e-9124-68971cdfaefb.png',
+        altImage: 'image_16.png',
+        medium: 'Archival Pigment Print on Rag',
+        dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
+        vessel: 'Island Peninsula Resting Vessel',
+        temp: '38.6°C',
+        voices: {
+          satire: 'Juxtaposing the verdant bourgeoisie of the backyard garden against the sterile containment of the kitchen island, Mazzy claims total territorial sovereignty.',
+          poetic: 'With the green garden behind her and the cool marble around her, she chooses the harbor of the sink.',
+          fieldlog: 'TIMESTAMP 15:11:44 — File IMG_5033 (image_16.png). Island peninsula perspective. Subject remains entrenched.'
+        }
+      }
+    ];
+
+    // All 14 Plates distributed across 8 spreads with ZERO duplicate images
+    const zineSpreads = [
+      {
+        spreadLabel: 'Spread 01: Cover & "The Third Cat" Foreword (Plate CIS-06)',
+        left: {
+          type: 'text',
+          kicker: 'CATALOGUE RAISONNÉ VOL. I • 14-PLATE EDITION',
+          heading: 'CAT IN SINK: Studies in Stainless, Refusal & The Third Cat',
+          body: 'Published by the Institute for Contemporary Domestic Occupation. Complete 14-Plate Monograph exploring recursive feline consciousness and non-Newtonian fur rheology.',
+          footer: 'FOREWORD BY DR. H. V. FEATHERSTONE & DR. EVELYN VANE'
+        },
+        right: { type: 'image', workId: 'CIS-06', caption: 'FRONTISPIECE — Plate CIS-06: The Monolith Beneath the Louvers' }
+      },
+      {
+        spreadLabel: 'Spread 02: Wing I — Ontology of the Basin (Plates CIS-01 & CIS-02)',
+        left: { type: 'image', workId: 'CIS-01', caption: 'PLATE CIS-01 — The Occupant (Ontology of Basin)' },
+        right: { type: 'image', workId: 'CIS-02', caption: 'PLATE CIS-02 — Symmetry in Stainless (304-Grade)' }
+      },
+      {
+        spreadLabel: 'Spread 03: Hydrological Waiting (Plate CIS-03)',
+        left: {
+          type: 'text',
+          kicker: 'PAGES 06–07 • BECKETT IN THE KITCHEN',
+          heading: 'Waiting for the Drop (+64° Incline)',
+          body: 'For twenty-two consecutive minutes, the subject tilted her cranium at a sixty-four-degree incline toward the matte-black Moen aerator (CIS-03), transforming withheld hydration into high conceptualism.',
+          footer: 'PLATE CIS-03 • STUDIES IN VERTICAL YEARNING'
+        },
+        right: { type: 'image', workId: 'CIS-03', caption: 'PLATE CIS-03 — Waiting for the Drop (Cervical Extension +64°)' }
+      },
+      {
+        spreadLabel: 'Spread 04: Fixture Friction & The Donor Profile (Plates CIS-04 & CIS-05)',
+        left: { type: 'image', workId: 'CIS-04', caption: 'PLATE CIS-04 — Fixture / Friction (Right Basin)' },
+        right: { type: 'image', workId: 'CIS-05', caption: 'PLATE CIS-05 — Profile in Neon Collar (The Refusal)' }
+      },
+      {
+        spreadLabel: 'Spread 05: Wing II — Louvers & Golden Hour (Plates CIS-07 & CIS-08)',
+        left: { type: 'image', workId: 'CIS-07', caption: 'PLATE CIS-07 — Shutters & Asymmetric Gaze' },
+        right: { type: 'image', workId: 'CIS-08', caption: 'PLATE CIS-08 — Contemplating the Yard (Golden Hour)' }
+      },
+      {
+        spreadLabel: 'Spread 06: Nocturne with Dual-Valve Spout (Plate CIS-09)',
+        left: {
+          type: 'text',
+          kicker: 'PAGES 12–13 • NOCTURNAL OCCUPATION',
+          heading: 'After the Dishes Are Abandoned',
+          body: 'In Plate CIS-09, night falls outside the window while warm interior tungsten light catches the silver bell at Mazzy’s throat.',
+          footer: 'PLATE CIS-09 • CHIAROSCURO NIGHT-STUDY (21:14 HRS)'
+        },
+        right: { type: 'image', workId: 'CIS-09', caption: 'PLATE CIS-09 — Nocturne with Dual-Valve Spout' }
+      },
+      {
+        spreadLabel: 'Spread 07: Wing III — Volumetric & Diagonal Studies (Plates CIS-10 & CIS-11)',
+        left: { type: 'image', workId: 'CIS-10', caption: 'PLATE CIS-10 — Nadir / Zenith: Total Volumetric Loaf (94.6% Fill)' },
+        right: { type: 'image', workId: 'CIS-11', caption: 'PLATE CIS-11 — Diagonal Containment (Emerald Study)' }
+      },
+      {
+        spreadLabel: 'Spread 08: Rheology, Panopticon & Island Sovereignty (Plates CIS-12, CIS-13 & CIS-14)',
+        left: { type: 'image', workId: 'CIS-12', caption: 'PLATE CIS-12 — Liquid State (Rheology of Fur) & CIS-13 Panopticon' },
+        right: { type: 'image', workId: 'CIS-14', caption: 'PLATE CIS-14 — Island Sovereignty (Patio View • Finis)' }
+      }
+    ];
+
+    let cart = [
+      { title: 'Catalogue Raisonné Vol. I — Gift Zine (14-Plate Edition)', price: 22, qty: 1 }
+    ];
+
+    function handleIphonePhotos(event) {
+      const files = Array.from(event.target.files || []);
+      if (!files.length) return;
+
+      files.forEach((file, idx) => {
+        const objectUrl = URL.createObjectURL(file);
+        if (catalogueWorks[idx]) {
+          catalogueWorks[idx].image = objectUrl;
+          catalogueWorks[idx].altImage = objectUrl;
+        }
+        if (idx === 0) {
+          document.getElementById('heroFeaturedImg').src = objectUrl;
+        }
+      });
+
+      document.getElementById('photoSyncStatus').innerHTML = `<strong class="text-gallery-ink dark:text-white underline decoration-2 underline-offset-4">✓ Loaded ${files.length} photo(s) from your iPhone!</strong> All frames &amp; zine spreads updated live.`;
+      renderGallery();
+      renderBookSpread();
+    }
+
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Mazzy_14_Plate_Master_Gallery.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function syncThemeUI(isDark) {
+      const label = document.getElementById('themeToggleLabel');
+      const icon = document.getElementById('themeToggleIcon');
+      const meta = document.getElementById('metaThemeColor');
+      if (label) label.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      if (icon) icon.textContent = isDark ? '☀' : '☾';
+      if (meta) meta.setAttribute('content', isDark ? '#09090B' : '#F7F7F8');
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('mazzy-theme', isDark ? 'dark' : 'light'); } catch (e) {}
+      syncThemeUI(isDark);
+    }
+
+    // Automatically follow OS / iOS / Android dark mode changes if user hasn't locked a manual override
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('mazzy-theme')) {
+          document.documentElement.classList.toggle('dark', e.matches);
+          syncThemeUI(e.matches);
+        }
+      });
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const filtered = currentWing === 'all'
+        ? catalogueWorks
+        : catalogueWorks.filter(w => w.wing === currentWing);
+
+      // Build output, injecting wing-dividers between wings
+      let lastWing = null;
+      grid.innerHTML = filtered.map(work => {
+        const commentary = work.voices[currentVoice];
+        const voiceBadgeLabel =
+          currentVoice === 'satire' ? 'HIGH-ART SATIRE • THIRD CAT' :
+          currentVoice === 'poetic' ? 'POETIC NOTE' : 'FIELD TELEMETRY';
+
+        let divider = '';
+        if (currentWing === 'all' && work.wing !== lastWing) {
+          const wingShort = work.wing.replace(/^Wing (I+): /, 'Wing $1 — ');
+          divider = `<div class="wing-divider">
+            <div class="wing-divider-line"></div>
+            <span class="font-cinzel text-xs tracking-widest uppercase text-gallery-amber dark:text-gallery-gold whitespace-nowrap px-2">${wingShort}</span>
+            <div class="wing-divider-line"></div>
+          </div>`;
+          lastWing = work.wing;
+        }
+
+        return divider + `
+          <article class="flex flex-col justify-between rounded-xl overflow-hidden bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder shadow-sm hover:shadow-xl transition-all">
+            <div>
+              <div class="relative aspect-square bg-gallery-muted dark:bg-black overflow-hidden group cursor-pointer" onclick="openArtworkModal('${work.id}')">
+                <img
+                  src="${work.image}"
+                  data-alt-src="${work.altImage}"
+                  alt="${work.title}"
+                  onerror="handleImgFallback(this)"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                  <span class="px-2.5 py-1 rounded bg-gallery-ink/90 text-white dark:text-gallery-gold font-mono text-[10px]">
+                    ${work.id}
+                  </span>
+                  <span class="px-2 py-1 rounded bg-black/70 text-white font-mono text-[10px]">
+                    ${work.temp}
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-5">
+                <div class="flex items-center justify-between text-[10px] font-mono text-gallery-steel dark:text-gray-400 uppercase">
+                  <span class="truncate max-w-[60%]">${work.vessel}</span>
+                  <span>${work.dimensions.split('(')[0].trim()}</span>
+                </div>
+                <h3 class="font-serif text-2xl font-semibold italic mt-1 cursor-pointer hover:text-gallery-amber dark:hover:text-gallery-gold" onclick="openArtworkModal('${work.id}')">
+                  ${work.title}, ${work.year}
+                </h3>
+                <div class="font-mono text-[11px] text-gallery-steel dark:text-gray-400 mt-0.5">${work.medium}</div>
+                <div class="mt-3 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder">
+                  <div class="font-mono text-[9px] uppercase tracking-widest text-gallery-amber dark:text-gallery-gold mb-1">${voiceBadgeLabel}</div>
+                  <p class="text-xs opacity-85 leading-relaxed">“${commentary}”</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+              <span class="font-mono text-xs">Editions: <strong>$18 – $85</strong></span>
+              <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold">
+                Frame &amp; Buy →
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function setCuratorialVoice(voice) {
+      currentVoice = voice;
+      ['satire', 'poetic', 'fieldlog'].forEach(v => {
+        const btn = document.getElementById(`voiceBtn-${v}`);
+        btn.className = v === voice
+          ? 'voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg shadow-sm cursor-pointer'
+          : 'voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap text-gallery-ink dark:text-gray-300 cursor-pointer';
+      });
+      renderGallery();
+      if (!document.getElementById('artworkModal').classList.contains('hidden')) {
+        populateArtworkModal(activeModalId);
+      }
+    }
+
+    function filterWing(wing) {
+      currentWing = wing;
+      document.querySelectorAll('.wing-btn').forEach(btn => {
+        btn.className = btn.getAttribute('data-wing') === wing
+          ? 'wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold'
+          : 'wing-btn px-3 py-1.5 rounded-md font-mono text-xs bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder';
+      });
+      renderGallery();
+    }
+
+    function openArtworkModal(id) {
+      activeModalId = id;
+      populateArtworkModal(id);
+      document.getElementById('collectorNoticeBox').classList.add('hidden');
+      document.getElementById('artworkModal').classList.remove('hidden');
+    }
+
+    function populateArtworkModal(id) {
+      const work = catalogueWorks.find(w => w.id === id);
+      if (!work) return;
+      document.getElementById('modalCatNo').textContent = work.id;
+      document.getElementById('modalWing').textContent = work.wing;
+      const modalImg = document.getElementById('modalImage');
+      delete modalImg.dataset.triedAlt;
+      modalImg.setAttribute('data-alt-src', work.altImage);
+      modalImg.src = work.image;
+      document.getElementById('modalTitle').textContent = `${work.title}, ${work.year}`;
+      document.getElementById('modalMeta').innerHTML = `
+        <div><strong>MEDIUM:</strong> ${work.medium}</div>
+        <div><strong>DIMENSIONS:</strong> ${work.dimensions}</div>
+        <div><strong>TELEMETRY:</strong> ${work.vessel} • Temp: ${work.temp}</div>
+      `;
+      document.getElementById('modalVoiceLabel').textContent = `CURATORIAL NOTE (${currentVoice.toUpperCase()})`;
+      document.getElementById('modalCommentary').textContent = `“${work.voices[currentVoice]}”`;
+    }
+
+    function closeArtworkModal() {
+      document.getElementById('artworkModal').classList.add('hidden');
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    function setModalFrame(style) {
+      document.getElementById('modalFrameWrapper').className = `frame-${style} transition-all duration-300 max-w-sm sm:max-w-md w-full`;
+      ['matte-black', 'stainless', 'museum-gold', 'unframed', 'towel'].forEach(f => {
+        const btn = document.getElementById(`frameBtn-${f}`);
+        btn.className = f === style
+          ? 'px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white'
+          : 'px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink';
+      });
+    }
+
+    function renderBookSpread() {
+      const spread = zineSpreads[currentSpreadIndex];
+      document.getElementById('spreadIndexLabel').textContent = `${currentSpreadIndex + 1} OF ${zineSpreads.length}`;
+      document.getElementById('spreadTitleLabel').textContent = spread.spreadLabel;
+
+      const renderPage = (p) => {
+        if (p.type === 'image') {
+          const w = catalogueWorks.find(item => item.id === p.workId) || catalogueWorks[0];
+          return `
+            <div class="flex-1 flex flex-col items-center justify-center">
+              <div class="w-full max-w-xs aspect-square rounded overflow-hidden border border-gallery-border shadow-md">
+                <img src="${w.image}" data-alt-src="${w.altImage}" onerror="handleImgFallback(this)" alt="${p.caption}" class="w-full h-full object-cover" />
+              </div>
+              <div class="mt-3 font-mono text-[11px] text-gallery-steel text-center">${p.caption}</div>
+            </div>
+          `;
+        }
+        return `
+          <div class="my-auto space-y-3">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">${p.kicker}</div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold">${p.heading}</h3>
+            <p class="text-sm sm:text-base opacity-85 font-serif leading-relaxed">${p.body}</p>
+          </div>
+          <div class="pt-4 border-t border-gallery-border dark:border-gallery-darkBorder font-mono text-[10px] text-gallery-steel">${p.footer}</div>
+        `;
+      };
+
+      document.getElementById('bookPageLeft').innerHTML = renderPage(spread.left);
+      document.getElementById('bookPageRight').innerHTML = renderPage(spread.right);
+    }
+
+    function changeSpread(delta) {
+      currentSpreadIndex = (currentSpreadIndex + delta + zineSpreads.length) % zineSpreads.length;
+      renderBookSpread();
+    }
+
+    function updateCartUI() {
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      const sub = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      document.getElementById('desktopCartCount').textContent = count;
+      document.getElementById('mobileCartCount').textContent = count;
+      document.getElementById('cartSubtotal').textContent = `$${sub.toFixed(2)}`;
+      document.getElementById('cartItemsList').innerHTML = cart.map((item, idx) => `
+        <div class="flex items-center justify-between p-3 rounded bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder">
+          <div>
+            <div class="font-serif font-semibold text-sm">${item.title}</div>
+            <div class="font-mono text-xs text-gallery-steel">$${item.price} × ${item.qty}</div>
+          </div>
+          <button onclick="cart.splice(${idx},1);updateCartUI();" class="font-mono text-xs">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function toggleCartDrawer(show) {
+      document.getElementById('cartDrawer').classList.toggle('hidden', !show);
+    }
+
+    function toggleEconomicsDrawer(show) {
+      if (show) { updateEconomics(); calculatePrestige(); }
+      document.getElementById('economicsDrawer').classList.toggle('hidden', !show);
+    }
+
+    function updateEconomics() {
+      const z = +document.getElementById('zineSlider').value;
+      const p = +document.getElementById('printSlider').value;
+      const m = +document.getElementById('merchSlider').value;
+      document.getElementById('zineSalesVal').textContent = `${z} / mo`;
+      document.getElementById('printSalesVal').textContent = `${p} / mo`;
+      document.getElementById('merchSalesVal').textContent = `${m} / mo`;
+      const net = (z * 21) + (p * 54) + (m * 15);
+      document.getElementById('monthlyNetProfit').textContent = `$${net.toLocaleString()} / mo`;
+      document.getElementById('annualNetProfit').textContent = `$${(net * 12).toLocaleString()} / yr`;
+    }
+
+    function calculatePrestige() {
+      const c = +document.getElementById('calcCount').value;
+      const l = +document.getElementById('calcLight').value;
+      const r = +document.getElementById('calcReaction').value;
+      document.getElementById('calcCountVal').textContent = `${c} Plates`;
+      const val = Math.round((c * 450) * l + r);
+      document.getElementById('appraisalOutput').textContent = `$${val.toLocaleString()} USD`;
+      document.getElementById('cloutOutput').textContent = val > 10000 ? 'Grand Trustee of The Third Cat Archive' : 'Patron of Porcelain & Fur Dynamics';
+    }
+
+    function toggleExportModal(show) {
+      if (show) renderExportManifest();
+      document.getElementById('exportModal').classList.toggle('hidden', !show);
+    }
+
+    function setExportFormat(fmt) {
+      currentExportFormat = fmt;
+      renderExportManifest();
+    }
+
+    function renderExportManifest() {
+      const ta = document.getElementById('exportManifestTextarea');
+      if (currentExportFormat === 'json') {
+        ta.value = JSON.stringify(catalogueWorks, null, 2);
+      } else {
+        ta.value = catalogueWorks.map(w => `## ${w.id}: ${w.title} (${w.year})\n- **Primary Asset:** ${w.image} (Uploaded Match: ${w.altImage})\n- **Satire:** "${w.voices.satire}"\n- **Poetic:** "${w.voices.poetic}"\n- **Field Log:** "${w.voices.fieldlog}"\n`).join('\n');
+      }
+    }
+
+    function copyExportManifest() {
+      const ta = document.getElementById('exportManifestTextarea');
+      ta.select();
+      document.execCommand('copy');
+      document.getElementById('copyManifestBtnText').textContent = '✓ Copied!';
+    }
+
+    function playCuratorAudioHero() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById('heroStatement').innerText));
+      }
+    }
+
+    function speakModalPlacard() {
+      const w = catalogueWorks.find(x => x.id === activeModalId);
+      if (w && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(new SpeechSynthesisUtterance(`${w.title}. ${w.voices[currentVoice]}`));
+      }
+    }
+
+    window.onload = function() {
+      syncThemeUI(document.documentElement.classList.contains('dark'));
+      renderGallery();
+      renderBookSpread();
+      updateCartUI();
+    };
+  </script>
+</body>
+</html>
