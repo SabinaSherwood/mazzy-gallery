@@ -109,6 +109,23 @@
     .dark .nocturne-spotlight {
       background: radial-gradient(circle at 50% 25%, rgba(244,244,245,0.07) 0%, rgba(9,9,11,0.98) 75%);
     }
+
+    /* ── MOBILE OVERFLOW PATCH ──────────────────────────────
+       Stops any single wide element from stretching the page
+       (the "black void" down the right side in iOS Safari). */
+    html, body { max-width: 100%; }
+    h1, h2, h3, p, blockquote { overflow-wrap: break-word; }
+    #galleryGrid > * { min-width: 0; }
+    /* Curatorial voice switcher scrolls sideways like a native tab bar */
+    .voice-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .voice-scroll::-webkit-scrollbar { display: none; }
+    .voice-scroll > * { flex-shrink: 0; }
+    /* Hide audio buttons on browsers without speech synthesis */
+    .no-speech .audio-btn { display: none !important; }
   </style>
 
   <style id="refined-styles">
@@ -242,10 +259,10 @@
 
   <!-- SLEEK MUSEUM EXHIBITION RIBBON (NO CLUNKY ADMIN BUTTONS) -->
   <div id="exhibitionRibbonBar" class="bg-gallery-ink dark:bg-gallery-gold text-gallery-bg dark:text-gallery-darkBg px-4 py-2 text-[11px] font-mono tracking-widest uppercase">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2 truncate">
-        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gallery-amber dark:bg-gallery-darkBg"></span>
-        <span>EXHIBITION ARCHIVE · CATALOGUE RAISONNÉ VOL. I (2026) — 14 PLATES IN 3 WINGS</span>
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-gallery-amber dark:bg-gallery-darkBg"></span>
+        <span class="truncate">EXHIBITION ARCHIVE · CATALOGUE RAISONNÉ VOL. I (2026) — 14 PLATES IN 3 WINGS</span>
       </div>
       <div class="hidden sm:flex items-center gap-4 text-[10px] opacity-80 shrink-0">
         <span>SUBJECT: MAZZY (4.1 KG)</span>
@@ -261,11 +278,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
       
       <!-- Left: Brand Identity (Never wraps "MAZZY • CAT IN SINK") -->
-      <a href="#" class="flex items-center gap-3 shrink-0">
-        <span class="w-10 h-10 rounded-full border border-gallery-amber dark:border-gallery-gold flex items-center justify-center bg-white dark:bg-gallery-darkSurface font-serif font-bold text-xl text-gallery-amber dark:text-gallery-gold shadow-sm">M</span>
-        <div>
-          <span class="font-cinzel text-lg sm:text-xl font-bold tracking-wider block leading-none whitespace-nowrap">MAZZY • CAT IN SINK</span>
-          <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold block mt-1 whitespace-nowrap">Institute for Contemporary Domestic Occupation</span>
+      <a href="#" class="flex items-center gap-3 min-w-0">
+        <span class="w-10 h-10 rounded-full border border-gallery-amber dark:border-gallery-gold hidden sm:flex shrink-0 items-center justify-center bg-white dark:bg-gallery-darkSurface font-serif font-bold text-xl text-gallery-amber dark:text-gallery-gold shadow-sm">M</span>
+        <div class="min-w-0">
+          <span class="font-cinzel text-sm sm:text-xl font-bold tracking-wide sm:tracking-wider block leading-none whitespace-nowrap">MAZZY • CAT IN SINK</span>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold hidden sm:block lg:hidden xl:block mt-1 whitespace-nowrap">Institute for Contemporary Domestic Occupation</span>
         </div>
       </a>
 
@@ -281,7 +298,7 @@
       <div class="flex items-center gap-2 shrink-0">
         <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle Light or Dark Mode" class="px-3 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface text-[11px] font-mono hover:border-gallery-ink dark:hover:border-white transition-colors cursor-pointer flex items-center gap-1.5">
           <span id="themeToggleIcon" aria-hidden="true">☾</span>
-          <span id="themeToggleLabel">Dark Mode</span>
+          <span id="themeToggleLabel" class="hidden xl:inline">Dark Mode</span>
         </button>
         <a href="#mailing-list" id="headerJoinListBtn" aria-label="Join the mailing list" class="px-3.5 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap hover:opacity-90 transition-opacity">
           <span aria-hidden="true">✉</span>
@@ -295,7 +312,7 @@
     <!-- Row 2: Dedicated Curatorial Voice Sub-Bar -->
     <div class="border-t border-gallery-border/70 dark:border-gallery-darkBorder/70 bg-gallery-muted/60 dark:bg-gallery-darkSurface/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2">
-        <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto">
+        <div class="voice-scroll flex items-center gap-1.5 w-full min-w-0 sm:w-auto">
           <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold pr-2 whitespace-nowrap">Curatorial Placard Voice:</span>
           <button onclick="setCuratorialVoice('satire')" id="voiceBtn-satire" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg shadow-sm cursor-pointer">
             01. The Critic
@@ -320,7 +337,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gallery-amberLight dark:bg-gallery-darkSurface border border-gallery-amber/30 dark:border-gallery-gold/40 text-gallery-amber dark:text-gallery-gold font-mono text-xs">
+          <div class="inline-flex flex-wrap items-center gap-x-2 max-w-full px-3 py-1 rounded-full bg-gallery-amberLight dark:bg-gallery-darkSurface border border-gallery-amber/30 dark:border-gallery-gold/40 text-gallery-amber dark:text-gallery-gold font-mono text-xs">
             <span>PERMANENT COLLECTION</span>
             <span>·</span>
             <span id="heroVoiceBadge">VOL. I (2026) MONOGRAPH</span>
@@ -345,7 +362,7 @@
             <a href="#zine-section" class="px-5 py-3 rounded-md bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs uppercase tracking-wider hover:border-gallery-amber transition-colors">
               Flip Through Zine ($22)
             </a>
-            <button onclick="playCuratorAudioHero()" class="px-4 py-3 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs flex items-center gap-2 hover:opacity-80 cursor-pointer">
+            <button onclick="playCuratorAudioHero(this)" class="audio-btn px-4 py-3 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs flex items-center gap-2 hover:opacity-80 cursor-pointer">
               🔊 Audio Tour
             </button>
           </div>
@@ -464,6 +481,7 @@
               SPREAD <span id="spreadIndexLabel" class="text-gallery-ink dark:text-gallery-gold font-semibold">1 OF 8</span> • <span id="spreadTitleLabel"></span>
             </div>
             <div class="flex items-center gap-2">
+              <button onclick="speakSpread(this)" class="audio-btn px-3.5 py-2 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-xs cursor-pointer">🔊 Listen</button>
               <button onclick="changeSpread(-1)" class="px-3.5 py-2 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-xs">← Prev</button>
               <div id="spreadDots" class="hidden sm:flex items-center gap-1.5 px-2"></div>
               <button onclick="changeSpread(1)" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">Next →</button>
@@ -476,13 +494,16 @@
 
   <!-- PRINT-ON-DEMAND KITCHEN & BATH DECOR SHOWCASE -->
   <section id="gift-shop" class="py-14 max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="mb-8">
-      <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
-        Functional Conceptualism • Printed to Order
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
+          Functional Conceptualism • Printed to Order
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
+          Museum Gift Shop: Kitchen &amp; Powder Room Editions
+        </h2>
       </div>
-      <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
-        Museum Gift Shop: Kitchen &amp; Powder Room Editions
-      </h2>
+      <button onclick="speakShop(this)" class="audio-btn self-start sm:self-auto shrink-0 px-4 py-2.5 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs inline-flex items-center gap-2 hover:opacity-80 cursor-pointer">🔊 Shop Audio Tour</button>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -553,8 +574,9 @@
     <div class="text-center mb-10">
       <span class="text-xs font-mono text-gallery-amber dark:text-gallery-gold tracking-widest uppercase block mb-2">// CURATORIAL CATALOGUE ESSAY</span>
       <h2 class="font-cinzel text-2xl sm:text-4xl font-bold">On the Domestic Basin: Mazzy &amp; "The Third Cat"</h2>
+      <button onclick="speakEssay(this)" class="audio-btn mt-5 px-4 py-2.5 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs inline-flex items-center gap-2 hover:opacity-80 cursor-pointer">🔊 Listen to the Essay</button>
     </div>
-    <div class="space-y-5 text-lg sm:text-xl opacity-90">
+    <div id="essayBody" class="space-y-5 text-lg sm:text-xl opacity-90">
       <p>
         To consider Mazzy within the eighteen-gauge stainless-steel basin is to confront the fundamental paradox of domestic spatial occupation: a vessel engineered for things that pass through it, occupied by a being that declines to leave. Where the canine approaches household architecture with compliance toward utility, the tortoiseshell cat approaches the sink as a site of ontological inquiry.
       </p>
@@ -608,7 +630,7 @@
             © 2025–2026 Yerma Woods. All rights reserved. Photographs, placard texts and <em>Third Cat Theory</em> may not be reproduced, distributed or used to train AI models without written permission.
           </p>
         </div>
-        <div class="flex items-center gap-4 font-mono text-xs text-gallery-steel">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-gallery-steel">
           <a href="#exhibition-grid" class="hover:text-white transition-colors">Plates</a>
           <span>·</span>
           <a href="#zine-section" class="hover:text-white transition-colors">Zine</a>
@@ -679,7 +701,7 @@
             <div>
               <div class="flex items-start justify-between gap-2">
                 <h3 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-semibold italic"></h3>
-                <button onclick="speakModalPlacard()" class="shrink-0 px-2.5 py-1 rounded bg-gallery-muted dark:bg-gallery-darkBg font-mono text-[11px]">🔊 Audio</button>
+                <button onclick="speakModalPlacard(this)" class="audio-btn shrink-0 px-2.5 py-1 rounded bg-gallery-muted dark:bg-gallery-darkBg font-mono text-[11px]">🔊 Audio</button>
               </div>
               <div id="modalMeta" class="mt-2 font-mono text-xs text-gallery-steel dark:text-gray-400 space-y-1"></div>
               <div class="mt-4 p-3.5 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder">
@@ -1276,7 +1298,7 @@
           const wingShort = work.wing.replace(/^Wing (I+): /, 'Wing $1 — ');
           divider = `<div class="wing-divider">
             <div class="wing-divider-line"></div>
-            <span class="font-cinzel text-xs tracking-widest uppercase text-gallery-amber dark:text-gallery-gold whitespace-nowrap px-2">${wingShort}</span>
+            <span class="font-cinzel text-xs tracking-widest uppercase text-gallery-amber dark:text-gallery-gold text-center px-2">${wingShort}</span>
             <div class="wing-divider-line"></div>
           </div>`;
           lastWing = work.wing;
@@ -1297,9 +1319,6 @@
                   <span class="px-2.5 py-1 rounded bg-gallery-ink/90 text-white dark:text-gallery-gold font-mono text-[10px]">
                     ${work.id}
                   </span>
-                  <span class="px-2 py-1 rounded bg-black/70 text-white font-mono text-[10px]">
-                    ${work.temp}
-                  </span>
                 </div>
               </div>
 
@@ -1319,11 +1338,14 @@
               </div>
             </div>
 
-            <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
-              <span class="font-mono text-xs">Editions: <strong>$24 – $85</strong></span>
-              <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold">
-                Frame &amp; Buy →
-              </button>
+            <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between gap-2">
+              <span class="font-mono text-xs whitespace-nowrap"><span class="hidden sm:inline lg:hidden xl:inline">Editions: </span><strong>$24 – $85</strong></span>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="speakWork('${work.id}', this)" aria-label="Play audio placard: ${work.title}" title="Audio placard" class="audio-btn audio-icon px-2.5 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-[11px] cursor-pointer">🔊</button>
+                <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold whitespace-nowrap">
+                  Frame &amp; Buy →
+                </button>
+              </div>
             </div>
           </article>
         `;
@@ -1331,6 +1353,7 @@
     }
 
     function setCuratorialVoice(voice) {
+      stopSpeech();
       currentVoice = voice;
       ['satire', 'poetic', 'fieldlog'].forEach(v => {
         const btn = document.getElementById(`voiceBtn-${v}`);
@@ -1362,6 +1385,7 @@
     }
 
     function filterWing(wing) {
+      stopSpeech();
       currentWing = wing;
       document.querySelectorAll('.wing-btn').forEach(btn => {
         btn.className = btn.getAttribute('data-wing') === wing
@@ -1391,7 +1415,7 @@
       document.getElementById('modalMeta').innerHTML = `
         <div><strong>MEDIUM:</strong> ${work.medium}</div>
         <div><strong>DIMENSIONS:</strong> ${work.dimensions}</div>
-        <div><strong>TELEMETRY:</strong> ${work.vessel} • Temp: ${work.temp}</div>
+        <div><strong>VESSEL:</strong> ${work.vessel}</div>
       `;
       document.getElementById('modalVoiceLabel').textContent = VOICE_LABELS[currentVoice].badge;
       document.getElementById('modalCommentary').textContent = `“${work.voices[currentVoice]}”`;
@@ -1399,7 +1423,7 @@
 
     function closeArtworkModal() {
       document.getElementById('artworkModal').classList.add('hidden');
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      stopSpeech();
     }
 
     function setModalFrame(style) {
@@ -1444,6 +1468,7 @@
     }
 
     function changeSpread(delta) {
+      stopSpeech();
       currentSpreadIndex = (currentSpreadIndex + delta + zineSpreads.length) % zineSpreads.length;
       renderBookSpread();
     }
@@ -1512,36 +1537,100 @@
       window.speechSynthesis.onvoiceschanged = pickVoice;
     }
 
-    function speakText(text) {
+    // Play/stop state: the button that started the current narration shows "⏹ Stop"
+    let activeSpeechBtn = null;
+    let speechSession = 0;
+
+    function resetSpeechBtn() {
+      if (activeSpeechBtn) {
+        activeSpeechBtn.innerHTML = activeSpeechBtn.dataset.idleLabel;
+        activeSpeechBtn.setAttribute('aria-pressed', 'false');
+        activeSpeechBtn = null;
+      }
+    }
+
+    function stopSpeech() {
+      speechSession++;
+      clearTimeout(speakTimer);
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      resetSpeechBtn();
+    }
+
+    function speakText(text, btn) {
       if (!('speechSynthesis' in window) || !text) return;
+      // Tapping the button that is already playing stops it
+      const wasPlaying = btn && btn === activeSpeechBtn;
+      stopSpeech();
+      if (wasPlaying) return;
+
       const synth = window.speechSynthesis;
-      synth.cancel();
       if (!preferredVoice) pickVoice();
       // Speak sentence-by-sentence: avoids Chrome cutting long speech off after ~15 seconds
       const clean = text.replace(/\s+/g, ' ').trim();
       const sentences = clean.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [clean];
-      clearTimeout(speakTimer); // double-clicks shouldn't queue the text twice
+      const session = speechSession;
+
+      if (btn) {
+        btn.dataset.idleLabel = btn.innerHTML;
+        btn.innerHTML = btn.classList.contains('audio-icon') ? '⏹' : '⏹ Stop';
+        btn.setAttribute('aria-pressed', 'true');
+        activeSpeechBtn = btn;
+      }
+
       speakTimer = setTimeout(() => {
-        sentences.forEach(sentence => {
+        sentences.forEach((sentence, i) => {
           const u = new SpeechSynthesisUtterance(sentence.trim());
           if (preferredVoice) { u.voice = preferredVoice; u.lang = preferredVoice.lang; }
           u.rate = 0.92;   // a touch slower = more gallery-docent, less robot
           u.pitch = 1.0;
+          if (i === sentences.length - 1) {
+            const done = () => { if (session === speechSession) resetSpeechBtn(); };
+            u.onend = done;
+            u.onerror = done;
+          }
           synth.speak(u);
         });
       }, 60);
     }
 
-    function playCuratorAudioHero() {
-      speakText(document.getElementById('heroStatement').innerText);
+    function playCuratorAudioHero(btn) {
+      speakText(document.getElementById('heroStatement').innerText, btn);
     }
 
-    function speakModalPlacard() {
+    function speakModalPlacard(btn) {
       const w = catalogueWorks.find(x => x.id === activeModalId);
-      if (w) speakText(`${w.title}. ${w.voices[currentVoice]}`);
+      if (w) speakText(`${w.title}. ${w.voices[currentVoice]}`, btn);
+    }
+
+    // Gallery card: title + the placard in the currently selected curatorial voice
+    function speakWork(id, btn) {
+      const w = catalogueWorks.find(x => x.id === id);
+      if (w) speakText(`${w.title}, ${w.year}. ${w.voices[currentVoice]}`, btn);
+    }
+
+    function speakEssay(btn) {
+      const title = document.querySelector('#curator-essay h2').innerText;
+      speakText(`${title}. ${document.getElementById('essayBody').innerText}`, btn);
+    }
+
+    // Reads whatever zine spread is currently open
+    function speakSpread(btn) {
+      const text = ['bookPageLeft', 'bookPageRight']
+        .map(id => document.getElementById(id).innerText.trim())
+        .filter(Boolean)
+        .map(t => /[.!?]$/.test(t) ? t : t + '.')
+        .join(' ');
+      speakText(text, btn);
+    }
+
+    function speakShop(btn) {
+      const parts = Array.from(document.querySelectorAll('#gift-shop h2, #gift-shop h3, #gift-shop p'))
+        .map(el => el.innerText.trim().replace(/[.!?]?$/, '.'));
+      speakText(parts.join(' '), btn);
     }
 
     window.onload = function() {
+      if (!('speechSynthesis' in window)) document.documentElement.classList.add('no-speech');
       syncThemeUI(document.documentElement.classList.contains('dark'));
       renderGallery();
       renderBookSpread();
