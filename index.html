@@ -15,6 +15,8 @@
   <meta property="og:image" content="https://sabinasherwood.github.io/mazzy-gallery/IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png" />
   <meta property="og:image:alt" content="Mazzy the tortoiseshell cat sitting centered in a stainless-steel sink beneath a matte-black faucet" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="author" content="Yerma Woods" />
+  <meta name="copyright" content="© 2025–2026 Yerma Woods. All rights reserved." />
   <script>
     // Immediately sync with iOS / Android / Browser system Light/Dark mode before first paint
     (function() {
@@ -397,7 +399,7 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-gallery-border dark:border-gallery-darkBorder">
       <div>
         <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
-          Permanent Collection • 14 Archival Plates (7 Symmetrical Pairs)
+          Permanent Collection • 14 Archival Plates in 3 Wings
         </div>
         <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
           Exhibition Wings &amp; Museum Placards
@@ -554,13 +556,21 @@
     </div>
     <div class="space-y-5 text-lg sm:text-xl opacity-90">
       <p>
-        To consider Mazzy within the eighteen-gauge stainless steel basin is to confront the fundamental paradox of domestic spatial occupation. Where the canine approaches household architecture with compliance toward utility, the tortoiseshell cat approaches the sink as a site of ontological inquiry.
+        To consider Mazzy within the eighteen-gauge stainless-steel basin is to confront the fundamental paradox of domestic spatial occupation: a vessel engineered for things that pass through it, occupied by a being that declines to leave. Where the canine approaches household architecture with compliance toward utility, the tortoiseshell cat approaches the sink as a site of ontological inquiry.
       </p>
-      <blockquote class="border-l-2 border-gallery-amber dark:border-gallery-gold pl-5 italic py-1 my-6 text-xl sm:text-2xl">
-        "Moving beyond Schrödinger's binary thought experiment—neither strictly liquid nor solid, neither captive nor master—Mazzy embodies The Third Cat: a multiplied, recursive consciousness aware of being both, and aware of being aware."
-      </blockquote>
+      <figure class="my-6">
+        <blockquote class="border-l-2 border-gallery-amber dark:border-gallery-gold pl-5 italic py-1 text-xl sm:text-2xl">
+          “Schrödinger’s cat must collapse into a single state the moment the box is opened. The Third Cat refuses the collapse—at once liquid and solid, captive and master—a recursive consciousness aware of being both, and aware of being aware.”
+        </blockquote>
+        <figcaption class="pl-5 mt-2 font-mono text-xs not-italic text-gallery-steel dark:text-gray-400 tracking-wide">
+          — Yerma Woods, <cite class="not-italic">Third Cat Theory</cite> (2025)
+        </figcaption>
+      </figure>
       <p>
-        Across these fourteen plates—arranged in seven symmetrical pairs mirroring the dual-basin architecture of the suburban kitchen—we witness Kazimierz Dąbrowski's <em>positive disintegration</em> translated into plumbing: the utilitarian identity of the basin is shattered and reintegrated into a higher-order reliquary of contemplation.
+        Across these fourteen plates, arranged in three exhibition wings, Kazimierz Dąbrowski’s <em>positive disintegration</em> is translated into plumbing: the basin’s utilitarian identity is shattered and reintegrated into a higher-order reliquary of contemplation. Agency, not accident, is the medium. Mazzy is not placed in the sink; she chooses it. She is not the cat inside the box but its observer.
+      </p>
+      <p>
+        Logic builds the house. Lived experience inhabits it. The Third Cat, seated in the basin beneath the window, realizes the house is transparent.
       </p>
     </div>
   </section>
@@ -593,7 +603,10 @@
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <div class="font-cinzel text-xl text-white font-bold tracking-wider">MAZZY • CAT IN SINK</div>
-          <p class="font-mono text-xs text-gallery-steel mt-1">Institute for Contemporary Domestic Occupation · Catalogue Raisonné Vol. I (2026) · © Mazzy Studio</p>
+          <p class="font-mono text-xs text-gallery-steel mt-1">Institute for Contemporary Domestic Occupation · Catalogue Raisonné Vol. I (2026)</p>
+          <p class="font-mono text-[11px] text-gallery-steel mt-2 leading-relaxed max-w-xl">
+            © 2025–2026 Yerma Woods. All rights reserved. Photographs, placard texts and <em>Third Cat Theory</em> may not be reproduced, distributed or used to train AI models without written permission.
+          </p>
         </div>
         <div class="flex items-center gap-4 font-mono text-xs text-gallery-steel">
           <a href="#exhibition-grid" class="hover:text-white transition-colors">Plates</a>
@@ -1461,19 +1474,71 @@
       document.getElementById('copyManifestBtnText').textContent = '✓ Copied!';
     }
 
+    // ---------- AUDIO TOUR: choose the most natural-sounding voice on this device ----------
+    // Browsers ship many voices; the default is often an old robotic one. Score and pick the best.
+    const NOVELTY_VOICES = /albert|bad news|bahh|bells|boing|bubbles|cellos|good news|jester|organ|superstar|trinoids|whisper|wobble|zarvox|fred|junior|ralph|kathy|princess/i;
+    let preferredVoice = null;
+    let speakTimer = null;
+
+    function scoreVoice(v) {
+      if (!/^en/i.test(v.lang) || NOVELTY_VOICES.test(v.name)) return -1;
+      const n = v.name;
+      let s = 0;
+      if (/premium/i.test(n)) s += 100;             // Apple downloadable premium voices
+      if (/enhanced/i.test(n)) s += 80;             // Apple enhanced voices
+      if (/siri/i.test(n)) s += 70;
+      if (/natural|online/i.test(n)) s += 60;       // Microsoft Edge neural voices
+      if (/^Google UK English/i.test(n)) s += 55;   // Chrome network voices
+      if (/^Google US English/i.test(n)) s += 50;
+      if (/daniel|serena|kate|oliver|arthur|martha|moira/i.test(n)) s += 40; // calm British/Irish "curator" voices
+      if (/samantha|ava|allison|evan|zoe|nathan|susan|tom/i.test(n)) s += 30;
+      if (/en[-_]GB/i.test(v.lang)) s += 10;
+      return s;
+    }
+
+    function pickVoice() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      let best = null, bestScore = -1;
+      voices.forEach(v => {
+        const sc = scoreVoice(v);
+        if (sc > bestScore) { best = v; bestScore = sc; }
+      });
+      if (best) preferredVoice = best;
+    }
+
+    if ('speechSynthesis' in window) {
+      pickVoice();
+      window.speechSynthesis.onvoiceschanged = pickVoice;
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window) || !text) return;
+      const synth = window.speechSynthesis;
+      synth.cancel();
+      if (!preferredVoice) pickVoice();
+      // Speak sentence-by-sentence: avoids Chrome cutting long speech off after ~15 seconds
+      const clean = text.replace(/\s+/g, ' ').trim();
+      const sentences = clean.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [clean];
+      clearTimeout(speakTimer); // double-clicks shouldn't queue the text twice
+      speakTimer = setTimeout(() => {
+        sentences.forEach(sentence => {
+          const u = new SpeechSynthesisUtterance(sentence.trim());
+          if (preferredVoice) { u.voice = preferredVoice; u.lang = preferredVoice.lang; }
+          u.rate = 0.92;   // a touch slower = more gallery-docent, less robot
+          u.pitch = 1.0;
+          synth.speak(u);
+        });
+      }, 60);
+    }
+
     function playCuratorAudioHero() {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById('heroStatement').innerText));
-      }
+      speakText(document.getElementById('heroStatement').innerText);
     }
 
     function speakModalPlacard() {
       const w = catalogueWorks.find(x => x.id === activeModalId);
-      if (w && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(new SpeechSynthesisUtterance(`${w.title}. ${w.voices[currentVoice]}`));
-      }
+      if (w) speakText(`${w.title}. ${w.voices[currentVoice]}`);
     }
 
     window.onload = function() {
