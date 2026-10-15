@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" id="metaThemeColor" content="#F7F7F8" />
   <title>MAZZY: CAT IN SINK — Catalogue Raisonné Vol. I (2026) · 14-Plate Retrospective</title>
@@ -12,11 +12,16 @@
   <meta property="og:title" content="MAZZY: CAT IN SINK — 14-Plate Retrospective" />
   <meta property="og:description" content="A fine-art photography exhibition of one tortoiseshell cat and one kitchen sink. Prints, tea towels & a catalogue zine." />
   <meta property="og:url" content="https://sabinasherwood.github.io/mazzy-gallery/" />
-  <meta property="og:image" content="https://sabinasherwood.github.io/mazzy-gallery/IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png" />
-  <meta property="og:image:alt" content="Mazzy the tortoiseshell cat sitting centered in a stainless-steel sink beneath a matte-black faucet" />
+  <meta property="og:image" content="https://sabinasherwood.github.io/mazzy-gallery/images/share-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MAZZY: Cat in Sink — a tortoiseshell cat sitting in a stainless-steel sink beneath a matte-black faucet and white shutters" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="author" content="Yerma Woods" />
   <meta name="copyright" content="© 2025–2026 Yerma Woods. All rights reserved." />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script>
     // Immediately sync with iOS / Android / Browser system Light/Dark mode before first paint
     (function() {
@@ -119,7 +124,6 @@
     /* Curatorial voice switcher scrolls sideways like a native tab bar */
     .voice-scroll {
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }
     .voice-scroll::-webkit-scrollbar { display: none; }
@@ -255,7 +259,7 @@
 <body class="bg-gallery-bg text-gallery-ink dark:bg-gallery-darkBg dark:text-[#F4F4F5] antialiased selection:bg-gallery-amber selection:text-white">
 
   <!-- HIDDEN IPHONE CAMERA ROLL FILE INPUT -->
-  <input type="file" id="iphonePhotoInput" accept="image/*" multiple class="hidden" onchange="handleIphonePhotos(event)" />
+  <input type="file" id="iphonePhotoInput" accept="image/*" multiple class="hidden" aria-label="Load custom plate photos" title="Load custom plate photos" onchange="handleIphonePhotos(event)" />
 
   <!-- SLEEK MUSEUM EXHIBITION RIBBON (NO CLUNKY ADMIN BUTTONS) -->
   <div id="exhibitionRibbonBar" class="bg-gallery-ink dark:bg-gallery-gold text-gallery-bg dark:text-gallery-darkBg px-4 py-2 text-[11px] font-mono tracking-widest uppercase">
@@ -374,8 +378,10 @@
             <div class="relative aspect-square overflow-hidden rounded-lg bg-gallery-muted dark:bg-black group cursor-pointer" onclick="openArtworkModal('CIS-06')">
               <img
                 id="heroFeaturedImg"
-                src="IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png"
-                data-alt-src="image_18.png"
+                src="images/cis-06.webp"
+                width="1200" height="1200"
+                fetchpriority="high"
+                data-alt-src="IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png"
                 alt="Cat No. CIS-06: The Monolith Beneath the Louvers"
                 onerror="handleImgFallback(this)"
                 class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
@@ -510,7 +516,7 @@
       <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" data-alt-src="image_2.png" onerror="handleImgFallback(this)" alt="The Godot Spout Towel" class="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src="images/cis-03.webp" data-alt-src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" onerror="handleImgFallback(this)" alt="The Godot Spout Towel" class="w-full h-full object-cover" />
             <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">PLATE CIS-03</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">BELGIAN LINEN TEA TOWEL • 18" × 26"</div>
@@ -530,7 +536,7 @@
       <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" data-alt-src="image_7.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith Overhead Frame" class="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src="images/cis-10.webp" data-alt-src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith Overhead Frame" class="w-full h-full object-cover" />
             <span class="absolute top-2.5 left-2.5 bg-gallery-amber text-white font-mono text-[10px] px-2 py-0.5 rounded font-semibold">OVER-THE-SINK FAVORITE • CIS-10</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">MUSEUM MATTE BLACK FRAME • 16" × 16"</div>
@@ -550,7 +556,7 @@
       <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" data-alt-src="image_17.png" onerror="handleImgFallback(this)" alt="Postcard Pack" class="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src="images/cis-09.webp" data-alt-src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" onerror="handleImgFallback(this)" alt="Postcard Pack" class="w-full h-full object-cover" />
             <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">COMPLETE 14-PLATE SET</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">ARCHIVAL POSTCARD PACK • 14 CARDS</div>
@@ -615,7 +621,11 @@
           Join the List
         </button>
       </form>
+      <iframe name="newsletterFrame" title="Mailing list signup" hidden></iframe>
       <p id="newsletterStatus" role="status" aria-live="polite" class="mt-3 font-mono text-xs min-h-[1.25rem]"></p>
+      <p class="font-mono text-[11px] text-gallery-steel dark:text-gray-400 mt-1 leading-relaxed">
+        Your email is used only for Collector's List news. It is never sold or used for advertising, and every email has a one-click unsubscribe.
+      </p>
     </div>
   </section>
 
@@ -628,6 +638,9 @@
           <p class="font-mono text-xs text-gallery-steel mt-1">Institute for Contemporary Domestic Occupation · Catalogue Raisonné Vol. I (2026)</p>
           <p class="font-mono text-[11px] text-gallery-steel mt-2 leading-relaxed max-w-xl">
             © 2025–2026 Yerma Woods. All rights reserved. Photographs, placard texts and <em>Third Cat Theory</em> may not be reproduced, distributed or used to train AI models without written permission.
+          </p>
+          <p class="font-mono text-[11px] text-gallery-steel mt-2 leading-relaxed max-w-xl">
+            Privacy: this site uses no tracking or advertising cookies. The Collector's List stores only your email address, used solely for exhibition and shop news. Unsubscribe any time.
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-gallery-steel">
@@ -785,7 +798,7 @@
             </div>
             <button onclick="copyExportManifest()" id="copyManifestBtnText" class="px-4 py-1.5 rounded bg-gallery-amber text-white font-mono text-xs font-semibold">📋 Copy to Clipboard</button>
           </div>
-          <textarea id="exportManifestTextarea" readonly class="w-full h-80 p-3 rounded-xl bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs"></textarea>
+          <textarea id="exportManifestTextarea" readonly aria-label="Exported 14-plate catalogue data" title="Exported 14-plate catalogue data" class="w-full h-80 p-3 rounded-xl bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs"></textarea>
         </div>
       </div>
     </div>
@@ -877,18 +890,23 @@
     function submitNewsletter(event) {
       const form = event.target;
       const input = document.getElementById('newsletterEmail');
+      const button = document.getElementById('newsletterSubmitBtn');
       const status = document.getElementById('newsletterStatus');
       const cfg = SHOP_CONFIG.newsletter;
       if (cfg.action) {
+        // Post to the mailing-list service inside a hidden frame so the visitor stays on the page.
         form.action = cfg.action;
         form.method = 'post';
-        form.target = '_blank';
+        form.target = 'newsletterFrame';
         input.name = cfg.emailField || 'email';
-        status.textContent = 'Thank you — please check your inbox to confirm your subscription.';
+        button.disabled = true;
+        status.textContent = 'Thank you — please check your inbox and click the link to confirm your subscription.';
+        setTimeout(() => { form.reset(); button.disabled = false; }, 1500);
         return true;
       }
+      // List not connected yet: don't pretend the address was saved.
       event.preventDefault();
-      status.textContent = 'Thank you! The list opens very soon — please check back shortly.';
+      status.textContent = 'Almost ready — the Collector\u2019s List opens very soon. Please check back shortly.';
       return false;
     }
 
@@ -915,7 +933,9 @@
         imgEl.dataset.triedAlt = 'true';
         imgEl.src = altSrc;
       } else {
-        imgEl.src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80';
+        // Both files failed: hide the broken image rather than showing a stock photo of a different cat.
+        imgEl.onerror = null;
+        imgEl.style.visibility = 'hidden';
       }
     }
 
@@ -926,8 +946,8 @@
         title: 'The Occupant (Ontology of Basin)',
         year: '2026',
         wing: 'Wing I: Basin Monoliths (The 5700 Series)',
-        image: 'IMG_5705-clean-7c01cde3-7403-4509-9319-b58a19010d7c.png',
-        altImage: 'image_4.png',
+        image: 'images/cis-01.webp',
+        altImage: 'IMG_5705-clean-7c01cde3-7403-4509-9319-b58a19010d7c.png',
         medium: 'Archival Pigment on Hahnemühle Rag',
         dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
         vessel: 'Primary Left Stainless Basin',
@@ -943,8 +963,8 @@
         title: 'Symmetry in Stainless (304-Grade)',
         year: '2026',
         wing: 'Wing I: Basin Monoliths (The 5700 Series)',
-        image: 'IMG_5703-clean-e8287f7c-cfb9-443d-b91b-d8df0683f73a.png',
-        altImage: 'image_5.png',
+        image: 'images/cis-02.webp',
+        altImage: 'IMG_5703-clean-e8287f7c-cfb9-443d-b91b-d8df0683f73a.png',
         medium: 'Chromogenic Architectural Print',
         dimensions: '50.8 × 50.8 cm (1.0 Mazzy Unit)',
         vessel: 'Chrome & 304 Stainless Combo',
@@ -960,8 +980,8 @@
         title: 'Waiting for the Drop (The Godot Spout)',
         year: '2026',
         wing: 'Wing I: Basin Monoliths (The 5700 Series)',
-        image: 'IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png',
-        altImage: 'image_2.png',
+        image: 'images/cis-03.webp',
+        altImage: 'IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png',
         medium: 'Archival Pigment Print & Hydro-Expectation',
         dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
         vessel: 'Gooseneck Aerator Basin',
@@ -977,8 +997,8 @@
         title: 'Fixture / Friction',
         year: '2026',
         wing: 'Wing I: Basin Monoliths (The 5700 Series)',
-        image: 'IMG_5707-clean-679909dd-6dc0-40a8-bf04-52f958675154.png',
-        altImage: 'image.png',
+        image: 'images/cis-04.webp',
+        altImage: 'IMG_5707-clean-679909dd-6dc0-40a8-bf04-52f958675154.png',
         medium: 'Dry-Mount Silver Gelatin Equivalent',
         dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
         vessel: 'Secondary Right-Hand Basin',
@@ -994,8 +1014,8 @@
         title: 'Profile in Neon Collar (The Refusal)',
         year: '2026',
         wing: 'Wing I: Basin Monoliths (The 5700 Series)',
-        image: 'IMG_5704-clean-b3d36165-e5ba-4b01-9c81-8d3112f1fe4a.png',
-        altImage: 'image_14.png',
+        image: 'images/cis-05.webp',
+        altImage: 'IMG_5704-clean-b3d36165-e5ba-4b01-9c81-8d3112f1fe4a.png',
         medium: 'Archival Pigment Print with High-Vis Accent',
         dimensions: '40.6 × 40.6 cm (1.0 Mazzy Unit)',
         vessel: 'Double-Basin Stainless',
@@ -1011,8 +1031,8 @@
         title: 'The Monolith Beneath the Louvers',
         year: '2026',
         wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
-        image: 'IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png',
-        altImage: 'image_18.png',
+        image: 'images/cis-06.webp',
+        altImage: 'IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png',
         medium: 'Museum Etching Rag (Flagship Plate)',
         dimensions: '60.9 × 60.9 cm (1.0 Mazzy Unit)',
         vessel: 'Axial Undermount Reliquary',
@@ -1028,8 +1048,8 @@
         title: 'Shutters & Asymmetric Gaze',
         year: '2026',
         wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
-        image: 'IMG_5041-clean-7b84d071-5974-49cf-910b-51ada317cd4f.png',
-        altImage: 'image_15.png',
+        image: 'images/cis-07.webp',
+        altImage: 'IMG_5041-clean-7b84d071-5974-49cf-910b-51ada317cd4f.png',
         medium: 'Archival Pigment Print on Hahnemühle Photo Rag',
         dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
         vessel: 'Port-Offset Basin',
@@ -1045,8 +1065,8 @@
         title: 'Contemplating the Yard (Golden Hour)',
         year: '2026',
         wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
-        image: 'IMG_5036-clean-4e0dcc64-a935-47bd-bf0f-99d4bec45dd2.png',
-        altImage: 'image_6.png',
+        image: 'images/cis-08.webp',
+        altImage: 'IMG_5036-clean-4e0dcc64-a935-47bd-bf0f-99d4bec45dd2.png',
         medium: 'Warm-Tone Baryta Fine Art Print',
         dimensions: '50.8 × 50.8 cm (1.0 Mazzy Unit)',
         vessel: 'Golden Hour Louver Basin',
@@ -1062,8 +1082,8 @@
         title: 'Nocturne with Dual-Valve Spout',
         year: '2026',
         wing: 'Wing II: The Shutter Studies (Light, Louvers & Nocturnes)',
-        image: 'IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png',
-        altImage: 'image_17.png',
+        image: 'images/cis-09.webp',
+        altImage: 'IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png',
         medium: 'Chiaroscuro Night-Study on Satin Rag',
         dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
         vessel: 'Dual-Valve Cruciform Basin',
@@ -1079,8 +1099,8 @@
         title: 'Nadir / Zenith: Total Volumetric Loaf',
         year: '2026',
         wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
-        image: 'IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png',
-        altImage: 'image_7.png',
+        image: 'images/cis-10.webp',
+        altImage: 'IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png',
         medium: 'Orthographic Overhead Archival Plate',
         dimensions: '50.8 × 50.8 cm (94.6% Basin Displacement)',
         vessel: 'Deep Rectangular Steel Vessel',
@@ -1096,8 +1116,8 @@
         title: 'Diagonal Containment (Emerald Study)',
         year: '2026',
         wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
-        image: 'IMG_5037-clean-72499b89-8a37-4ded-9651-1b8017b7b3a3.png',
-        altImage: 'image_11.png',
+        image: 'images/cis-11.webp',
+        altImage: 'IMG_5037-clean-72499b89-8a37-4ded-9651-1b8017b7b3a3.png',
         medium: 'High-Chroma Pigment Print on Cotton Rag',
         dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
         vessel: 'Mitred Corner Steel Basin',
@@ -1113,8 +1133,8 @@
         title: 'Liquid State (Rheology of Fur)',
         year: '2026',
         wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
-        image: 'IMG_5038-clean-8f6096be-0e36-4973-bec6-5fe531931a8c.png',
-        altImage: 'image_3.png',
+        image: 'images/cis-12.webp',
+        altImage: 'IMG_5038-clean-8f6096be-0e36-4973-bec6-5fe531931a8c.png',
         medium: 'Archival Print • Rheological Study',
         dimensions: '50.8 × 38.1 cm (1.0 Mazzy Unit)',
         vessel: 'Lower Topography Basin',
@@ -1130,8 +1150,8 @@
         title: 'Suburban Panopticon (Three Outlets)',
         year: '2026',
         wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
-        image: 'IMG_5032-clean-46637114-9ae1-4647-bced-7e782d9991f8.png',
-        altImage: 'image_19.png',
+        image: 'images/cis-13.webp',
+        altImage: 'IMG_5032-clean-46637114-9ae1-4647-bced-7e782d9991f8.png',
         medium: 'Wide-Field Topographical C-Print',
         dimensions: '60.9 × 45.7 cm (1.0 Mazzy Unit)',
         vessel: 'Central Command Sink',
@@ -1147,8 +1167,8 @@
         title: 'Island Sovereignty (Patio View)',
         year: '2026',
         wing: 'Wing III: Total Basin Displacement & Domestic Architecture',
-        image: 'IMG_5033-clean-be4de87c-33c4-4d3e-9124-68971cdfaefb.png',
-        altImage: 'image_16.png',
+        image: 'images/cis-14.webp',
+        altImage: 'IMG_5033-clean-be4de87c-33c4-4d3e-9124-68971cdfaefb.png',
         medium: 'Archival Pigment Print on Rag',
         dimensions: '45.0 × 45.0 cm (1.0 Mazzy Unit)',
         vessel: 'Island Peninsula Resting Vessel',
@@ -1310,6 +1330,8 @@
               <div class="relative aspect-square bg-gallery-muted dark:bg-black overflow-hidden group cursor-pointer" onclick="openArtworkModal('${work.id}')">
                 <img
                   src="${work.image}"
+                  loading="lazy"
+                  decoding="async"
                   data-alt-src="${work.altImage}"
                   alt="${work.title}"
                   onerror="handleImgFallback(this)"
@@ -1447,7 +1469,7 @@
           return `
             <div class="flex-1 flex flex-col items-center justify-center">
               <div class="w-full max-w-xs aspect-square rounded overflow-hidden border border-gallery-border shadow-md">
-                <img src="${w.image}" data-alt-src="${w.altImage}" onerror="handleImgFallback(this)" alt="${p.caption}" class="w-full h-full object-cover" />
+                <img loading="lazy" decoding="async" src="${w.image}" data-alt-src="${w.altImage}" onerror="handleImgFallback(this)" alt="${p.caption}" class="w-full h-full object-cover" />
               </div>
               <div class="mt-3 font-mono text-[11px] text-gallery-steel text-center">${p.caption}</div>
             </div>
