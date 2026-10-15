@@ -6,6 +6,15 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" id="metaThemeColor" content="#F7F7F8" />
   <title>MAZZY: CAT IN SINK — Catalogue Raisonné Vol. I (2026) · 14-Plate Retrospective</title>
+  <meta name="description" content="Mazzy: Cat in Sink — a 14-plate fine-art photography retrospective of a tortoiseshell cat and her stainless-steel basin. Prints, tea towels and a catalogue zine." />
+  <!-- Social share previews (Instagram, Facebook, iMessage, Pinterest, X) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MAZZY: CAT IN SINK — 14-Plate Retrospective" />
+  <meta property="og:description" content="A fine-art photography exhibition of one tortoiseshell cat and one kitchen sink. Prints, tea towels & a catalogue zine." />
+  <meta property="og:url" content="https://sabinasherwood.github.io/mazzy-gallery/" />
+  <meta property="og:image" content="https://sabinasherwood.github.io/mazzy-gallery/IMG_5035-clean-69cb58e4-636a-402a-ac1a-6953a6f962d2.png" />
+  <meta property="og:image:alt" content="Mazzy the tortoiseshell cat sitting centered in a stainless-steel sink beneath a matte-black faucet" />
+  <meta name="twitter:card" content="summary_large_image" />
   <script>
     // Immediately sync with iOS / Android / Browser system Light/Dark mode before first paint
     (function() {
@@ -150,7 +159,7 @@
     @media print {
       /* Hide interactive chrome */
       header, footer,
-      #artworkModal, #economicsDrawer, #cartDrawer, #exportModal,
+      #artworkModal, #comingSoonModal, #exportModal, #mailing-list,
       #zine-section, #gift-shop, #curator-essay,
       .sticky, button, input[type="file"],
       nav, .wing-btn, .voice-btn,
@@ -264,7 +273,6 @@
         <a href="#zine-section" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">Catalogue Zine</a>
         <a href="#gift-shop" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">Museum Shop</a>
         <a href="#curator-essay" class="hover:text-gallery-amber dark:hover:text-gallery-gold transition-colors whitespace-nowrap">The Essay</a>
-        <button onclick="toggleEconomicsDrawer(true)" class="text-gallery-amber dark:text-gallery-gold hover:underline uppercase tracking-widest whitespace-nowrap cursor-pointer">Appraisal</button>
       </nav>
 
       <!-- Right: Theme & Boutique Bag -->
@@ -273,11 +281,11 @@
           <span id="themeToggleIcon" aria-hidden="true">☾</span>
           <span id="themeToggleLabel">Dark Mode</span>
         </button>
-        <button onclick="toggleCartDrawer(true)" class="px-3.5 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold flex items-center gap-1.5 cursor-pointer">
-          <span>Boutique</span>
-          <span id="desktopCartCount" class="px-1.5 py-0.5 rounded bg-white/20 dark:bg-black/20 text-[10px]">1</span>
-          <span id="mobileCartCount" class="hidden">1</span>
-        </button>
+        <a href="#mailing-list" id="headerJoinListBtn" aria-label="Join the mailing list" class="px-3.5 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap hover:opacity-90 transition-opacity">
+          <span aria-hidden="true">✉</span>
+          <span class="hidden sm:inline">Join the List</span>
+          <span class="sm:hidden">Join</span>
+        </a>
       </div>
 
     </div>
@@ -288,17 +296,17 @@
         <div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto">
           <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-steel dark:text-gallery-gold pr-2 whitespace-nowrap">Curatorial Placard Voice:</span>
           <button onclick="setCuratorialVoice('satire')" id="voiceBtn-satire" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg shadow-sm cursor-pointer">
-            01. High-Art Satire
+            01. The Critic
           </button>
           <button onclick="setCuratorialVoice('poetic')" id="voiceBtn-poetic" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap text-gallery-ink dark:text-gray-300 cursor-pointer">
-            02. Poetic &amp; Quiet
+            02. The Poet
           </button>
           <button onclick="setCuratorialVoice('fieldlog')" id="voiceBtn-fieldlog" class="voice-btn px-3 py-1 rounded text-xs font-medium whitespace-nowrap text-gallery-ink dark:text-gray-300 cursor-pointer">
-            03. Deadpan Field Log
+            03. Field Notes
           </button>
         </div>
         <div class="hidden md:block font-mono text-[10px] text-gallery-steel dark:text-gray-400">
-          Switch voices to transform all 14 museum wall placards in real time
+          Change the voice and all 14 wall placards rewrite themselves
         </div>
       </div>
     </div>
@@ -374,7 +382,7 @@
                 </p>
               </div>
               <button onclick="openArtworkModal('CIS-06')" class="px-3.5 py-2 rounded border border-gallery-ink dark:border-gallery-gold text-xs font-mono shrink-0">
-                Frame Studio ($18–$85)
+                Frame Studio ($24–$85)
               </button>
             </div>
           </div>
@@ -432,10 +440,10 @@
         </div>
 
         <div class="flex flex-wrap gap-2.5">
-          <button onclick="buyNowWithStripe('zineSoftcover', 'ZINE-SOFTCOVER')" class="px-4 py-2 rounded border border-gallery-ink dark:border-gallery-gold font-mono text-xs hover:bg-gallery-muted dark:hover:bg-white/10">
+          <button onclick="buyNow('zineSoftcover', 'ZINE-SOFTCOVER')" class="px-4 py-2 rounded border border-gallery-ink dark:border-gallery-gold font-mono text-xs hover:bg-gallery-muted dark:hover:bg-white/10">
             Buy Softcover Zine ($22) →
           </button>
-          <button onclick="buyNowWithStripe('zineHardcover', 'ZINE-HARDCOVER')" class="px-4 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+          <button onclick="buyNow('zineHardcover', 'ZINE-HARDCOVER')" class="px-4 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
             Buy Linen Hardcover ($34) →
           </button>
         </div>
@@ -468,7 +476,7 @@
   <section id="gift-shop" class="py-14 max-w-7xl mx-auto px-4 sm:px-6">
     <div class="mb-8">
       <div class="font-mono text-xs uppercase tracking-widest text-gallery-amber dark:text-gallery-gold">
-        Functional Conceptualism • Direct Stripe &amp; POD Fulfillment
+        Functional Conceptualism • Printed to Order
       </div>
       <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
         Museum Gift Shop: Kitchen &amp; Powder Room Editions
@@ -480,7 +488,7 @@
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
             <img src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" data-alt-src="image_2.png" onerror="handleImgFallback(this)" alt="The Godot Spout Towel" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">BESTSELLER • CIS-03</span>
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">PLATE CIS-03</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">BELGIAN LINEN TEA TOWEL • 18" × 26"</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">"The Godot Spout" Dish Towel</h3>
@@ -490,8 +498,8 @@
         </div>
         <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
           <span class="font-mono text-sm font-semibold">$24.00</span>
-          <button onclick="buyNowWithStripe('teaTowel', 'CIS-03')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
-            Buy via Stripe →
+          <button onclick="buyNow('teaTowel', 'CIS-03')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy →
           </button>
         </div>
       </div>
@@ -510,8 +518,8 @@
         </div>
         <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
           <span class="font-mono text-sm font-semibold">$85.00</span>
-          <button onclick="buyNowWithStripe('framedPrint', 'CIS-10')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
-            Buy via Stripe →
+          <button onclick="buyNow('framedPrint', 'CIS-10')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy →
           </button>
         </div>
       </div>
@@ -525,13 +533,13 @@
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">ARCHIVAL POSTCARD PACK • 14 CARDS</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">Complete 14-Plate Postcard Pack</h3>
           <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
-            All 14 plates (CIS-01 through CIS-14) printed on heavy 350gsm cotton card stock with satirical museum placards on the back.
+            All 14 plates (CIS-01 through CIS-14) printed on heavy 350gsm cotton card stock with museum placards on the back.
           </p>
         </div>
         <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
           <span class="font-mono text-sm font-semibold">$18.00</span>
-          <button onclick="buyNowWithStripe('postcardPack', 'ALL-14-PLATES')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
-            Buy via Stripe →
+          <button onclick="buyNow('postcardPack', 'ALL-14-PLATES')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy →
           </button>
         </div>
       </div>
@@ -557,6 +565,28 @@
     </div>
   </section>
 
+  <!-- Voice-change confirmation toast -->
+  <div id="voiceToast" role="status" aria-live="polite" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[70] px-4 py-2.5 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs shadow-xl pointer-events-none opacity-0 translate-y-2 transition-all duration-300"></div>
+
+  <!-- MAILING LIST: NEW PLATES, NEW GALLERIES & SHOP OPENING -->
+  <section id="mailing-list" class="py-14 bg-white dark:bg-gallery-darkSurface border-t border-gallery-border dark:border-gallery-darkBorder">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <div class="font-mono text-xs uppercase tracking-widest text-gallery-steel dark:text-gray-400">The Collector's List</div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">Be first to see new plates &amp; new galleries.</h2>
+      <p class="text-sm sm:text-base opacity-80 mt-3 leading-relaxed">
+        Join the list to hear when new exhibitions open and when prints, tea towels and the catalogue zine become available. No spam — unsubscribe any time.
+      </p>
+      <form id="newsletterForm" onsubmit="return submitNewsletter(event)" class="mt-6 flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto">
+        <label for="newsletterEmail" class="sr-only">Email address</label>
+        <input id="newsletterEmail" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="flex-1 px-4 py-3 rounded-md bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-sm focus:outline-none focus:ring-2 focus:ring-gallery-ink dark:focus:ring-white" />
+        <button id="newsletterSubmitBtn" type="submit" class="px-5 py-3 rounded-md bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer">
+          Join the List
+        </button>
+      </form>
+      <p id="newsletterStatus" role="status" aria-live="polite" class="mt-3 font-mono text-xs min-h-[1.25rem]"></p>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="bg-gallery-ink text-gallery-bg py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -572,19 +602,21 @@
           <span>·</span>
           <a href="#gift-shop" class="hover:text-white transition-colors">Gift Shop</a>
           <span>·</span>
-          <button onclick="document.getElementById('curatorAdminBar').classList.toggle('hidden')" class="text-gallery-steel/60 hover:text-white transition-colors cursor-pointer" title="Curator Studio Tools">
-            ⚙ Curator Admin
-          </button>
+          <a href="#mailing-list" class="hover:text-white transition-colors">Mailing List</a>
+          <!-- Curator tools: only revealed when opened from your Mac (file://) or with ?curator in the URL -->
+          <span id="curatorAdminToggle" class="hidden items-center gap-4">
+            <span>·</span>
+            <button onclick="document.getElementById('curatorAdminBar').classList.toggle('hidden')" class="text-gallery-steel/60 hover:text-white transition-colors cursor-pointer" title="Curator Studio Tools">
+              ⚙ Curator Admin
+            </button>
+          </span>
         </div>
       </div>
 
-      <!-- Discreet Creator Admin Drawer (Hidden from regular visitors until you click ⚙ Curator Admin) -->
+      <!-- Creator Admin Drawer (only reachable via the hidden ⚙ Curator Admin toggle above) -->
       <div id="curatorAdminBar" class="hidden mt-6 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-        <span class="text-gallery-gold uppercase tracking-wider">⚙ Creator Back-Office Tools (Hidden from visitors):</span>
+        <span class="text-gallery-gold uppercase tracking-wider">⚙ Creator Back-Office Tools:</span>
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="openStripeSetupModal()" class="px-3 py-1.5 rounded bg-white text-gallery-ink font-semibold hover:bg-gray-200 cursor-pointer">
-            💳 Connect Stripe Links
-          </button>
           <button onclick="toggleExportModal(true)" class="px-3 py-1.5 rounded bg-white/10 text-white hover:bg-white/20 cursor-pointer">
             📋 Export 14-Plate Docs/JSON
           </button>
@@ -600,7 +632,7 @@
   </footer>
 
   <!-- =====================================================================
-       MODAL 1: LIGHTBOX, 5-FINISH FRAME STUDIO & DIRECT STRIPE CHECKOUT
+       MODAL 1: LIGHTBOX, 5-FINISH FRAME STUDIO & SHOP BUTTONS
        ===================================================================== -->
   <div id="artworkModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-md overflow-y-auto">
     <div class="min-h-screen px-3 py-6 flex items-center justify-center">
@@ -629,7 +661,7 @@
             </div>
           </div>
 
-          <!-- Placard & Direct Stripe Buttons -->
+          <!-- Placard & Shop Buttons -->
           <div class="lg:col-span-5 p-5 sm:p-7 bg-white dark:bg-gallery-darkSurface flex flex-col justify-between space-y-5">
             <div>
               <div class="flex items-start justify-between gap-2">
@@ -644,14 +676,14 @@
             </div>
 
             <div class="space-y-2.5 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder">
-              <div class="font-mono text-[11px] uppercase text-gallery-steel">1-Click Stripe Checkout (Auto-Tags Plate ID):</div>
-              <button onclick="buyNowWithStripe('framedPrint', activeModalId)" class="w-full px-4 py-2.5 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold flex justify-between text-xs font-mono">
+              <div class="font-mono text-[11px] uppercase text-gallery-steel">Editions of This Plate (Printed to Order):</div>
+              <button onclick="buyNow('framedPrint', activeModalId)" class="w-full px-4 py-2.5 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold flex justify-between text-xs font-mono">
                 <span>Museum Frame (16×16" Archival)</span><span>$85 →</span>
               </button>
-              <button onclick="buyNowWithStripe('unframedPrint', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
+              <button onclick="buyNow('unframedPrint', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
                 <span>Unframed Giclée Print (12×12")</span><span>$42 →</span>
               </button>
-              <button onclick="buyNowWithStripe('teaTowel', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
+              <button onclick="buyNow('teaTowel', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
                 <span>Belgian Linen Dish Towel</span><span>$24 →</span>
               </button>
 
@@ -663,8 +695,8 @@
                   <div>
                     ⚠ <strong>Conditional Provenance:</strong> Requires negotiating directly with Mazzy. Moen matte-black gooseneck faucet not included. Subject retains the right to vacate the basin if a treat bag is shaken.
                   </div>
-                  <button onclick="buyNowWithStripe('originalSink', activeModalId)" class="w-full py-2 px-3 rounded bg-gallery-amber text-white font-semibold text-xs flex items-center justify-between hover:opacity-90">
-                    <span>Proceed to $4,800 Acquisition Wire</span><span>Stripe →</span>
+                  <button onclick="inquireOriginal(activeModalId)" class="w-full py-2 px-3 rounded bg-gallery-amber text-white font-semibold text-xs flex items-center justify-between hover:opacity-90">
+                    <span>Inquire About Acquisition</span><span>✉ →</span>
                   </button>
                 </div>
               </div>
@@ -677,100 +709,25 @@
   </div>
 
   <!-- =====================================================================
-       DRAWER 2: UNIFIED CALCULATORS (POD PROFIT + SOTHEBY'S CLOUT)
+       MODAL 2: "COMING SOON" (shown when a product has no shop link yet)
        ===================================================================== -->
-  <div id="economicsDrawer" class="fixed inset-0 z-50 hidden bg-gallery-ink/75 backdrop-blur-sm overflow-y-auto">
+  <div id="comingSoonModal" class="fixed inset-0 z-[60] hidden bg-gallery-ink/80 backdrop-blur-sm overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="comingSoonTitle">
     <div class="min-h-screen px-3 py-6 flex items-center justify-center">
-      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-4xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
+      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-md rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
         <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
-          <h3 class="font-serif text-xl sm:text-2xl">Creator POD Profit &amp; Sotheby's Clout Calculators</h3>
-          <button onclick="toggleEconomicsDrawer(false)" class="font-mono text-xs">[Close ✕]</button>
+          <span class="font-mono text-[10px] uppercase tracking-widest">Museum Shop · Opening Soon</span>
+          <button onclick="closeComingSoon()" id="comingSoonCloseBtn" class="font-mono text-xs cursor-pointer" aria-label="Close">[Close ✕]</button>
         </div>
-        <div class="p-5 sm:p-8 space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-gallery-bg dark:bg-gallery-darkBg p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder">
-            <div class="md:col-span-7 space-y-4">
-              <div class="font-mono text-xs uppercase text-gallery-amber dark:text-gallery-gold">01. Monthly Creator Revenue Simulator</div>
-              <div>
-                <div class="flex justify-between text-xs font-mono mb-1">
-                  <span>Gift Zines ($28 retail / $7 print cost)</span>
-                  <span id="zineSalesVal" class="font-semibold">25 / mo</span>
-                </div>
-                <input type="range" id="zineSlider" min="0" max="150" value="25" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
-              </div>
-              <div>
-                <div class="flex justify-between text-xs font-mono mb-1">
-                  <span>Framed Prints ($85 retail / $31 cost)</span>
-                  <span id="printSalesVal" class="font-semibold">10 / mo</span>
-                </div>
-                <input type="range" id="printSlider" min="0" max="80" value="10" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
-              </div>
-              <div>
-                <div class="flex justify-between text-xs font-mono mb-1">
-                  <span>Dish Towels &amp; Postcards ($25 / $10 cost)</span>
-                  <span id="merchSalesVal" class="font-semibold">20 / mo</span>
-                </div>
-                <input type="range" id="merchSlider" min="0" max="150" value="20" oninput="updateEconomics()" class="w-full accent-gallery-amber" />
-              </div>
-            </div>
-            <div class="md:col-span-5 bg-white dark:bg-gallery-darkSurface p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder text-center">
-              <div class="font-mono text-[10px] uppercase text-gallery-steel">Projected Net Profit</div>
-              <div id="monthlyNetProfit" class="font-serif text-4xl font-semibold mt-1">$1,365 / mo</div>
-              <div id="annualNetProfit" class="font-mono text-xs text-gallery-amber dark:text-gallery-gold mt-1">$16,380 / yr</div>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-gallery-bg dark:bg-gallery-darkBg p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder">
-            <div class="md:col-span-7 space-y-4">
-              <div class="font-mono text-xs uppercase text-gallery-amber dark:text-gallery-gold">02. 2028 Sotheby's Collector Clout Calculator</div>
-              <div>
-                <div class="flex justify-between text-xs font-mono mb-1">
-                  <span>Number of Mazzy Plates Owned (Max 14):</span>
-                  <span id="calcCountVal" class="font-semibold">4 Plates</span>
-                </div>
-                <input type="range" id="calcCount" min="1" max="14" value="4" oninput="calculatePrestige()" class="w-full accent-gallery-amber" />
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <select id="calcLight" onchange="calculatePrestige()" class="bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder rounded p-2 text-xs font-mono">
-                  <option value="1">Standard Bulb (1x)</option>
-                  <option value="1.8">Gallery Sconce (1.8x)</option>
-                  <option value="3.5" selected>3000K Museum Spotlight (3.5x)</option>
-                </select>
-                <select id="calcReaction" onchange="calculatePrestige()" class="bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder rounded p-2 text-xs font-mono">
-                  <option value="100">"Why is there a cat in your sink?"</option>
-                  <option value="500">"Ah, domestic fluid dynamics."</option>
-                  <option value="2500" selected>"Sublime tortie-to-chrome dialectic."</option>
-                </select>
-              </div>
-            </div>
-            <div class="md:col-span-5 bg-white dark:bg-gallery-darkSurface p-5 rounded-xl border border-gallery-border dark:border-gallery-darkBorder text-center">
-              <div class="font-mono text-[10px] uppercase text-gallery-steel">2028 Sotheby's Estimate</div>
-              <div id="appraisalOutput" class="font-mono text-3xl font-bold text-gallery-amber dark:text-gallery-gold mt-1">$8,800 USD</div>
-              <div id="cloutOutput" class="font-cinzel text-xs font-semibold text-gallery-ink dark:text-white underline decoration-2 underline-offset-4 mt-2">Patron of Porcelain &amp; Fur</div>
-            </div>
-          </div>
+        <div class="p-6 space-y-4 text-center">
+          <div id="comingSoonKicker" class="font-mono text-[11px] uppercase tracking-widest text-gallery-steel dark:text-gray-400"></div>
+          <h3 id="comingSoonTitle" class="font-serif text-2xl font-semibold"></h3>
+          <p id="comingSoonBody" class="text-sm opacity-80 leading-relaxed">
+            This edition is being prepared for print. Join the Collector's List and you'll be the first to know the moment it's available.
+          </p>
+          <button id="comingSoonJoinBtn" onclick="goToMailingList()" class="w-full py-3 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold uppercase tracking-wider hover:opacity-90 cursor-pointer">
+            Join the List →
+          </button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =====================================================================
-       DRAWER 3: BOUTIQUE BAG
-       ===================================================================== -->
-  <div id="cartDrawer" class="fixed inset-0 z-50 hidden bg-gallery-ink/60 backdrop-blur-sm">
-    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-gallery-darkSurface shadow-2xl border-l border-gallery-border dark:border-gallery-darkBorder flex flex-col justify-between">
-      <div class="p-5 border-b border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
-        <h3 class="font-serif text-2xl font-semibold">Museum Gift Shop Bag</h3>
-        <button onclick="toggleCartDrawer(false)" class="font-mono text-xs">[Close ✕]</button>
-      </div>
-      <div id="cartItemsList" class="p-5 flex-1 overflow-y-auto space-y-3"></div>
-      <div class="p-5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder space-y-3">
-        <div class="flex justify-between font-mono text-sm">
-          <span>SUBTOTAL</span>
-          <span id="cartSubtotal" class="font-semibold">$22.00</span>
-        </div>
-        <button onclick="buyNowWithStripe('zineSoftcover', 'CART-CHECKOUT')" class="w-full py-3 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-xs font-semibold uppercase">
-          Proceed to Stripe Checkout →
-        </button>
       </div>
     </div>
   </div>
@@ -800,149 +757,118 @@
   </div>
 
   <!-- =====================================================================
-       MODAL 5: NO-CODE STRIPE PAYMENT LINK MANAGER
-       ===================================================================== -->
-  <div id="stripeSetupModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-sm overflow-y-auto">
-    <div class="min-h-screen px-3 py-6 flex items-center justify-center">
-      <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-3xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
-        <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
-          <div>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-gallery-gold block">NO-CODE STOREFRONT WIZARD</span>
-            <h3 class="font-serif text-xl sm:text-2xl">Connect Your Stripe Payment Links</h3>
-          </div>
-          <button onclick="closeStripeSetupModal()" class="font-mono text-xs">[Close ✕]</button>
-        </div>
-        <div class="p-5 sm:p-6 space-y-4">
-          <div id="stripePendingBanner" class="hidden p-3.5 rounded-xl bg-gallery-amberLight dark:bg-gallery-darkBg border border-gallery-amber/40 text-xs font-mono"></div>
-          <p class="text-xs sm:text-sm opacity-80 leading-relaxed">
-            Paste your <strong>https://buy.stripe.com/...</strong> links from your Stripe Dashboard below. Every Buy button on the site automatically appends <code class="px-1.5 py-0.5 rounded bg-gallery-muted dark:bg-black font-mono">?client_reference_id=CIS-XX</code> and copies the Plate ID to the buyer's clipboard!
-          </p>
-          <div class="grid grid-cols-1 gap-3 max-h-[52vh] overflow-y-auto pr-1">
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">1. Softcover Gift Zine ($22) — <span class="text-gallery-steel">zineSoftcover</span></label>
-              <input id="stripeInput-zineSoftcover" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">2. Linen Hardcover Monograph ($34) — <span class="text-gallery-steel">zineHardcover</span></label>
-              <input id="stripeInput-zineHardcover" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">3. Complete 14-Plate Postcard Pack ($18) — <span class="text-gallery-steel">postcardPack</span></label>
-              <input id="stripeInput-postcardPack" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">4. Belgian Linen Dish Towel ($24) — <span class="text-gallery-steel">teaTowel</span></label>
-              <input id="stripeInput-teaTowel" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">5. Unframed Giclée Print 12×12" ($42) — <span class="text-gallery-steel">unframedPrint</span></label>
-              <input id="stripeInput-unframedPrint" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">6. Museum Framed Print 16×16" ($85) — <span class="text-gallery-steel">framedPrint</span></label>
-              <input id="stripeInput-framedPrint" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block font-mono text-xs font-semibold mb-1">7. Original Basin Installation 1/1 ($4,800 Easter Egg) — <span class="text-gallery-steel">originalSink</span></label>
-              <input id="stripeInput-originalSink" type="url" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 rounded-lg bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs" />
-            </div>
-          </div>
-          <div class="pt-3 border-t border-gallery-border dark:border-gallery-darkBorder flex flex-wrap items-center justify-between gap-3">
-            <span id="stripeSaveStatus" class="font-mono text-xs text-gallery-ink dark:text-white underline decoration-2 underline-offset-4"></span>
-            <div class="flex flex-wrap gap-2">
-              <button onclick="applyStripeLinksInMemory()" class="px-4 py-2 rounded-lg border border-gallery-ink dark:border-gallery-gold font-mono text-xs font-semibold">
-                ✓ Apply to Current Session
-              </button>
-              <button onclick="saveAndDownloadStripeHtml()" class="px-4 py-2 rounded-lg bg-gallery-amber text-white font-mono text-xs font-semibold shadow">
-                💾 Save &amp; Download Ready index.html
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =====================================================================
-       COMPLETE 14-PLATE JAVASCRIPT ENGINE + STRIPE PAYMENT LINKS
+       COMPLETE 14-PLATE JAVASCRIPT ENGINE + SHOP SETTINGS
        ===================================================================== -->
   <script>
     // -------------------------------------------------------------------
-    // 1. PASTE YOUR 5 STRIPE PAYMENT LINKS HERE ONCE CREATED:
+    // 1. SHOP SETTINGS — PASTE YOUR LINKS HERE WHEN READY
+    //    Any value left as "" makes its Buy button show a friendly
+    //    "Coming soon — join the list" message instead of a broken link.
     // -------------------------------------------------------------------
-    const STRIPE_LINKS = {
-      zineSoftcover: "https://buy.stripe.com/YOUR_ZINE_SOFTCOVER_LINK",
-      zineHardcover: "https://buy.stripe.com/YOUR_ZINE_HARDCOVER_LINK",
-      postcardPack:  "https://buy.stripe.com/YOUR_POSTCARD_PACK_LINK",
-      teaTowel:      "https://buy.stripe.com/YOUR_TEA_TOWEL_LINK",
-      unframedPrint: "https://buy.stripe.com/YOUR_UNFRAMED_PRINT_LINK",
-      framedPrint:   "https://buy.stripe.com/YOUR_FRAMED_PRINT_LINK",
-      originalSink:  "https://buy.stripe.com/YOUR_4800_EASTER_EGG_LINK"
+    const SHOP_CONFIG = {
+      // Your Etsy shop home page, e.g. "https://www.etsy.com/shop/MazzyStudio".
+      // Used for any product below that doesn't have its own listing link yet.
+      etsyShop: "",
+
+      // Direct Etsy listing links (optional — direct links convert better).
+      // Tip: make ONE listing per product with a "Plate" variation (CIS-01 … CIS-14).
+      listings: {
+        zineSoftcover: "",
+        zineHardcover: "",
+        postcardPack:  "",
+        teaTowel:      "",
+        unframedPrint: "",
+        framedPrint:   ""
+      },
+
+      // Email address for one-of-a-kind / collector inquiries (opens the visitor's mail app).
+      inquiryEmail: "",
+
+      // Mailing list form (Kit free plan recommended).
+      // action example: "https://app.kit.com/forms/1234567/subscriptions"
+      newsletter: {
+        action: "",
+        emailField: "email_address"
+      }
     };
 
-    function buyNowWithStripe(tierKey, plateId) {
-      const url = STRIPE_LINKS[tierKey];
-      if (navigator.clipboard && plateId) {
-        navigator.clipboard.writeText(plateId).catch(() => {});
-      }
-      if (!url || url.includes("YOUR_")) {
-        openStripeSetupModal(tierKey, plateId);
+    const PRODUCT_NAMES = {
+      zineSoftcover: 'Softcover Catalogue Zine',
+      zineHardcover: 'Linen Hardcover Monograph',
+      postcardPack:  'Complete 14-Plate Postcard Pack',
+      teaTowel:      'Linen Dish Towel',
+      unframedPrint: 'Unframed Giclée Print (12×12")',
+      framedPrint:   'Museum Framed Print (16×16")',
+      originalSink:  'The Original Basin (1/1)'
+    };
+
+    function buyNow(productKey, plateId) {
+      const url = SHOP_CONFIG.listings[productKey] || SHOP_CONFIG.etsyShop;
+      if (url) {
+        window.open(url, '_blank', 'noopener');
         return;
       }
-      const sep = url.includes('?') ? '&' : '?';
-      window.open(`${url}${sep}client_reference_id=${encodeURIComponent(plateId || 'COLLECTION')}`, '_blank');
+      openComingSoon(productKey, plateId);
     }
 
-    function openStripeSetupModal(clickedTier, clickedPlate) {
-      Object.keys(STRIPE_LINKS).forEach(k => {
-        const el = document.getElementById(`stripeInput-${k}`);
-        if (el) el.value = STRIPE_LINKS[k].includes('YOUR_') ? '' : STRIPE_LINKS[k];
-      });
-      const banner = document.getElementById('stripePendingBanner');
-      if (clickedTier) {
-        banner.classList.remove('hidden');
-        banner.innerHTML = `✓ <strong>Plate ID "${clickedPlate || 'COLLECTION'}" copied to clipboard!</strong> Paste your Stripe Payment Link for <strong>[${clickedTier}]</strong> below (or click "Save & Download Ready index.html" once your links are in).`;
-        const targetInput = document.getElementById(`stripeInput-${clickedTier}`);
-        if (targetInput) setTimeout(() => targetInput.focus(), 80);
-      } else {
-        banner.classList.add('hidden');
+    function inquireOriginal(plateId) {
+      if (SHOP_CONFIG.inquiryEmail) {
+        const subject = encodeURIComponent(`Collector inquiry — Mazzy: Cat in Sink${plateId ? ' (' + plateId + ')' : ''}`);
+        window.location.href = `mailto:${SHOP_CONFIG.inquiryEmail}?subject=${subject}`;
+        return;
       }
-      document.getElementById('stripeSaveStatus').textContent = '';
-      document.getElementById('stripeSetupModal').classList.remove('hidden');
+      openComingSoon('originalSink', plateId);
     }
 
-    function closeStripeSetupModal() {
-      document.getElementById('stripeSetupModal').classList.add('hidden');
+    function openComingSoon(productKey, plateId) {
+      const isPlate = typeof plateId === 'string' && plateId.indexOf('CIS-') === 0;
+      document.getElementById('comingSoonKicker').textContent = isPlate ? `Plate ${plateId}` : 'Museum Shop';
+      document.getElementById('comingSoonTitle').textContent = PRODUCT_NAMES[productKey] || 'This Edition';
+      document.getElementById('comingSoonModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('comingSoonJoinBtn').focus(), 50);
     }
 
-    function applyStripeLinksInMemory() {
-      Object.keys(STRIPE_LINKS).forEach(k => {
-        const el = document.getElementById(`stripeInput-${k}`);
-        if (el && el.value.trim()) {
-          STRIPE_LINKS[k] = el.value.trim();
-        }
-      });
-      document.getElementById('stripeSaveStatus').textContent = '✓ Active for this browser session!';
+    function closeComingSoon() {
+      document.getElementById('comingSoonModal').classList.add('hidden');
     }
 
-    function saveAndDownloadStripeHtml() {
-      applyStripeLinksInMemory();
-      let docHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const newLinksBlock = `const STRIPE_LINKS = {\n` +
-        Object.keys(STRIPE_LINKS).map(k => `      ${k.padEnd(14)}: ${JSON.stringify(STRIPE_LINKS[k])}`).join(',\n') +
-        `\n    };`;
-      docHtml = docHtml.replace(/const STRIPE_LINKS = \{[\s\S]*?\};/, newLinksBlock);
-      const blob = new Blob([docHtml], { type: 'text/html;charset=utf-8' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'index.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      document.getElementById('stripeSaveStatus').textContent = '✓ Downloaded index.html with your Stripe links baked in!';
+    function goToMailingList() {
+      closeComingSoon();
+      closeArtworkModal();
+      document.getElementById('mailing-list').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('newsletterEmail').focus({ preventScroll: true }), 600);
     }
 
-    let currentVoice = 'satire';
+    function submitNewsletter(event) {
+      const form = event.target;
+      const input = document.getElementById('newsletterEmail');
+      const status = document.getElementById('newsletterStatus');
+      const cfg = SHOP_CONFIG.newsletter;
+      if (cfg.action) {
+        form.action = cfg.action;
+        form.method = 'post';
+        form.target = '_blank';
+        input.name = cfg.emailField || 'email';
+        status.textContent = 'Thank you — please check your inbox to confirm your subscription.';
+        return true;
+      }
+      event.preventDefault();
+      status.textContent = 'Thank you! The list opens very soon — please check back shortly.';
+      return false;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeComingSoon();
+    });
+
+    let currentVoice = 'satire'; // internal key for "The Critic" (never shown to visitors)
+    const VOICE_LABELS = {
+      satire:   { button: 'The Critic',  badge: "CURATOR'S NOTE" },
+      poetic:   { button: 'The Poet',    badge: "POET'S NOTE" },
+      fieldlog: { button: 'Field Notes', badge: 'FIELD NOTES' }
+    };
+    let heroPlacardDefault = null;
+    let voiceToastTimer = null;
     let currentWing = 'all';
     let activeModalId = 'CIS-06';
     let currentSpreadIndex = 0;
@@ -1262,10 +1188,6 @@
       }
     ];
 
-    let cart = [
-      { title: 'Catalogue Raisonné Vol. I — Gift Zine (14-Plate Edition)', price: 22, qty: 1 }
-    ];
-
     function handleIphonePhotos(event) {
       const files = Array.from(event.target.files || []);
       if (!files.length) return;
@@ -1334,9 +1256,7 @@
       let lastWing = null;
       grid.innerHTML = filtered.map(work => {
         const commentary = work.voices[currentVoice];
-        const voiceBadgeLabel =
-          currentVoice === 'satire' ? 'HIGH-ART SATIRE • THIRD CAT' :
-          currentVoice === 'poetic' ? 'POETIC NOTE' : 'FIELD TELEMETRY';
+        const voiceBadgeLabel = VOICE_LABELS[currentVoice].badge;
 
         let divider = '';
         if (currentWing === 'all' && work.wing !== lastWing) {
@@ -1387,7 +1307,7 @@
             </div>
 
             <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
-              <span class="font-mono text-xs">Editions: <strong>$18 – $85</strong></span>
+              <span class="font-mono text-xs">Editions: <strong>$24 – $85</strong></span>
               <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold">
                 Frame &amp; Buy →
               </button>
@@ -1408,6 +1328,23 @@
       renderGallery();
       if (!document.getElementById('artworkModal').classList.contains('hidden')) {
         populateArtworkModal(activeModalId);
+      }
+
+      // Rewrite the featured hero placard too, so the change is visible at the top of the page
+      const heroSub = document.getElementById('heroPlacardSub');
+      if (heroSub) {
+        if (heroPlacardDefault === null) heroPlacardDefault = heroSub.textContent.trim();
+        const hero = catalogueWorks.find(w => w.id === 'CIS-06');
+        heroSub.textContent = voice === 'satire' || !hero ? heroPlacardDefault : hero.voices[voice];
+      }
+
+      // Brief confirmation toast
+      const toast = document.getElementById('voiceToast');
+      if (toast) {
+        toast.textContent = `All 14 placards now in: ${VOICE_LABELS[voice].button}`;
+        toast.classList.remove('opacity-0', 'translate-y-2');
+        clearTimeout(voiceToastTimer);
+        voiceToastTimer = setTimeout(() => toast.classList.add('opacity-0', 'translate-y-2'), 2200);
       }
     }
 
@@ -1443,7 +1380,7 @@
         <div><strong>DIMENSIONS:</strong> ${work.dimensions}</div>
         <div><strong>TELEMETRY:</strong> ${work.vessel} • Temp: ${work.temp}</div>
       `;
-      document.getElementById('modalVoiceLabel').textContent = `CURATORIAL NOTE (${currentVoice.toUpperCase()})`;
+      document.getElementById('modalVoiceLabel').textContent = VOICE_LABELS[currentVoice].badge;
       document.getElementById('modalCommentary').textContent = `“${work.voices[currentVoice]}”`;
     }
 
@@ -1498,54 +1435,6 @@
       renderBookSpread();
     }
 
-    function updateCartUI() {
-      const count = cart.reduce((s, i) => s + i.qty, 0);
-      const sub = cart.reduce((s, i) => s + i.price * i.qty, 0);
-      document.getElementById('desktopCartCount').textContent = count;
-      document.getElementById('mobileCartCount').textContent = count;
-      document.getElementById('cartSubtotal').textContent = `$${sub.toFixed(2)}`;
-      document.getElementById('cartItemsList').innerHTML = cart.map((item, idx) => `
-        <div class="flex items-center justify-between p-3 rounded bg-gallery-bg dark:bg-gallery-darkBg border border-gallery-border dark:border-gallery-darkBorder">
-          <div>
-            <div class="font-serif font-semibold text-sm">${item.title}</div>
-            <div class="font-mono text-xs text-gallery-steel">$${item.price} × ${item.qty}</div>
-          </div>
-          <button onclick="cart.splice(${idx},1);updateCartUI();" class="font-mono text-xs">✕</button>
-        </div>
-      `).join('');
-    }
-
-    function toggleCartDrawer(show) {
-      document.getElementById('cartDrawer').classList.toggle('hidden', !show);
-    }
-
-    function toggleEconomicsDrawer(show) {
-      if (show) { updateEconomics(); calculatePrestige(); }
-      document.getElementById('economicsDrawer').classList.toggle('hidden', !show);
-    }
-
-    function updateEconomics() {
-      const z = +document.getElementById('zineSlider').value;
-      const p = +document.getElementById('printSlider').value;
-      const m = +document.getElementById('merchSlider').value;
-      document.getElementById('zineSalesVal').textContent = `${z} / mo`;
-      document.getElementById('printSalesVal').textContent = `${p} / mo`;
-      document.getElementById('merchSalesVal').textContent = `${m} / mo`;
-      const net = (z * 21) + (p * 54) + (m * 15);
-      document.getElementById('monthlyNetProfit').textContent = `$${net.toLocaleString()} / mo`;
-      document.getElementById('annualNetProfit').textContent = `$${(net * 12).toLocaleString()} / yr`;
-    }
-
-    function calculatePrestige() {
-      const c = +document.getElementById('calcCount').value;
-      const l = +document.getElementById('calcLight').value;
-      const r = +document.getElementById('calcReaction').value;
-      document.getElementById('calcCountVal').textContent = `${c} Plates`;
-      const val = Math.round((c * 450) * l + r);
-      document.getElementById('appraisalOutput').textContent = `$${val.toLocaleString()} USD`;
-      document.getElementById('cloutOutput').textContent = val > 10000 ? 'Grand Trustee of The Third Cat Archive' : 'Patron of Porcelain & Fur Dynamics';
-    }
-
     function toggleExportModal(show) {
       if (show) renderExportManifest();
       document.getElementById('exportModal').classList.toggle('hidden', !show);
@@ -1561,7 +1450,7 @@
       if (currentExportFormat === 'json') {
         ta.value = JSON.stringify(catalogueWorks, null, 2);
       } else {
-        ta.value = catalogueWorks.map(w => `## ${w.id}: ${w.title} (${w.year})\n- **Primary Asset:** ${w.image} (Uploaded Match: ${w.altImage})\n- **Satire:** "${w.voices.satire}"\n- **Poetic:** "${w.voices.poetic}"\n- **Field Log:** "${w.voices.fieldlog}"\n`).join('\n');
+        ta.value = catalogueWorks.map(w => `## ${w.id}: ${w.title} (${w.year})\n- **Primary Asset:** ${w.image} (Uploaded Match: ${w.altImage})\n- **Critic:** "${w.voices.satire}"\n- **Poetic:** "${w.voices.poetic}"\n- **Field Log:** "${w.voices.fieldlog}"\n`).join('\n');
       }
     }
 
@@ -1591,7 +1480,10 @@
       syncThemeUI(document.documentElement.classList.contains('dark'));
       renderGallery();
       renderBookSpread();
-      updateCartUI();
+      const showCuratorTools = location.protocol === 'file:' || new URLSearchParams(location.search).has('curator');
+      if (showCuratorTools) {
+        document.getElementById('curatorAdminToggle').classList.replace('hidden', 'flex');
+      }
     };
   </script>
 </body>
