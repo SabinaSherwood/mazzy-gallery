@@ -51,42 +51,12 @@
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Compiled Tailwind (was the CDN script). If you add new Tailwind classes, rebuild with:
+       npx -y tailwindcss@3 -c tools/tailwind.config.js -i tools/tailwind.input.css -o styles.css --minify -->
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            gallery: {
-              // Pure Architectural Monochrome Palette (WCAG AA/AAA & CVD-Safe)
-              bg: '#F7F7F8',          // Cool Archival Rag Paper
-              surface: '#FFFFFF',     // Pure Museum Matte Board
-              ink: '#111113',         // Obsidian Ink
-              steel: '#52525B',       // 304-Grade Brushed Steel (Accessible Slate)
-              amber: '#18181B',       // Mapped to Deep Graphite (Zero Gold/Orange)
-              amberLight: '#F4F4F5',  // Soft Zinc Highlight Surface
-              border: '#E4E4E7',      // Crisp Architectural Hairline
-              muted: '#EFEFF1',       // Brushed Aluminum Wash
-              darkBg: '#09090B',      // Nocturne Carbon Black
-              darkSurface: '#141417', // Matte Black Plumbing Fixture
-              darkBorder: '#27272A',  // Dark Steel Rule
-              gold: '#F4F4F5'         // Mapped to Pure Platinum/White in Dark Mode (Zero Gold)
-            }
-          },
-          fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            cinzel: ['"Cinzel"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
-          }
-        }
-      }
-    }
-  </script>
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -137,6 +107,8 @@
     .voice-scroll > * { flex-shrink: 0; }
     /* Hide audio buttons on browsers without speech synthesis */
     .no-speech .audio-btn { display: none !important; }
+    /* Always show where keyboard focus is (Tab key users) */
+    :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   </style>
 
   <style id="refined-styles">
@@ -275,11 +247,6 @@
         <span class="inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-gallery-amber dark:bg-gallery-darkBg"></span>
         <span class="truncate">EXHIBITION ARCHIVE · CATALOGUE RAISONNÉ VOL. I (2026) — 14 PLATES IN 3 WINGS</span>
       </div>
-      <div class="hidden sm:flex items-center gap-4 text-[10px] opacity-80 shrink-0">
-        <span>SUBJECT: MAZZY (4.1 KG)</span>
-        <span>·</span>
-        <span>MEDIUM: 304-GRADE STAINLESS &amp; HAHNEMÜHLE RAG</span>
-      </div>
     </div>
   </div>
 
@@ -371,7 +338,7 @@
               Inspect All 14 Plates
             </a>
             <a href="#zine-section" class="px-5 py-3 rounded-md bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder font-mono text-xs uppercase tracking-wider hover:border-gallery-amber transition-colors">
-              Flip Through Zine ($22)
+              Flip Through the Catalogue
             </a>
             <button onclick="playCuratorAudioHero(this)" class="audio-btn px-4 py-3 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs flex items-center gap-2 hover:opacity-80 cursor-pointer">
               🔊 Audio Tour
@@ -379,10 +346,10 @@
           </div>
         </div>
 
-        <!-- Featured Hero Plate (CIS-06: The Monolith Beneath the Louvers / image_18.png) -->
+        <!-- Featured Hero Plate (CIS-06: The Monolith Beneath the Louvers) -->
         <div class="lg:col-span-6">
           <div class="bg-white dark:bg-gallery-darkSurface p-4 sm:p-6 rounded-xl border border-gallery-border dark:border-gallery-darkBorder shadow-xl">
-            <div class="relative aspect-square overflow-hidden rounded-lg bg-gallery-muted dark:bg-black group cursor-pointer" onclick="openArtworkModal('CIS-06')">
+            <button type="button" onclick="openArtworkModal('CIS-06')" aria-label="View plate CIS-06: The Monolith Beneath the Louvers" class="block w-full relative aspect-square overflow-hidden rounded-lg bg-gallery-muted dark:bg-black group cursor-pointer">
               <img
                 id="heroFeaturedImg"
                 src="images/cis-06.webp"
@@ -393,13 +360,7 @@
                 onerror="handleImgFallback(this)"
                 class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
-              <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-gallery-ink/85 text-white font-mono text-[11px]">
-                FEATURED PLATE • CAT. NO. CIS-06
-              </div>
-              <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded bg-white/95 dark:bg-gallery-darkSurface/95 text-gallery-ink dark:text-gallery-gold font-mono text-xs shadow">
-                Tap to Frame &amp; Inspect →
-              </div>
-            </div>
+            </button>
 
             <div class="mt-4 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
@@ -414,7 +375,7 @@
                 </p>
               </div>
               <button onclick="openArtworkModal('CIS-06')" class="px-3.5 py-2 rounded border border-gallery-ink dark:border-gallery-gold text-xs font-mono shrink-0">
-                Frame Studio ($42–$85)
+                View Plate →
               </button>
             </div>
           </div>
@@ -521,7 +482,6 @@
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
             <img loading="lazy" decoding="async" src="images/cis-10.webp" data-alt-src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith framed print, Plate CIS-10" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-amber text-white font-mono text-[10px] px-2 py-0.5 rounded font-semibold">OVER-THE-SINK FAVORITE • CIS-10</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">FRAMED PRINT • 16″ × 16″ • BLACK, WHITE OR OAK</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">“Nadir / Zenith” Framed Print</h3>
@@ -541,7 +501,6 @@
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
             <img loading="lazy" decoding="async" src="images/cis-03.webp" data-alt-src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" onerror="handleImgFallback(this)" alt="The Godot Spout mug, Plate CIS-03" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">KITCHEN EDITION • CIS-03</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">CERAMIC MUG • 11 OZ • DISHWASHER SAFE</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">“The Godot Spout” Mug</h3>
@@ -561,7 +520,6 @@
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
             <img loading="lazy" decoding="async" src="images/cis-01.webp" data-alt-src="IMG_5705-clean-7c01cde3-7403-4509-9319-b58a19010d7c.png" onerror="handleImgFallback(this)" alt="The Occupant exhibition tote, Plate CIS-01" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">EXHIBITION TOTE • CIS-01</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">COTTON CANVAS TOTE BAG</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">“The Occupant” Exhibition Tote</h3>
@@ -581,7 +539,6 @@
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
             <img loading="lazy" decoding="async" src="images/cis-09.webp" data-alt-src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" onerror="handleImgFallback(this)" alt="Plate notecard, shown with Plate CIS-09" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">ANY OF THE 14 PLATES</span>
           </div>
           <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">NOTECARD • 5″ × 7″ • WITH ENVELOPE</div>
           <h3 class="font-serif text-2xl font-semibold mt-0.5">Plate Notecard</h3>
@@ -710,7 +667,7 @@
   <!-- =====================================================================
        MODAL 1: LIGHTBOX, 5-FINISH FRAME STUDIO & SHOP BUTTONS
        ===================================================================== -->
-  <div id="artworkModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-md overflow-y-auto">
+  <div id="artworkModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 hidden bg-gallery-ink/85 backdrop-blur-md overflow-y-auto">
     <div class="min-h-screen px-3 py-6 flex items-center justify-center">
       <div class="bg-gallery-bg dark:bg-gallery-darkSurface w-full max-w-5xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
         
@@ -719,7 +676,7 @@
             <span id="modalCatNo" class="font-mono text-xs px-2 py-0.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold">CIS-06</span>
             <span id="modalWing" class="font-mono text-xs text-gallery-steel truncate"></span>
           </div>
-          <button onclick="closeArtworkModal()" class="p-1 font-mono text-xs">[CLOSE ✕]</button>
+          <button onclick="closeArtworkModal()" id="artworkModalCloseBtn" aria-label="Close" class="p-1 font-mono text-xs">[CLOSE ✕]</button>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12">
@@ -729,10 +686,10 @@
               <img id="modalImage" src="" data-alt-src="" onerror="handleImgFallback(this)" alt="" class="w-full aspect-square object-cover block" />
             </div>
             <div class="mt-5 flex flex-wrap items-center justify-center gap-1.5">
-              <button onclick="setModalFrame('black')" id="frameBtn-black" class="px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white">Black</button>
-              <button onclick="setModalFrame('white')" id="frameBtn-white" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">White</button>
-              <button onclick="setModalFrame('oak')" id="frameBtn-oak" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Oak</button>
-              <button onclick="setModalFrame('unframed')" id="frameBtn-unframed" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Unframed</button>
+              <button onclick="setModalFrame('black')" id="frameBtn-black" class="px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white dark:bg-gallery-gold dark:text-gallery-darkBg">Black</button>
+              <button onclick="setModalFrame('white')" id="frameBtn-white" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink dark:bg-transparent dark:border-gallery-darkBorder dark:text-gallery-gold">White</button>
+              <button onclick="setModalFrame('oak')" id="frameBtn-oak" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink dark:bg-transparent dark:border-gallery-darkBorder dark:text-gallery-gold">Oak</button>
+              <button onclick="setModalFrame('unframed')" id="frameBtn-unframed" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink dark:bg-transparent dark:border-gallery-darkBorder dark:text-gallery-gold">Unframed</button>
             </div>
           </div>
 
@@ -810,7 +767,7 @@
   <!-- =====================================================================
        MODAL 4: EXPORT MANIFEST (14-PLATE JSON & GOOGLE DOCS MARKDOWN)
        ===================================================================== -->
-  <div id="exportModal" class="fixed inset-0 z-50 hidden bg-gallery-ink/80 backdrop-blur-sm overflow-y-auto">
+  <div id="exportModal" role="dialog" aria-modal="true" aria-label="Export plate documents" class="fixed inset-0 z-50 hidden bg-gallery-ink/80 backdrop-blur-sm overflow-y-auto">
     <div class="min-h-screen px-3 py-6 flex items-center justify-center">
       <div class="bg-white dark:bg-gallery-darkSurface w-full max-w-4xl rounded-2xl border border-gallery-border dark:border-gallery-darkBorder shadow-2xl overflow-hidden">
         <div class="px-5 py-4 bg-gallery-ink text-white flex items-center justify-between">
@@ -941,7 +898,26 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeComingSoon();
+      if (e.key === 'Escape') {
+        // Close the top-most open window first
+        if (!document.getElementById('comingSoonModal').classList.contains('hidden')) closeComingSoon();
+        else if (!document.getElementById('artworkModal').classList.contains('hidden')) closeArtworkModal();
+        else if (!document.getElementById('exportModal').classList.contains('hidden')) toggleExportModal(false);
+        return;
+      }
+      // Keep Tab / Shift+Tab inside whichever window is open
+      if (e.key === 'Tab') {
+        const dialog = ['comingSoonModal', 'artworkModal', 'exportModal']
+          .map(id => document.getElementById(id))
+          .find(el => !el.classList.contains('hidden'));
+        if (!dialog) return;
+        const focusable = Array.from(dialog.querySelectorAll('button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])'))
+          .filter(el => !el.disabled && el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+      }
     });
 
     let currentVoice = 'satire'; // internal key for "The Critic" (never shown to visitors)
@@ -975,7 +951,7 @@
         voices: {
           satire: 'Positioned in the primary left basin with her silver bell pendulum aligned to the drain’s nadir, Mazzy inaugurates the "Third Cat" dialectic: neither washing nor being washed, she confronts the bourgeois spectator with an unblinking chartreuse gaze.',
           poetic: 'Two golden moons in a silver well. The little bell at her throat holds its breath; the kitchen waits for her permission to begin the day.',
-          fieldlog: 'TIMESTAMP 09:14:02 — File IMG_5705 (image_4.png). Left basin occupation confirmed. Pupil dilation: 42%. Bell collar azimuth: 180° dead-center.'
+          fieldlog: 'TIMESTAMP 09:14:02 — Observation No. 5705. Left basin occupation confirmed. Pupil dilation: 42%. Bell collar azimuth: 180° dead-center.'
         }
       },
       {
@@ -992,7 +968,7 @@
         voices: {
           satire: 'A brutalist dialogue between vertical matte-black plumbing and organic tortoiseshell chiaroscuro, anchored by faux-driftwood shaker cabinetry and veined quartz—holding the Jungian tension of opposites.',
           poetic: 'Framed by oak grain and pale stone, she rises from the rim like a quiet guardian of the morning light.',
-          fieldlog: 'TIMESTAMP 09:16:40 — File IMG_5703 (image_5.png). Focal length widened to 35mm equivalent. Faucet stem provides vertical reference datum.'
+          fieldlog: 'TIMESTAMP 09:16:40 — Observation No. 5703. Focal length widened to 35mm equivalent. Faucet stem provides vertical reference datum.'
         }
       },
       {
@@ -1009,7 +985,7 @@
         voices: {
           satire: 'Our narrative apex: the subject cranes upward toward the silent aerator nozzle in a devastating critique of withheld municipal hydration. Godot arrives neither by land nor by pipe.',
           poetic: 'Looking up at the dark swan of the faucet, waiting for a single silver syllable of water to fall.',
-          fieldlog: 'TIMESTAMP 10:02:19 — File IMG_5706 (image_2.png). Cervical extension angle: +64° upward. Nozzle clearance: 3.8 cm.'
+          fieldlog: 'TIMESTAMP 10:02:19 — Observation No. 5706. Cervical extension angle: +64° upward. Nozzle clearance: 3.8 cm.'
         }
       },
       {
@@ -1026,7 +1002,7 @@
         voices: {
           satire: 'Having migrated to the secondary right-hand basin, the artist allows her right pinna to graze the pull-down sprayer head—an audacious Foucauldian "technology of the self" enacting post-industrial intimacy.',
           poetic: 'Cheek to cold black iron, eyes turned toward the hallway where footsteps pass.',
-          fieldlog: 'TIMESTAMP 10:05:51 — File IMG_5707 (image.png). Basin transfer complete (Left → Right). Right ear tip proximity to sprayer nozzle: < 4mm.'
+          fieldlog: 'TIMESTAMP 10:05:51 — Observation No. 5707. Basin transfer complete (Left → Right). Right ear tip proximity to sprayer nozzle: < 4mm.'
         }
       },
       {
@@ -1043,7 +1019,7 @@
         voices: {
           satire: 'Recalling Renaissance donor portraits, this strict left-facing profile introduces a jarring safety-chartreuse textile band—problematizing the boundary between domestic leisure and OSHA compliance.',
           poetic: 'A ribbon of bright spring green against autumn fur, tail curled like a fern along the cool metal floor.',
-          fieldlog: 'TIMESTAMP 09:12:11 — File IMG_5704 (image_14.png). Lateral 90° profile captured. High-visibility collar band registering 560nm wavelength.'
+          fieldlog: 'TIMESTAMP 09:12:11 — Observation No. 5704. Lateral 90° profile captured. High-visibility collar band registering 560nm wavelength.'
         }
       },
       {
@@ -1060,7 +1036,7 @@
         voices: {
           satire: 'Kubrickian in its ruthless axial symmetry. The matte-black gooseneck rises directly from the crown of Mazzy’s cranium like an obelisk crowning a sacred reliquary—the Third Cat witnessing the witness.',
           poetic: 'Centered beneath the arch, still as a temple statue while the white shutters hold back the noon sun.',
-          fieldlog: 'TIMESTAMP 14:22:00 — File IMG_5035 (image_18.png). Axial symmetry achieved within ±0.2mm tolerance. Subject immobilized.'
+          fieldlog: 'TIMESTAMP 14:22:00 — Observation No. 5035. Axial symmetry achieved within ±0.2mm tolerance. Subject immobilized.'
         }
       },
       {
@@ -1077,7 +1053,7 @@
         voices: {
           satire: 'By shifting her mass 18 centimeters to port while the matte-black faucet stands sentinel to starboard, Mazzy introduces a deliberate dialectical tension against the grid of closed plantation louvers.',
           poetic: 'Leaning gently toward the warm side of the basin, her split amber-and-ebony face glowing against the quiet white shutters.',
-          fieldlog: 'TIMESTAMP 14:26:09 — File IMG_5041 (image_15.png). Subject offset 18.0 cm left of faucet centerline.'
+          fieldlog: 'TIMESTAMP 14:26:09 — Observation No. 5041. Subject offset 18.0 cm left of faucet centerline.'
         }
       },
       {
@@ -1094,7 +1070,7 @@
         voices: {
           satire: 'Bathed in Vermeer-like late-afternoon luminescence filtering through plantation louvers, the artist contemplates the suburban sublime from the safety of undermount steel.',
           poetic: 'Amber light spills through the white louvers, gilding her whiskers as she watches the day fade outside.',
-          fieldlog: 'TIMESTAMP 16:48:33 — File IMG_5036 (image_6.png). Color temperature: 3200K golden hour ingress via right-hand shutter array.'
+          fieldlog: 'TIMESTAMP 16:48:33 — Observation No. 5036. Color temperature: 3200K golden hour ingress via right-hand shutter array.'
         }
       },
       {
@@ -1111,7 +1087,7 @@
         voices: {
           satire: 'As night descends beyond the window glass, the artist assumes a three-quarter vigil beside a cruciform matte-black fixture—her silver bell gleaming like a solitary relic in a Hopperesque kitchen.',
           poetic: 'Night gathers at the windowpane, and the house lamps warm her amber coat while she keeps watch over the evening kitchen.',
-          fieldlog: 'TIMESTAMP 21:14:52 — File IMG_5040 (image_17.png). Nocturnal interior illumination (2700K). Head yaw: 58° port.'
+          fieldlog: 'TIMESTAMP 21:14:52 — Observation No. 5040. Nocturnal interior illumination (2700K). Head yaw: 58° port.'
         }
       },
       {
@@ -1128,7 +1104,7 @@
         voices: {
           satire: 'Shot from a severe 90-degree zenith overhead angle, this masterwork documents near-total volumetric displacement of the rectangular steel vessel. Mazzy’s upward glare transforms the basin into a defensive moat.',
           poetic: 'Seen from above, she fills the silver rectangle completely—a warm, tucked island of fur looking up with fierce emerald eyes.',
-          fieldlog: 'TIMESTAMP 19:04:18 — File IMG_5039 (image_7.png). Camera elevation: +90° zenith. Volumetric basin fill ratio: 94.6%.'
+          fieldlog: 'TIMESTAMP 19:04:18 — Observation No. 5039. Camera elevation: +90° zenith. Volumetric basin fill ratio: 94.6%.'
         }
       },
       {
@@ -1145,7 +1121,7 @@
         voices: {
           satire: 'By orienting the basin along a dynamic diagonal axis, the sharp mitred corners of brushed stainless steel converge upon the subject’s piercing jade irises.',
           poetic: 'Nestled deep below the rim where the cool steel corners meet, her green eyes bright as moss after rain.',
-          fieldlog: 'TIMESTAMP 17:19:40 — File IMG_5037 (image_11.png). Isometric 45° corner perspective. Iris reflectance peaks at 530nm.'
+          fieldlog: 'TIMESTAMP 17:19:40 — Observation No. 5037. Isometric 45° corner perspective. Iris reflectance peaks at 530nm.'
         }
       },
       {
@@ -1162,7 +1138,7 @@
         voices: {
           satire: 'Confirming the Ig Nobel-winning physical theorem that felines are non-Newtonian fluids, the subject settles into the basin’s lower topography while a blurred knife block looms menacingly in bokeh.',
           poetic: 'Paws tucked away beneath warm fur, poured gently into the basin like dark honey and toasted brioche.',
-          fieldlog: 'TIMESTAMP 11:30:04 — File IMG_5038 (image_3.png). Posture classification: Full Lateral Loaf. Knife block and cutting board in bokeh.'
+          fieldlog: 'TIMESTAMP 11:30:04 — Observation No. 5038. Posture classification: Full Lateral Loaf. Knife block and cutting board in bokeh.'
         }
       },
       {
@@ -1179,7 +1155,7 @@
         voices: {
           satire: 'Flanked by symmetrical duplex electrical receptacles, wall switches, and horizontal blinds, the sink becomes a Foucauldian panoptic command bunker from which the entire suburban counter is surveilled.',
           poetic: 'A wide view of the quiet kitchen—white tile, wood doors, and one small heartbeat at the center of it all.',
-          fieldlog: 'TIMESTAMP 13:05:12 — File IMG_5032 (image_19.png). Wide environmental survey (24mm). Flanking GFCI outlets and toggle switches visible.'
+          fieldlog: 'TIMESTAMP 13:05:12 — Observation No. 5032. Wide environmental survey (24mm). Flanking GFCI outlets and toggle switches visible.'
         }
       },
       {
@@ -1196,7 +1172,7 @@
         voices: {
           satire: 'Juxtaposing the verdant bourgeoisie of the backyard garden against the sterile containment of the kitchen island, Mazzy claims total territorial sovereignty.',
           poetic: 'With the green garden behind her and the cool marble around her, she chooses the harbor of the sink.',
-          fieldlog: 'TIMESTAMP 15:11:44 — File IMG_5033 (image_16.png). Island peninsula perspective. Subject remains entrenched.'
+          fieldlog: 'TIMESTAMP 15:11:44 — Observation No. 5033. Island peninsula perspective. Subject remains entrenched.'
         }
       }
     ];
@@ -1283,8 +1259,13 @@
       renderBookSpread();
     }
 
-    function downloadSelfHtml() {
-      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    async function downloadSelfHtml() {
+      let htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      // Inline the compiled stylesheet so the downloaded copy keeps its styling offline.
+      try {
+        const css = await (await fetch('styles.css')).text();
+        htmlContent = htmlContent.replace(/<link rel="stylesheet" href="styles\.css"\s*\/?>/, () => '<style>' + css + '</style>');
+      } catch (e) {}
       const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1331,7 +1312,6 @@
       let lastWing = null;
       grid.innerHTML = filtered.map(work => {
         const commentary = work.voices[currentVoice];
-        const voiceBadgeLabel = VOICE_LABELS[currentVoice].badge;
 
         let divider = '';
         if (currentWing === 'all' && work.wing !== lastWing) {
@@ -1347,7 +1327,7 @@
         return divider + `
           <article class="flex flex-col justify-between rounded-xl overflow-hidden bg-white dark:bg-gallery-darkSurface border border-gallery-border dark:border-gallery-darkBorder shadow-sm hover:shadow-xl transition-all">
             <div>
-              <div class="relative aspect-square bg-gallery-muted dark:bg-black overflow-hidden group cursor-pointer" onclick="openArtworkModal('${work.id}')">
+              <button type="button" onclick="openArtworkModal('${work.id}')" aria-label="View plate ${work.id}: ${work.title}" class="block w-full relative aspect-square bg-gallery-muted dark:bg-black overflow-hidden group cursor-pointer">
                 <img
                   src="${work.image}"
                   loading="lazy"
@@ -1357,37 +1337,26 @@
                   onerror="handleImgFallback(this)"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                  <span class="px-2.5 py-1 rounded bg-gallery-ink/90 text-white dark:text-gallery-gold font-mono text-[10px]">
-                    ${work.id}
-                  </span>
-                </div>
-              </div>
+              </button>
 
               <div class="p-5">
-                <div class="flex items-center justify-between text-[10px] font-mono text-gallery-steel dark:text-gray-400 uppercase">
-                  <span class="truncate max-w-[60%]">${work.vessel}</span>
+                <div class="flex items-center justify-between text-[10px] font-mono text-gallery-steel dark:text-gray-400 uppercase tracking-wider">
+                  <span>${work.id}</span>
                   <span>${work.dimensions.split('(')[0].trim()}</span>
                 </div>
-                <h3 class="font-serif text-2xl font-semibold italic mt-1 cursor-pointer hover:text-gallery-amber dark:hover:text-gallery-gold" onclick="openArtworkModal('${work.id}')">
+                <h3 class="font-serif text-2xl font-semibold italic mt-1">
                   ${work.title}, ${work.year}
                 </h3>
                 <div class="font-mono text-[11px] text-gallery-steel dark:text-gray-400 mt-0.5">${work.medium}</div>
-                <div class="mt-3 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder">
-                  <div class="font-mono text-[9px] uppercase tracking-widest text-gallery-amber dark:text-gallery-gold mb-1">${voiceBadgeLabel}</div>
-                  <p class="text-xs opacity-85 leading-relaxed">“${commentary}”</p>
-                </div>
+                <p class="mt-3 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder text-xs opacity-85 leading-relaxed">“${commentary}”</p>
               </div>
             </div>
 
-            <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between gap-2">
-              <span class="font-mono text-xs whitespace-nowrap"><span class="hidden sm:inline lg:hidden xl:inline">Editions: </span><strong>$42 – $85</strong></span>
-              <div class="flex items-center gap-2 shrink-0">
-                <button onclick="speakWork('${work.id}', this)" aria-label="Play audio placard: ${work.title}" title="Audio placard" class="audio-btn audio-icon px-2.5 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-[11px] cursor-pointer">🔊</button>
-                <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold whitespace-nowrap">
-                  Frame &amp; Buy →
-                </button>
-              </div>
+            <div class="px-5 pb-5 flex items-center justify-between gap-2">
+              <button onclick="speakWork('${work.id}', this)" aria-label="Play audio placard: ${work.title}" title="Audio placard" class="audio-btn audio-icon px-2.5 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-[11px] cursor-pointer">🔊</button>
+              <button onclick="openArtworkModal('${work.id}')" aria-label="View plate ${work.id}: ${work.title}" class="font-mono text-[11px] uppercase tracking-wider hover:underline underline-offset-4 cursor-pointer">
+                View Plate →
+              </button>
             </div>
           </article>
         `;
@@ -1437,11 +1406,16 @@
       renderGallery();
     }
 
+    let modalOpener = null; // element to return keyboard focus to when the plate window closes
+
     function openArtworkModal(id) {
+      const modal = document.getElementById('artworkModal');
+      if (modal.classList.contains('hidden')) modalOpener = document.activeElement;
       activeModalId = id;
       populateArtworkModal(id);
       document.getElementById('collectorNoticeBox').classList.add('hidden');
-      document.getElementById('artworkModal').classList.remove('hidden');
+      modal.classList.remove('hidden');
+      document.getElementById('artworkModalCloseBtn').focus({ preventScroll: true });
     }
 
     function populateArtworkModal(id) {
@@ -1454,6 +1428,7 @@
       modalImg.style.visibility = '';
       modalImg.setAttribute('data-alt-src', work.altImage);
       modalImg.src = work.image;
+      modalImg.alt = `Plate ${work.id}: ${work.title}`;
       document.getElementById('modalTitle').textContent = `${work.title}, ${work.year}`;
       document.getElementById('modalMeta').innerHTML = `
         <div><strong>MEDIUM:</strong> ${work.medium}</div>
@@ -1465,8 +1440,12 @@
     }
 
     function closeArtworkModal() {
-      document.getElementById('artworkModal').classList.add('hidden');
+      const modal = document.getElementById('artworkModal');
+      const wasOpen = !modal.classList.contains('hidden');
+      modal.classList.add('hidden');
       stopSpeech();
+      if (wasOpen && modalOpener && document.contains(modalOpener)) modalOpener.focus({ preventScroll: true });
+      modalOpener = null;
     }
 
     function setModalFrame(style) {
@@ -1474,8 +1453,9 @@
       ['black', 'white', 'oak', 'unframed'].forEach(f => {
         const btn = document.getElementById(`frameBtn-${f}`);
         btn.className = f === style
-          ? 'px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white'
-          : 'px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink';
+          ? 'px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white dark:bg-gallery-gold dark:text-gallery-darkBg'
+          : 'px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink dark:bg-transparent dark:border-gallery-darkBorder dark:text-gallery-gold';
+        btn.setAttribute('aria-pressed', String(f === style));
       });
     }
 
