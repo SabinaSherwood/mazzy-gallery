@@ -6,11 +6,11 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" id="metaThemeColor" content="#F7F7F8" />
   <title>MAZZY: CAT IN SINK — Catalogue Raisonné Vol. I (2026) · 14-Plate Retrospective</title>
-  <meta name="description" content="Mazzy: Cat in Sink — a 14-plate fine-art photography retrospective of a tortoiseshell cat and her stainless-steel basin. Prints, tea towels and a catalogue zine." />
+  <meta name="description" content="Mazzy: Cat in Sink — a 14-plate fine-art photography retrospective of a tortoiseshell cat and her stainless-steel basin. Archival prints, notecards and a catalogue zine." />
   <!-- Social share previews (Instagram, Facebook, iMessage, Pinterest, X) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAZZY: CAT IN SINK — 14-Plate Retrospective" />
-  <meta property="og:description" content="A fine-art photography exhibition of one tortoiseshell cat and one kitchen sink. Prints, tea towels & a catalogue zine." />
+  <meta property="og:description" content="A fine-art photography exhibition of one tortoiseshell cat and one kitchen sink. Archival prints, notecards & a catalogue zine." />
   <meta property="og:url" content="https://sabinasherwood.github.io/mazzy-gallery/" />
   <meta property="og:image" content="https://sabinasherwood.github.io/mazzy-gallery/images/share-card.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -98,29 +98,22 @@
       background: transparent;
       box-shadow: 0 20px 40px -15px rgba(20, 20, 19, 0.35);
     }
-    .frame-matte-black {
-      padding: 18px;
-      background: #FFFFFF;
+    /* Frame previews match the three frame finishes Printful actually offers: Black, White, Red Oak */
+    .frame-black {
+      padding: 0;
       border: 12px solid #141413;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
     }
-    .frame-stainless {
-      padding: 18px;
-      background: #F9F8F6;
-      border: 12px solid #9FA3A9;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), inset 0 0 0 2px #6C6F75;
-    }
-    .frame-museum-gold {
-      padding: 18px;
-      background: #18181B;
+    .frame-white {
+      padding: 0;
       border: 12px solid #FAFAFA;
-      box-shadow: 0 0 0 1px #D4D4D8, 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 0 0 1px #D4D4D8, 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     }
-    .frame-towel {
-      padding: 24px 20px 32px 20px;
-      background: #F4F4F5;
-      border: 2px dashed #A1A1AA;
-      box-shadow: 0 18px 35px -10px rgba(0, 0, 0, 0.25);
+    .frame-oak {
+      padding: 0;
+      border: 12px solid #A97C50;
+      border-image: linear-gradient(135deg, #C9A06F 0%, #A0703F 35%, #BC8D5D 65%, #8C5E33 100%) 1;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     }
     .book-spine {
       background: linear-gradient(90deg, rgba(17,17,19,0.03) 0%, rgba(17,17,19,0.14) 48%, rgba(17,17,19,0.22) 50%, rgba(17,17,19,0.12) 52%, rgba(255,255,255,0) 100%);
@@ -421,7 +414,7 @@
                 </p>
               </div>
               <button onclick="openArtworkModal('CIS-06')" class="px-3.5 py-2 rounded border border-gallery-ink dark:border-gallery-gold text-xs font-mono shrink-0">
-                Frame Studio ($24–$85)
+                Frame Studio ($42–$85)
               </button>
             </div>
           </div>
@@ -479,11 +472,8 @@
         </div>
 
         <div class="flex flex-wrap gap-2.5">
-          <button onclick="buyNow('zineSoftcover', 'ZINE-SOFTCOVER')" class="px-4 py-2 rounded border border-gallery-ink dark:border-gallery-gold font-mono text-xs hover:bg-gallery-muted dark:hover:bg-white/10">
-            Buy Softcover Zine ($22) →
-          </button>
-          <button onclick="buyNow('zineHardcover', 'ZINE-HARDCOVER')" class="px-4 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
-            Buy Linen Hardcover ($34) →
+          <button onclick="buyNow('zineSoftcover', 'ZINE-SOFTCOVER')" class="px-4 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy the Softcover Catalogue ($22) →
           </button>
         </div>
       </div>
@@ -512,7 +502,7 @@
     </div>
   </section>
 
-  <!-- PRINT-ON-DEMAND KITCHEN & BATH DECOR SHOWCASE -->
+  <!-- MUSEUM SHOP — every item here is fulfilled by Printful (the zine is printed separately) -->
   <section id="gift-shop" class="py-14 max-w-7xl mx-auto px-4 sm:px-6">
     <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
       <div>
@@ -520,43 +510,23 @@
           Functional Conceptualism • Printed to Order
         </div>
         <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">
-          Museum Gift Shop: Kitchen &amp; Powder Room Editions
+          Museum Shop: Kitchen Editions &amp; Keepsakes
         </h2>
       </div>
       <button onclick="speakShop(this)" class="audio-btn self-start sm:self-auto shrink-0 px-4 py-2.5 rounded-md bg-gallery-muted dark:bg-gallery-darkSurface font-mono text-xs inline-flex items-center gap-2 hover:opacity-80 cursor-pointer">🔊 Shop Audio Tour</button>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img loading="lazy" decoding="async" src="images/cis-03.webp" data-alt-src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" onerror="handleImgFallback(this)" alt="The Godot Spout Towel" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">PLATE CIS-03</span>
-          </div>
-          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">BELGIAN LINEN TEA TOWEL • 18" × 26"</div>
-          <h3 class="font-serif text-2xl font-semibold mt-0.5">"The Godot Spout" Dish Towel</h3>
-          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
-            Features Plate CIS-03 (+64° upward spout gaze) with museum catalogue typography along the hem.
-          </p>
-        </div>
-        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
-          <span class="font-mono text-sm font-semibold">$24.00</span>
-          <button onclick="buyNow('teaTowel', 'CIS-03')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
-            Buy →
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
-        <div>
-          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img loading="lazy" decoding="async" src="images/cis-10.webp" data-alt-src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith Overhead Frame" class="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src="images/cis-10.webp" data-alt-src="IMG_5039-clean-cd0398c3-5a67-4095-865f-9ab816465526.png" onerror="handleImgFallback(this)" alt="Nadir / Zenith framed print, Plate CIS-10" class="w-full h-full object-cover" />
             <span class="absolute top-2.5 left-2.5 bg-gallery-amber text-white font-mono text-[10px] px-2 py-0.5 rounded font-semibold">OVER-THE-SINK FAVORITE • CIS-10</span>
           </div>
-          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">MUSEUM MATTE BLACK FRAME • 16" × 16"</div>
-          <h3 class="font-serif text-2xl font-semibold mt-0.5">"Nadir / Zenith" Over-Sink Frame</h3>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">FRAMED PRINT • 16″ × 16″ • BLACK, WHITE OR OAK</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">“Nadir / Zenith” Framed Print</h3>
           <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
-            Plate CIS-10 mounted directly above your real sink so guests look down into a sink and up into a sink simultaneously.
+            Plate CIS-10 hung above your own sink, so guests look down into a sink and up into a sink at once. Every plate can be framed in the Frame Studio.
           </p>
         </div>
         <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
@@ -570,23 +540,67 @@
       <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
         <div>
           <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
-            <img loading="lazy" decoding="async" src="images/cis-09.webp" data-alt-src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" onerror="handleImgFallback(this)" alt="Postcard Pack" class="w-full h-full object-cover" />
-            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">COMPLETE 14-PLATE SET</span>
+            <img loading="lazy" decoding="async" src="images/cis-03.webp" data-alt-src="IMG_5706-clean-90ab938e-c09e-465f-9534-53995be5fbce.png" onerror="handleImgFallback(this)" alt="The Godot Spout mug, Plate CIS-03" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">KITCHEN EDITION • CIS-03</span>
           </div>
-          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">ARCHIVAL POSTCARD PACK • 14 CARDS</div>
-          <h3 class="font-serif text-2xl font-semibold mt-0.5">Complete 14-Plate Postcard Pack</h3>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">CERAMIC MUG • 11 OZ • DISHWASHER SAFE</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">“The Godot Spout” Mug</h3>
           <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
-            All 14 plates (CIS-01 through CIS-14) printed on heavy 350gsm cotton card stock with museum placards on the back.
+            Plate CIS-03, twenty-two minutes of waiting for the drop, wrapped around a white ceramic mug. Best used beside the sink in question.
           </p>
         </div>
         <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
-          <span class="font-mono text-sm font-semibold">$18.00</span>
-          <button onclick="buyNow('postcardPack', 'ALL-14-PLATES')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+          <span class="font-mono text-sm font-semibold">$22.00</span>
+          <button onclick="buyNow('mug', 'CIS-03')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy →
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
+            <img loading="lazy" decoding="async" src="images/cis-01.webp" data-alt-src="IMG_5705-clean-7c01cde3-7403-4509-9319-b58a19010d7c.png" onerror="handleImgFallback(this)" alt="The Occupant exhibition tote, Plate CIS-01" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">EXHIBITION TOTE • CIS-01</span>
+          </div>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">COTTON CANVAS TOTE BAG</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">“The Occupant” Exhibition Tote</h3>
+          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
+            Plate CIS-01 above the exhibition title in catalogue type. The museum-shop classic, for carrying the groceries home to the kitchen.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <span class="font-mono text-sm font-semibold">$28.00</span>
+          <button onclick="buyNow('tote', 'CIS-01')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
+            Buy →
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gallery-darkSurface rounded-xl border border-gallery-border dark:border-gallery-darkBorder p-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-gallery-muted dark:bg-black mb-4 relative">
+            <img loading="lazy" decoding="async" src="images/cis-09.webp" data-alt-src="IMG_5040-clean-01cf1798-405e-44af-86b8-a6d3dcd058cb.png" onerror="handleImgFallback(this)" alt="Plate notecard, shown with Plate CIS-09" class="w-full h-full object-cover" />
+            <span class="absolute top-2.5 left-2.5 bg-gallery-ink text-white font-mono text-[10px] px-2 py-0.5 rounded">ANY OF THE 14 PLATES</span>
+          </div>
+          <div class="font-mono text-[11px] text-gallery-steel dark:text-gallery-gold">NOTECARD • 5″ × 7″ • WITH ENVELOPE</div>
+          <h3 class="font-serif text-2xl font-semibold mt-0.5">Plate Notecard</h3>
+          <p class="text-xs opacity-75 mt-1.5 leading-relaxed">
+            Any plate, printed on heavy matte card and left blank inside for your own correspondence. Catalogue number and title on the back.
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between">
+          <span class="font-mono text-sm font-semibold">$7.00</span>
+          <button onclick="buyNow('notecard', 'CIS-09')" class="px-3.5 py-2 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold font-mono text-xs">
             Buy →
           </button>
         </div>
       </div>
     </div>
+
+    <p class="mt-6 text-center font-mono text-[11px] text-gallery-steel dark:text-gray-400">
+      Every edition is printed to order. Archival prints and framed prints of all 14 plates are in each plate's Frame Studio.
+    </p>
   </section>
 
   <!-- CURATORIAL ESSAY ("THE THIRD CAT") -->
@@ -626,7 +640,7 @@
       <div class="font-mono text-xs uppercase tracking-widest text-gallery-steel dark:text-gray-400">The Collector's List</div>
       <h2 class="font-serif text-3xl sm:text-4xl font-normal mt-1">Be first to see new plates &amp; new galleries.</h2>
       <p class="text-sm sm:text-base opacity-80 mt-3 leading-relaxed">
-        Join the list to hear when new exhibitions open and when prints, tea towels and the catalogue zine become available. No spam — unsubscribe any time.
+        Join the list to hear when new exhibitions open and when prints, framed editions and the catalogue zine become available. No spam — unsubscribe any time.
       </p>
       <form id="newsletterForm" onsubmit="return submitNewsletter(event)" class="mt-6 flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto">
         <label for="newsletterEmail" class="sr-only">Email address</label>
@@ -711,15 +725,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-12">
           <!-- Frame Preview -->
           <div class="lg:col-span-7 p-5 sm:p-8 bg-[#EFEFF1] dark:bg-[#0D0D10] flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-gallery-border dark:border-gallery-darkBorder">
-            <div id="modalFrameWrapper" class="frame-matte-black transition-all duration-300 max-w-sm sm:max-w-md w-full">
+            <div id="modalFrameWrapper" class="frame-black transition-all duration-300 max-w-sm sm:max-w-md w-full">
               <img id="modalImage" src="" data-alt-src="" onerror="handleImgFallback(this)" alt="" class="w-full aspect-square object-cover block" />
             </div>
             <div class="mt-5 flex flex-wrap items-center justify-center gap-1.5">
-              <button onclick="setModalFrame('matte-black')" id="frameBtn-matte-black" class="px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white">Matte Black</button>
-              <button onclick="setModalFrame('stainless')" id="frameBtn-stainless" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Stainless</button>
-              <button onclick="setModalFrame('museum-gold')" id="frameBtn-museum-gold" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Archival White</button>
+              <button onclick="setModalFrame('black')" id="frameBtn-black" class="px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white">Black</button>
+              <button onclick="setModalFrame('white')" id="frameBtn-white" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">White</button>
+              <button onclick="setModalFrame('oak')" id="frameBtn-oak" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Oak</button>
               <button onclick="setModalFrame('unframed')" id="frameBtn-unframed" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Unframed</button>
-              <button onclick="setModalFrame('towel')" id="frameBtn-towel" class="px-2.5 py-1 rounded text-xs font-mono bg-white border border-gallery-border text-gallery-ink">Tea Towel</button>
             </div>
           </div>
 
@@ -740,13 +753,13 @@
             <div class="space-y-2.5 pt-3 border-t border-gallery-border dark:border-gallery-darkBorder">
               <div class="font-mono text-[11px] uppercase text-gallery-steel">Editions of This Plate (Printed to Order):</div>
               <button onclick="buyNow('framedPrint', activeModalId)" class="w-full px-4 py-2.5 rounded-lg bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-semibold flex justify-between text-xs font-mono">
-                <span>Museum Frame (16×16" Archival)</span><span>$85 →</span>
+                <span>Framed Print (16×16″) · Black, White or Oak</span><span>$85 →</span>
               </button>
               <button onclick="buyNow('unframedPrint', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
-                <span>Unframed Giclée Print (12×12")</span><span>$42 →</span>
+                <span>Archival Matte Print (12×12″, unframed)</span><span>$42 →</span>
               </button>
-              <button onclick="buyNow('teaTowel', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
-                <span>Belgian Linen Dish Towel</span><span>$24 →</span>
+              <button onclick="buyNow('notecard', activeModalId)" class="w-full px-4 py-2 rounded-lg border border-gallery-border dark:border-gallery-darkBorder flex justify-between text-xs font-mono">
+                <span>Notecard with Envelope (5×7″)</span><span>$7 →</span>
               </button>
 
               <div class="pt-2 border-t border-gallery-border dark:border-gallery-darkBorder">
@@ -828,19 +841,22 @@
     //    "Coming soon — join the list" message instead of a broken link.
     // -------------------------------------------------------------------
     const SHOP_CONFIG = {
-      // Your Etsy shop home page, e.g. "https://www.etsy.com/shop/MazzyStudio".
+      // Your store's home page (the Etsy or Shopify store your Printful account is connected to),
+      // e.g. "https://www.etsy.com/shop/MazzyStudio" or "https://mazzy-studio.myshopify.com".
       // Used for any product below that doesn't have its own listing link yet.
-      etsyShop: "",
+      storeUrl: "",
 
-      // Direct Etsy listing links (optional — direct links convert better).
+      // Direct product links (optional — direct links convert better).
       // Tip: make ONE listing per product with a "Plate" variation (CIS-01 … CIS-14).
+      // Fulfilled by Printful: framedPrint, unframedPrint, notecard, mug, tote.
+      // The zine is NOT a Printful product: link its Amazon KDP / Blurb / Lulu page here.
       listings: {
-        zineSoftcover: "",
-        zineHardcover: "",
-        postcardPack:  "",
-        teaTowel:      "",
-        unframedPrint: "",
-        framedPrint:   ""
+        framedPrint:   "",   // Printful: Enhanced Matte Paper Framed Poster, 16×16″ (Black / White / Red Oak)
+        unframedPrint: "",   // Printful: Enhanced Matte Paper Poster, 12×12″
+        notecard:      "",   // Printful: Greeting Card, 5×7″ with envelope
+        mug:           "",   // Printful: White Glossy Mug, 11 oz (Plate CIS-03)
+        tote:          "",   // Printful: Eco Tote Bag (Plate CIS-01)
+        zineSoftcover: ""    // Printed elsewhere (KDP / Blurb / Lulu)
       },
 
       // Email address for one-of-a-kind / collector inquiries (opens the visitor's mail app).
@@ -855,17 +871,17 @@
     };
 
     const PRODUCT_NAMES = {
+      framedPrint:   'Framed Print (16×16″)',
+      unframedPrint: 'Archival Matte Print (12×12″)',
+      notecard:      'Plate Notecard (5×7″)',
+      mug:           '“The Godot Spout” Mug',
+      tote:          '“The Occupant” Exhibition Tote',
       zineSoftcover: 'Softcover Catalogue Zine',
-      zineHardcover: 'Linen Hardcover Monograph',
-      postcardPack:  'Complete 14-Plate Postcard Pack',
-      teaTowel:      'Linen Dish Towel',
-      unframedPrint: 'Unframed Giclée Print (12×12")',
-      framedPrint:   'Museum Framed Print (16×16")',
       originalSink:  'The Original Basin (1/1)'
     };
 
     function buyNow(productKey, plateId) {
-      const url = SHOP_CONFIG.listings[productKey] || SHOP_CONFIG.etsyShop;
+      const url = SHOP_CONFIG.listings[productKey] || SHOP_CONFIG.storeUrl;
       if (url) {
         window.open(url, '_blank', 'noopener');
         return;
@@ -1365,7 +1381,7 @@
             </div>
 
             <div class="px-5 py-3.5 bg-gallery-bg dark:bg-gallery-darkBg border-t border-gallery-border dark:border-gallery-darkBorder flex items-center justify-between gap-2">
-              <span class="font-mono text-xs whitespace-nowrap"><span class="hidden sm:inline lg:hidden xl:inline">Editions: </span><strong>$24 – $85</strong></span>
+              <span class="font-mono text-xs whitespace-nowrap"><span class="hidden sm:inline lg:hidden xl:inline">Editions: </span><strong>$42 – $85</strong></span>
               <div class="flex items-center gap-2 shrink-0">
                 <button onclick="speakWork('${work.id}', this)" aria-label="Play audio placard: ${work.title}" title="Audio placard" class="audio-btn audio-icon px-2.5 py-1.5 rounded border border-gallery-border dark:border-gallery-darkBorder bg-white dark:bg-gallery-darkSurface font-mono text-[11px] cursor-pointer">🔊</button>
                 <button onclick="openArtworkModal('${work.id}')" class="px-3 py-1.5 rounded bg-gallery-ink dark:bg-gallery-gold text-white dark:text-gallery-darkBg font-mono text-[11px] font-semibold whitespace-nowrap">
@@ -1455,7 +1471,7 @@
 
     function setModalFrame(style) {
       document.getElementById('modalFrameWrapper').className = `frame-${style} transition-all duration-300 max-w-sm sm:max-w-md w-full`;
-      ['matte-black', 'stainless', 'museum-gold', 'unframed', 'towel'].forEach(f => {
+      ['black', 'white', 'oak', 'unframed'].forEach(f => {
         const btn = document.getElementById(`frameBtn-${f}`);
         btn.className = f === style
           ? 'px-2.5 py-1 rounded text-xs font-mono bg-gallery-ink text-white'
@@ -1564,9 +1580,31 @@
       window.speechSynthesis.onvoiceschanged = pickVoice;
     }
 
-    // Play/stop state: the button that started the current narration shows "⏹ Stop"
-    let activeSpeechBtn = null;
+    // ---------- AUDIO GUIDE PLAYBACK ----------
+    // The narration is pre-recorded (audio/*.m4a — rebuild with `node tools/build-audio.mjs` after editing
+    // any placard, essay or shop text) and played through an ordinary <audio> element. That is what iPhones
+    // play reliably: it starts inside the tap, it isn't muted by the ring/silent switch, and it doesn't depend
+    // on which voices the phone has installed. If a recording is missing, the browser's built-in speech
+    // synthesis reads the text instead.
+    const tourAudio = new Audio();
+    tourAudio.preload = 'none';
+    let audioManifest = null;   // { key: version } from audio/manifest.json
+    let activeSpeechBtn = null; // the button that started the current narration shows "⏹ Stop"
     let speechSession = 0;
+    let lastCancelAt = 0;
+
+    fetch('audio/manifest.json', { cache: 'no-cache' })
+      .then(r => (r.ok ? r.json() : null))
+      .then(m => { if (m && m.files) audioManifest = m.files; })
+      .catch(() => {}); // e.g. opened from file:// — recordings are still tried directly
+
+    function markSpeechBtn(btn) {
+      if (!btn) return;
+      btn.dataset.idleLabel = btn.innerHTML;
+      btn.innerHTML = btn.classList.contains('audio-icon') ? '⏹' : '⏹ Stop';
+      btn.setAttribute('aria-pressed', 'true');
+      activeSpeechBtn = btn;
+    }
 
     function resetSpeechBtn() {
       if (activeSpeechBtn) {
@@ -1579,45 +1617,86 @@
     function stopSpeech() {
       speechSession++;
       clearTimeout(speakTimer);
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (!tourAudio.paused) tourAudio.pause();
+      if ('speechSynthesis' in window) {
+        const synth = window.speechSynthesis;
+        // Only cancel when something is queued: iOS can drop speech issued right after cancelling an idle synth
+        if (synth.speaking || synth.pending) { synth.cancel(); lastCancelAt = Date.now(); }
+      }
       resetSpeechBtn();
     }
 
-    function speakText(text, btn) {
-      if (!('speechSynthesis' in window) || !text) return;
-      const synth = window.speechSynthesis;
-      // Tapping the button that is already playing stops it
+    // Title shown on the iPhone lock screen / Control Centre while the guide plays
+    function setNowPlaying(title) {
+      if (!('mediaSession' in navigator) || typeof MediaMetadata === 'undefined') return;
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title,
+          artist: 'Mazzy: Cat in Sink',
+          album: 'Audio Guide · Catalogue Raisonné Vol. I',
+          artwork: [{ src: 'apple-touch-icon.png', sizes: '180x180', type: 'image/png' }]
+        });
+      } catch (e) {}
+    }
+
+    function playNarration(key, title, fallbackText, btn) {
       const wasPlaying = btn && btn === activeSpeechBtn;
-      const busy = synth.speaking || synth.pending;
-      // Inline stop (instead of stopSpeech) so cancel() is only called when something is playing:
-      // iOS Safari can drop speech queued right after a cancel() on an idle synthesizer.
-      speechSession++;
-      clearTimeout(speakTimer);
-      if (busy) synth.cancel();
-      resetSpeechBtn();
-      if (wasPlaying) return;
+      stopSpeech();
+      if (wasPlaying) return; // a second tap on the playing button stops it
+      const session = speechSession;
+      // iOS 17+: treat the guide as media playback so the ring/silent switch never mutes it
+      try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+
+      if (audioManifest && !(key in audioManifest)) { speakFallback(fallbackText, btn); return; }
+
+      markSpeechBtn(btn);
+      const version = audioManifest ? audioManifest[key] : '';
+      tourAudio.src = `audio/${key}.m4a${version ? '?v=' + version : ''}`;
+      tourAudio.dataset.session = String(session);
+      setNowPlaying(title);
+      const playing = tourAudio.play(); // must be called synchronously inside the tap for iOS
+      if (playing && typeof playing.catch === 'function') {
+        playing.catch(err => {
+          if (session !== speechSession || (err && err.name === 'AbortError')) return; // stopped/replaced
+          speakFallback(fallbackText, btn); // recording missing or unplayable
+        });
+      }
+    }
+
+    tourAudio.addEventListener('ended', () => {
+      if (tourAudio.dataset.session === String(speechSession)) resetSpeechBtn();
+    });
+
+    // Fallback: the browser's own text-to-speech
+    function speakFallback(text, btn) {
+      if (!('speechSynthesis' in window) || !text) { resetSpeechBtn(); return; }
+      const synth = window.speechSynthesis;
+      const session = speechSession;
+      if (btn && btn !== activeSpeechBtn) { resetSpeechBtn(); markSpeechBtn(btn); }
 
       if (!preferredVoice) pickVoice();
       // Speak sentence-by-sentence: avoids Chrome cutting long speech off after ~15 seconds
       const clean = text.replace(/\s+/g, ' ').trim();
       const sentences = clean.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [clean];
-      const session = speechSession;
 
-      if (btn) {
-        btn.dataset.idleLabel = btn.innerHTML;
-        btn.innerHTML = btn.classList.contains('audio-icon') ? '⏹' : '⏹ Stop';
-        btn.setAttribute('aria-pressed', 'true');
-        activeSpeechBtn = btn;
-      }
+      // iOS: Safari can stay silent when a specific (Enhanced/Premium) voice is forced,
+      // so there we only ask for a language and let the phone use its default voice.
+      const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) ||
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      let started = false;
 
-      const queueSpeech = () => {
+      const queueSpeech = (plain) => {
         if (session !== speechSession) return; // stopped or replaced in the meantime
         if (synth.paused) synth.resume();
         sentences.forEach((sentence, i) => {
           const u = new SpeechSynthesisUtterance(sentence.trim());
-          if (preferredVoice) { u.voice = preferredVoice; u.lang = preferredVoice.lang; }
+          if (!plain) {
+            if (isIOS) u.lang = 'en-GB';
+            else if (preferredVoice) { u.voice = preferredVoice; u.lang = preferredVoice.lang; }
+          }
           u.rate = 0.92;   // a touch slower = more gallery-docent, less robot
           u.pitch = 1.0;
+          if (i === 0) u.onstart = () => { started = true; };
           if (i === sentences.length - 1) {
             const done = () => { if (session === speechSession) resetSpeechBtn(); };
             u.onend = done;
@@ -1625,57 +1704,66 @@
           }
           synth.speak(u);
         });
+        // Watchdog: if nothing has started after 2.5 s, retry once with no voice/lang settings;
+        // if that also stays silent, put the button back instead of leaving it stuck on "Stop".
+        setTimeout(() => {
+          if (session !== speechSession || started) return;
+          if (!plain) { synth.cancel(); queueSpeech(true); }
+          else resetSpeechBtn();
+        }, 2500);
       };
 
-      // iOS Safari only allows speech that starts inside the tap itself, so speak immediately.
-      // Only when interrupting something already playing do we wait a moment, because Chrome can
-      // swallow a speak() issued in the same tick as cancel() (iOS has already been unlocked by
-      // the earlier tap in that case).
-      if (busy) {
-        speakTimer = setTimeout(queueSpeech, 60);
+      // Chrome can swallow a speak() issued in the same tick as cancel(), so wait a moment after one
+      if (Date.now() - lastCancelAt < 100) {
+        speakTimer = setTimeout(() => queueSpeech(false), 60);
       } else {
-        queueSpeech();
+        queueSpeech(false);
       }
     }
 
+    // Narration keys must match the file names written by tools/build-audio.mjs
     function playCuratorAudioHero(btn) {
-      speakText(document.getElementById('heroStatement').innerText, btn);
+      playNarration('hero', 'Introduction', document.getElementById('heroStatement').innerText, btn);
+    }
+
+    // Plate placard in the currently selected curatorial voice (gallery card and Frame Studio share it)
+    function speakPlate(w, btn) {
+      playNarration(`plate-${w.id.toLowerCase()}-${currentVoice}`, `${w.id}: ${w.title}`,
+        `${w.title}, ${w.year}. ${w.voices[currentVoice]}`, btn);
     }
 
     function speakModalPlacard(btn) {
       const w = catalogueWorks.find(x => x.id === activeModalId);
-      if (w) speakText(`${w.title}. ${w.voices[currentVoice]}`, btn);
+      if (w) speakPlate(w, btn);
     }
 
-    // Gallery card: title + the placard in the currently selected curatorial voice
     function speakWork(id, btn) {
       const w = catalogueWorks.find(x => x.id === id);
-      if (w) speakText(`${w.title}, ${w.year}. ${w.voices[currentVoice]}`, btn);
+      if (w) speakPlate(w, btn);
     }
 
     function speakEssay(btn) {
       const title = document.querySelector('#curator-essay h2').innerText;
-      speakText(`${title}. ${document.getElementById('essayBody').innerText}`, btn);
+      playNarration('essay', 'Curatorial Essay', `${title}. ${document.getElementById('essayBody').innerText}`, btn);
     }
 
-    // Reads whatever zine spread is currently open
+    // Reads whatever zine spread is currently open (headings, text and captions; not the small labels)
     function speakSpread(btn) {
-      const text = ['bookPageLeft', 'bookPageRight']
-        .map(id => document.getElementById(id).innerText.trim())
-        .filter(Boolean)
+      const spread = zineSpreads[currentSpreadIndex];
+      const text = [spread.left, spread.right]
+        .map(p => (p.type === 'image' ? p.caption : `${p.heading}. ${p.body}`).trim())
         .map(t => /[.!?]$/.test(t) ? t : t + '.')
         .join(' ');
-      speakText(text, btn);
+      playNarration(`spread-${currentSpreadIndex + 1}`, spread.spreadLabel, text, btn);
     }
 
     function speakShop(btn) {
       const parts = Array.from(document.querySelectorAll('#gift-shop h2, #gift-shop h3, #gift-shop p'))
         .map(el => el.innerText.trim().replace(/[.!?]?$/, '.'));
-      speakText(parts.join(' '), btn);
+      playNarration('shop', 'Museum Shop', parts.join(' '), btn);
     }
 
     window.onload = function() {
-      if (!('speechSynthesis' in window)) document.documentElement.classList.add('no-speech');
       syncThemeUI(document.documentElement.classList.contains('dark'));
       renderGallery();
       renderBookSpread();
