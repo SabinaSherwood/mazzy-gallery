@@ -37,6 +37,20 @@
       } catch (e) {}
     })();
   </script>
+  <script>
+    // Image fallback lives in <head> so it exists before any <img> can fail (an early 404 would
+    // otherwise fire onerror before the handler is defined). Tries the data-alt-src file once,
+    // then hides the broken image instead of showing a stock photo of a different cat.
+    function handleImgFallback(imgEl) {
+      var altSrc = imgEl.getAttribute('data-alt-src');
+      if (altSrc && imgEl.src.indexOf(altSrc) === -1 && !imgEl.dataset.triedAlt) {
+        imgEl.dataset.triedAlt = 'true';
+        imgEl.src = altSrc;
+      } else {
+        imgEl.style.visibility = 'hidden';
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -927,17 +941,7 @@
     let currentSpreadIndex = 0;
     let currentExportFormat = 'markdown';
 
-    function handleImgFallback(imgEl) {
-      const altSrc = imgEl.getAttribute('data-alt-src');
-      if (altSrc && imgEl.src.indexOf(altSrc) === -1 && !imgEl.dataset.triedAlt) {
-        imgEl.dataset.triedAlt = 'true';
-        imgEl.src = altSrc;
-      } else {
-        // Both files failed: hide the broken image rather than showing a stock photo of a different cat.
-        imgEl.onerror = null;
-        imgEl.style.visibility = 'hidden';
-      }
-    }
+    // handleImgFallback() is defined in <head> so it is available before images start loading.
 
     // Official 14-Plate Catalogue (CIS-01 to CIS-14 — 100% Real Photos, Zero Duplicates)
     const catalogueWorks = [
@@ -1431,6 +1435,7 @@
       document.getElementById('modalWing').textContent = work.wing;
       const modalImg = document.getElementById('modalImage');
       delete modalImg.dataset.triedAlt;
+      modalImg.style.visibility = '';
       modalImg.setAttribute('data-alt-src', work.altImage);
       modalImg.src = work.image;
       document.getElementById('modalTitle').textContent = `${work.title}, ${work.year}`;
@@ -1580,12 +1585,18 @@
 
     function speakText(text, btn) {
       if (!('speechSynthesis' in window) || !text) return;
+      const synth = window.speechSynthesis;
       // Tapping the button that is already playing stops it
       const wasPlaying = btn && btn === activeSpeechBtn;
-      stopSpeech();
+      const busy = synth.speaking || synth.pending;
+      // Inline stop (instead of stopSpeech) so cancel() is only called when something is playing:
+      // iOS Safari can drop speech queued right after a cancel() on an idle synthesizer.
+      speechSession++;
+      clearTimeout(speakTimer);
+      if (busy) synth.cancel();
+      resetSpeechBtn();
       if (wasPlaying) return;
 
-      const synth = window.speechSynthesis;
       if (!preferredVoice) pickVoice();
       // Speak sentence-by-sentence: avoids Chrome cutting long speech off after ~15 seconds
       const clean = text.replace(/\s+/g, ' ').trim();
@@ -1599,7 +1610,9 @@
         activeSpeechBtn = btn;
       }
 
-      speakTimer = setTimeout(() => {
+      const queueSpeech = () => {
+        if (session !== speechSession) return; // stopped or replaced in the meantime
+        if (synth.paused) synth.resume();
         sentences.forEach((sentence, i) => {
           const u = new SpeechSynthesisUtterance(sentence.trim());
           if (preferredVoice) { u.voice = preferredVoice; u.lang = preferredVoice.lang; }
@@ -1612,7 +1625,17 @@
           }
           synth.speak(u);
         });
-      }, 60);
+      };
+
+      // iOS Safari only allows speech that starts inside the tap itself, so speak immediately.
+      // Only when interrupting something already playing do we wait a moment, because Chrome can
+      // swallow a speak() issued in the same tick as cancel() (iOS has already been unlocked by
+      // the earlier tap in that case).
+      if (busy) {
+        speakTimer = setTimeout(queueSpeech, 60);
+      } else {
+        queueSpeech();
+      }
     }
 
     function playCuratorAudioHero(btn) {
