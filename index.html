@@ -865,7 +865,7 @@
       // Mailing list form (Kit free plan recommended).
       // action example: "https://app.kit.com/forms/1234567/subscriptions"
       newsletter: {
-        action: "",
+        action: "https://app.kit.com/forms/10054872/subscriptions", // Kit form: "Mazzy Collector's List"
         emailField: "email_address"
       }
     };
@@ -1594,8 +1594,8 @@
     let lastCancelAt = 0;
 
     fetch('audio/manifest.json', { cache: 'no-cache' })
-      .then(r => (r.ok ? r.json() : null))
-      .then(m => { if (m && m.files) audioManifest = m.files; })
+      .then(r => (r.ok ? r.json() : { files: {} }))   // not uploaded: use the phone's voice, straight from the tap
+      .then(m => { audioManifest = (m && m.files) || {}; })
       .catch(() => {}); // e.g. opened from file:// — recordings are still tried directly
 
     function markSpeechBtn(btn) {
